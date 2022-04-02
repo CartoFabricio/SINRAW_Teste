@@ -63,20 +63,12 @@
       </div>
     </div>
 
-    <form>
-      Nome Completo: <input type="text" name="nome"><br>
-      Endereço: <input type="text" name="endereco">
-
-      <div class="col-sm-10">
-          <select id="disabledSelect" class="form-control">
-          <option>Masculino</option>
-          <option>Feminino</option>
-      </select>
-      </div>
-
-      <input type="submit" value="Enviar Formulário">
-      Telefone: <input type="tel" name="usertel">
+    <form method="get" action="envio_dados.php">
+      <input type="text" name="nome" placeholder="digite seu Nome aqui">
+      <input type="e-mail" name="email" placeholder="Digite seu e-mail">
+      <input type="submit" name="enviar" value="Enviar">
     </form>
+      
       <hr>
 
       <footer>
