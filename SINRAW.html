@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+		<title> SINRAW </title>
+		<script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+		<script src="https://unpkg.com/aframe-look-at-component@0.8.0/dist/aframe-look-at-component.min.js"></script>
+		<script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
+		<script src="https://cdn.rawgit.com/donmccurdy/aframe-physics-system/v4.0.1/dist/aframe-physics-system.min.js"></script>
+	</head>
+
+	<body style="margin: 0; overflow: hidden;">
+		<script>
+			AFRAME.registerComponent('locationfinder',{
+				init: function() {
+					navigator.geolocation.getCurrentPosition(function(location){
+						console.log(location);
+					});
+				}
+			});
+		</script>
+
+		<a-scene embedded arjs="sorce:webcam;">
+
+			<a-camera gps-camera="simulateLatitude: -25.4584337; simulateLongitude:-49.2318738"
+			rotation-reader>
+			</a-camera>
+
+			<a-text
+				value="ACADEMIA"
+				scale="30 30 30 "
+				look-at="[gps-camera]"
+				align="center"
+				gps-entity-place="latitude: -25.4629966;longitude: -49.2331451;"
+			></a-text>
+
+			<a-entity gltf-model="./assets/Pin/Pin_01/scene.gltf" rotation="0 0 0" scale="1 1 1" gps-entity-place="latitude: -25.458132001182022; longitude: -49.23217663541437;" animation-mixer/>
+			<a-entity gltf-model="./assets/Pin/Pin_02/scene.gltf" rotation="0 0 0" scale="1 1 1" gps-entity-place="latitude: -25.457686395498797; longitude: -49.2269379;" animation-mixer/>
+			<a-entity gltf-model="./assets/Pin/Pin_03/scene.gltf" rotation="0 0 0" scale="1 1 1" gps-entity-place="latitude: -25.4579963822357;longitude: -49.23122176900507 ;" animation-mixer/>
+			<a-entity gltf-model="./assets/Pin/Pin_04/scene.gltf" rotation="0 0 0" scale="1 1 1" gps-entity-place="latitude: -25.45837902101299;longitude: -49.23137733712793;" animation-mixer/>
+
+			<a-entity gltf-model="./assets/Arrow/Arrow_01/scene.gltf" rotation="0 0 0" scale="1 1 1" gps-entity-place="latitude: -25.45788982438493; longitude: -49.232047889381654;" animation-mixer/>
+			<a-entity gltf-model="./assets/Arrow/Arrow_02/scene.gltf" rotation="0 0 0" scale="1 1 1" gps-entity-place="latitude: -25.457822014794434; longitude: -49.231602642685175;" animation-mixer/>
+			<a-entity gltf-model="./assets/Arrow/Arrow_03/scene.gltf" rotation="0 0 0" scale="1 1 1" gps-entity-place="latitude: -25.458156218834926;longitude: -49.23127004876733 ;" animation-mixer/>
+			<a-entity gltf-model="./assets/Arrow/Arrow_04/scene.gltf" rotation="0 0 0" scale="1 1 1" gps-entity-place="latitude: -25.458253089397818;longitude: -49.23181721940637;" animation-mixer/>
+
+
+		</a-scene>
+	</body>
+</html>
