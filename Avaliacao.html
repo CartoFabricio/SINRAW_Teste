@@ -95,17 +95,20 @@
             </div>
             <div class="Data">
                 <label for="email">Data</label>
-                <input type="date" id="start" name="trip-start"  value="2018-07-22"   min="2022-02-02" max="2035-12-31">
+                <input type="date" id="start" name="Data"  value="2022-04-02"   min="2022-02-02" max="2035-12-31">
             </div>
-             
-            <label for="tipoVista">Possui algum tipo de deficiência visual?</label>
-            <select id="tipoVista">
-                <option value="1">Não possuo</option>
-                <option value="2">Sim, miopia</option>
-                <option value="3">Sim, astigmatismo</option>
-                <option value="4">Sim, hipermetropia</option>
-                <option value="5">Outro</option>
-            </select>
+             </div>
+             <label for="tipoVista">Possui algum tipo de deficiência visual?</label>
+                <input list="tipoVista" id="tipoVista name="tipoVista" />
+
+                <datalist id="tipoVista">
+                    <option value="Não possuo">
+                    <option value="Sim, miopia">
+                    <option value="Sim, astigmatismo">
+                    <option value="Sim, hipermetropia">
+                    <option value="Outro">
+                </datalist>
+             </div>
 
             <div class="Considerações Finais">
                 <label for="message">Mensagem</label>
