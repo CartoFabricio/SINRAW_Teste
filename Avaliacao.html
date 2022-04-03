@@ -68,6 +68,11 @@
       class="form"
     >
          <div class="Formulario">
+            <div class="Data">
+               <label for="Data">Data da realização do(a) teste / avaliação </label>
+               <input type="date" id="start" name="Data"  value="2022-04-03"   min="2022-02-02" max="2035-12-31">
+            </div>
+
             <div class="email">
                 <label for="email">E-mail</label>
                 <input type="email" name="email" id="email" required />
@@ -85,11 +90,6 @@
                    <option value="Feminino"> Feminino</option>
                    <option value="Outro"> Outro</option>
                </select>
-            </div>
-
-            <div class="Data">
-                <label for="Data">Data da realização do(a) teste / avaliação </label>
-                <input type="date" id="start" name="Data"  value="2022-04-03"   min="2022-02-02" max="2035-12-31">
             </div>
 
             <div class="Escolaridade">
@@ -112,6 +112,8 @@
                     <option value="Outro"> Outro</option>
                   </select>
             </div>
+
+            <br />
 
             <div>
             <label for="MapasPapel">Você já usou mapas de papel para navegação? </label>
@@ -136,6 +138,8 @@
                 <input type="text" name="MomentoUsoMapaPapel" id="MomentoUsoMapaPapel" required />
             </div>
 
+            <br />
+
             <div>
               <label for="MapasDigitais">Você já usou mapas digitais para navegação? (ex.: Waze, Google Maps)</label>
                  <select type="value" name="MapasDigitais" id="MapasDigitais">
@@ -158,6 +162,8 @@
                 <label for="MomentoUsoMapasDigitais">Em quais momentos / situação / contexto você costuma(va) utilizá-lo?</label>
                 <input type="text" name="MomentoUsoMapasDigitais" id="MomentoUsoMapasDigitais" required />
              </div>
+
+             <br />
 
              <div>
              <label for="RA">Você já usou aplicações com Realidade Aumentada? (ex.: Pokémon Go)</label>
@@ -182,6 +188,8 @@
                 <input type="text" name="MomentoUsoRA" id="MomentoUsoRA" required />
             </div>
 
+            <br />
+
             <div class="ConsideraçoesSINRAW">
                 <label for="message">Considerações finais sobre o SINRAW</label>
                 <textarea name="Comentários" id="message" required></textarea>
@@ -191,6 +199,7 @@
                 <label for="message">Considerações finais sobre o teste</label>
                 <textarea name="Comentários" id="message" required></textarea>
             </div>
+            <br />
         </div>
        <input type="hidden" name="_captcha" value="false" />
       <input
