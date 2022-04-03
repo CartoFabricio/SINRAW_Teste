@@ -100,35 +100,20 @@
                 <input type="date" id="start" name="Data"  value="2022-04-02"   min="2022-02-02" max="2035-12-31">
             </div>
              
+             <label for="pet-select">Choose a pet:</label>
+
+            
              <div>
              <label for="tipoVista">Possui algum tipo de deficiência visual?</label>
-                <input list="tipoVista" id="tipoVista" name="tipoVista" />
-                <datalist id="tipoVista">
+                 <select id="pet-select">
                     <option value="Não possuo">
                     <option value="Sim, miopia">
                     <option value="Sim, astigmatismo">
                     <option value="Sim, hipermetropia">
                     <option value="Outro">
-                </datalist>
+                </select>
              </div>
              
-             <div>
-             <label for="Avaliacao">Que nota você atribui quanto a facilidade de usar o SINRAW?</label>
-             <input type="range" list="tickmarks">
-                <datalist id="tickmarks">
-                    <option value="0" label="0"></option>
-                    <option value="1"></option>
-                    <option value="2"></option>
-                    <option value="3"></option>
-                    <option value="4"></option>
-                    <option value="5" label="5%"></option>
-                    <option value="6"></option>
-                    <option value="7"></option>
-                    <option value="8"></option>
-                    <option value="9"></option>
-                    <option value="10" label="10"></option>
-                </datalist>
-            </div>
              
             <div class="Considerações Finais">
                 <label for="message">Mensagem</label>
