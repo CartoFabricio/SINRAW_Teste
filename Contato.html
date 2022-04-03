@@ -24,7 +24,7 @@
       }
 
       body {
-        background: #0d0e0f;
+        background: #fff;
         min-height: 100vh;
         display: flex;
         align-items: center;
@@ -37,9 +37,10 @@
       }
 
       h1,
+      h4,
       h2 {
         font-size: 3rem;
-        color: #fff;
+        color: #000;
         margin-bottom: 2rem;
         text-align: center;
         line-height: 1.2;
@@ -50,10 +51,6 @@
         display: block;
       }
 
-      h2::before {
-        content: "🐅";
-        display: block;
-      }
 
       .form {
         width: 100%;
@@ -70,7 +67,7 @@
       }
 
       .form label {
-        color: #fff;
+        color: #0d0e0f;
         line-height: 1;
         margin-bottom: 0.5rem;
       }
@@ -86,7 +83,7 @@
       }
 
       .form textarea {
-        min-height: 13rem;
+        min-height: 8rem;
         resize: vertical;
       }
 
@@ -95,7 +92,7 @@
       .form textarea:hover,
       .form textarea:focus {
         outline: none;
-        border-color: #09d;
+        border-color: #fff;
         box-shadow: 0 0 0 3px #4dc8ff;
       }
 
@@ -105,9 +102,8 @@
         background: #0072c4;
         color: #fff;
         font: inherit;
-        text-transform: uppercase;
         border: none;
-        border-radius: 8px;
+        border-radius: 2px;
         cursor: pointer;
         transition: 0.2s;
       }
@@ -162,6 +158,8 @@
       </div>
     </div>
 
+    <body>
+
 
     <form
       action="https://formsubmit.co/fabricioamorimeac@hotmail.com"
@@ -169,9 +167,11 @@
       class="form"
     >
          <div class="Formulario">
-            <div class="Data">
-               <label for="Data">Data da realização do(a) teste / avaliação </label>
-               <input type="date" id="start" name="Data"  value="2022-04-03"   min="2022-02-02" max="2035-12-31">
+            <div class="Nome">
+               <label align="center" for="name" style="font-size:20px;"><b>Entre em contato conosco</b></label>
+               <br />
+               <label for="name">Nome</label>
+               <input type="text" name="Nome" id="name" required />
             </div>
 
             <div class="email">
@@ -180,8 +180,8 @@
             </div>
 
             <div class="ConsideraçoesSINRAW">
-                <label for="message">Considerações finais sobre o SINRAW</label>
-                <textarea name="Comentários" id="message" required></textarea>
+                <label for="message">Digite aqui sua mensagem, responderemos o mais breve possível.</label>
+                <textarea name="Mensagem" id="message" required></textarea>
             </div>
             <br />
         </div>
@@ -192,11 +192,11 @@
         value="https://cartofabricio.github.io/SINRAW_Teste/"
       />
 
-    <button type="submit" class="btn btn-lg btn-dark btn-block">Enviar formulário</button>
+    <button type="submit" class="btn btn-lg btn-dark btn-block">Enviar mensagem</button>
     </form>
   </body>
-      <hr>
 
+  <br />
       <footer>
         <p align="center">© Fabrício Amorim 2022</p>
         <p align="center">Universidade Federal do Paraná - UFPR</p>
