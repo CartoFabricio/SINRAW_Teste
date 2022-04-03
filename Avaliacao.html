@@ -8,8 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
- 
-   
+
+
     <!-- Le styles -->
     <link href="./Bootstrap/bootstrap.css" rel="stylesheet">
     <style type="text/css">
@@ -51,7 +51,7 @@
     <link rel="shortcut icon" href="https://getbootstrap.com/2.3.2/assets/ico/favicon.png">
   </head>
 
- 
+
 
     <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-inner">
@@ -81,26 +81,44 @@
     >
          <div class="Formulario">
             <div class="Nome">
-                <label for="name">Nome</label> 
+                <label for="name">Nome</label>
                 <input type="text" name="Nome" id="name" required />
             </div>
-             
+
             <div class="email">
                 <label for="email">E-mail</label>
                 <input type="email" name="email" id="email" required />
             </div>
-  
+
              <div class="Idade">
-                <label for="Idade">Idade</label> 
+                <label for="Idade">Idade</label>
                 <input type="number" name="Idade" id="Idade" min="10" max="100" required />
             </div>
-             
-            <div class="Data">
-                <label for="Data">Data</label>
-                <input type="date" id="start" name="Data"  value="2022-04-02"   min="2022-02-02" max="2035-12-31">
+
+            <div>
+            <label for="Sexo">Sexo</label>
+                <select type="value" name="Sexo" id="Sexo">
+                   <option value="Masculino"> Masculino</option>
+                   <option value="Feminino"> Feminino</option>
+                   <option value="Outro"> Outro</option>
+               </select>
             </div>
-             
-            
+
+            <div class="Data">
+                <label for="Data">Data da realização do(a) teste / avaliação </label>
+                <input type="date" id="start" name="Data"  value="2022-04-03"   min="2022-02-02" max="2035-12-31">
+            </div>
+
+            <div class="Escolaridade">
+               <label for="Escolaridade">Escolaridade</label>
+               <input type="text" name="Escolaridade" id="Escolaridade" required />
+           </div>
+
+           <div class="Profissão">
+              <label for="Profissão">Profissão</label>
+              <input type="text" name="Profissão" id="Profissão" required />
+          </div>
+
              <div>
              <label for="tipoVista">Possui algum tipo de deficiência visual?</label>
                  <select type="value" name="tipoVista" id="tipoVista">
@@ -111,7 +129,15 @@
                     <option value="Outro"> Outro</option>
                 </select>
              </div>
-             
+
+             <div>
+             <label for="MapasPapel">Você já usou mapas de papel para navegação? </label>
+                 <select type="value" name="MapasPapel" id="MapasPapel">
+                    <option value="Sim"> Sim</option>
+                    <option value="Não"> Não</option>
+                </select>
+             </div>
+
              <div>
              <label for="ExpMapasPapel">Nível de experiência com mapas de papel para navegação</label>
                  <select type="value" name="ExpMapasPapel" id="ExpMapasPapel">
@@ -121,7 +147,20 @@
                     <option value="Alto"> Alto</option>
                 </select>
              </div>
-             
+
+             <div class="MomentoUsoMapaPapel">
+                <label for="MomentoUsoMapaPapel">Em quais momentos / situação / contexto você costuma(va) utilizá-lo?</label>
+                <input type="text" name="MomentoUsoMapaPapel" id="MomentoUsoMapaPapel" required />
+            </div>
+
+             <div>
+             <label for="MapasDigitais">Você já usou mapas digitais para navegação? (ex.: Waze, Google Maps)</label>
+                 <select type="value" name="MapasDigitais" id="MapasDigitais">
+                    <option value="Sim"> Sim</option>
+                    <option value="Não"> Não</option>
+                </select>
+             </div>
+
              <div>
              <label for="ExpMapasDigitais">Nível de experiência com mapas digitais para navegação</label>
                  <select type="value" name="ExpMapasDigitais" id="ExpMapasDigitais">
@@ -131,7 +170,20 @@
                     <option value="Alto"> Alto</option>
                 </select>
              </div>
-             
+
+             <div class="MomentoUsoMapasDigitais">
+                <label for="MomentoUsoMapasDigitais">Em quais momentos / situação / contexto você costuma(va) utilizá-lo?</label>
+                <input type="text" name="MomentoUsoMapasDigitais" id="MomentoUsoMapasDigitais" required />
+            </div>
+
+             <div>
+             <label for="RA">Você já usou aplicações com Realidade Aumentada? (ex.: Pokémon Go)</label>
+                 <select type="value" name="RA" id="RA">
+                    <option value="Sim"> Sim</option>
+                    <option value="Não"> Não</option>
+                </select>
+             </div>
+
              <div>
              <label for="ExpRA">Nível de experiência com Realidade Aumentada</label>
                  <select type="value" name="ExpRA" id="ExpRA">
@@ -141,9 +193,18 @@
                     <option value="Alto"> Alto</option>
                 </select>
              </div>
-             
-             
-            <div class="Considerações Finais">
+
+             <div class="MomentoUsoRA">
+                <label for="MomentoUsoRA">Em quais momentos / situação / contexto você costuma(va) utilizá-lo?</label>
+                <input type="text" name="MomentoUsoRA" id="MomentoUsoRA" required />
+            </div>
+
+            <div class="Considerações finais sobre o SINRAW">
+                <label for="message">Mensagem</label>
+                <textarea name="Comentários" id="message" required></textarea>
+            </div>
+
+            <div class="Considerações finais sobre o teste">
                 <label for="message">Mensagem</label>
                 <textarea name="Comentários" id="message" required></textarea>
             </div>
@@ -158,7 +219,7 @@
     <button type="submit" class="btn btn-lg btn-blue btn-block">Enviar formulário</button>
     </form>
   </body>
-      
+
       <hr>
 
       <footer>
@@ -189,4 +250,3 @@
 
 
 </body></html>
-
