@@ -10,7 +10,6 @@
     <meta name="author" content="">
 
 
-    <!-- Le styles -->
     <link href="./Bootstrap/bootstrap.css" rel="stylesheet">
     <style type="text/css">
       body {
@@ -28,7 +27,6 @@
       }
 
       @media (max-width: 980px) {
-        /* Enable use of floated navbar text */
         .navbar-text.pull-right {
           float: none;
           padding-left: 1px;
@@ -37,21 +35,12 @@
       }
     </style>
     <link href="./Bootstrap/bootstrap-responsive.css" rel="stylesheet">
-
-    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
-    <!--[if lt IE 9]>
-      <script src="../assets/js/html5shiv.js"></script>
-    <![endif]-->
-
-    <!-- Fav and touch icons -->
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://getbootstrap.com/2.3.2/assets/ico/apple-touch-icon-144-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="https://getbootstrap.com/2.3.2/assets/ico/apple-touch-icon-114-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="https://getbootstrap.com/2.3.2/assets/ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="https://getbootstrap.com/2.3.2/assets/ico/apple-touch-icon-57-precomposed.png">
     <link rel="shortcut icon" href="https://getbootstrap.com/2.3.2/assets/ico/favicon.png">
   </head>
-
-
 
     <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-inner">
@@ -67,7 +56,7 @@
               <li><a href="./Avaliacao.html">Avalie-nos</a></li>
               <li><a href="./Contato.html">Contato</a></li>
             </ul>
-          </div><!--/.nav-collapse -->
+          </div>
         </div>
       </div>
     </div>
@@ -80,17 +69,12 @@
       class="form"
     >
          <div class="Formulario">
-            <div class="Nome">
-                <label for="name">Nome</label>
-                <input type="text" name="Nome" id="name" required />
-            </div>
-
             <div class="email">
                 <label for="email">E-mail</label>
                 <input type="email" name="email" id="email" required />
             </div>
 
-             <div class="Idade">
+            <div class="Idade">
                 <label for="Idade">Idade</label>
                 <input type="number" name="Idade" id="Idade" min="10" max="100" required />
             </div>
@@ -112,69 +96,69 @@
             <div class="Escolaridade">
                <label for="Escolaridade">Escolaridade</label>
                <input type="text" name="Escolaridade" id="Escolaridade" required />
-           </div>
+            </div>
 
-           <div class="Profissão">
+            <div class="Profissão">
               <label for="Profissão">Profissão</label>
               <input type="text" name="Profissão" id="Profissão" required />
-          </div>
+            </div>
 
-             <div>
-             <label for="tipoVista">Possui algum tipo de deficiência visual?</label>
-                 <select type="value" name="tipoVista" id="tipoVista">
+            <div>
+            <label for="tipoVista">Possui algum tipo de deficiência visual?</label>
+                  <select type="value" name="tipoVista" id="tipoVista">
                     <option value="Não possuo"> Não possuo</option>
                     <option value="Sim, miopia"> Sim, miopia</option>
                     <option value="Sim, astigmatismo"> Sim, astigmatismo</option>
                     <option value="Sim, hipermetropia"> Sim, hipermetropia</option>
                     <option value="Outro"> Outro</option>
-                </select>
-             </div>
+                  </select>
+            </div>
 
-             <div>
-             <label for="MapasPapel">Você já usou mapas de papel para navegação? </label>
+            <div>
+            <label for="MapasPapel">Você já usou mapas de papel para navegação? </label>
                  <select type="value" name="MapasPapel" id="MapasPapel">
                     <option value="Sim"> Sim</option>
                     <option value="Não"> Não</option>
-                </select>
-             </div>
+                 </select>
+            </div>
 
-             <div>
-             <label for="ExpMapasPapel">Nível de experiência com mapas de papel para navegação</label>
-                 <select type="value" name="ExpMapasPapel" id="ExpMapasPapel">
+            <div>
+            <label for="ExpMapasPapel">Nível de experiência com mapas de papel para navegação</label>
+               <select type="value" name="ExpMapasPapel" id="ExpMapasPapel">
                     <option value="Nenhum"> Nenhum</option>
                     <option value="Baixo"> Baixo</option>
                     <option value="Médio"> Médio</option>
                     <option value="Alto"> Alto</option>
-                </select>
-             </div>
+               </select>
+            </div>
 
-             <div class="MomentoUsoMapaPapel">
+            <div class="MomentoUsoMapaPapel">
                 <label for="MomentoUsoMapaPapel">Em quais momentos / situação / contexto você costuma(va) utilizá-lo?</label>
                 <input type="text" name="MomentoUsoMapaPapel" id="MomentoUsoMapaPapel" required />
             </div>
 
-             <div>
-             <label for="MapasDigitais">Você já usou mapas digitais para navegação? (ex.: Waze, Google Maps)</label>
+            <div>
+              <label for="MapasDigitais">Você já usou mapas digitais para navegação? (ex.: Waze, Google Maps)</label>
                  <select type="value" name="MapasDigitais" id="MapasDigitais">
                     <option value="Sim"> Sim</option>
                     <option value="Não"> Não</option>
-                </select>
-             </div>
+                 </select>
+            </div>
 
-             <div>
-             <label for="ExpMapasDigitais">Nível de experiência com mapas digitais para navegação</label>
+            <div>
+            <label for="ExpMapasDigitais">Nível de experiência com mapas digitais para navegação</label>
                  <select type="value" name="ExpMapasDigitais" id="ExpMapasDigitais">
                     <option value="Nenhum"> Nenhum</option>
                     <option value="Baixo"> Baixo</option>
                     <option value="Médio"> Médio</option>
                     <option value="Alto"> Alto</option>
-                </select>
+                 </select>
              </div>
 
              <div class="MomentoUsoMapasDigitais">
                 <label for="MomentoUsoMapasDigitais">Em quais momentos / situação / contexto você costuma(va) utilizá-lo?</label>
                 <input type="text" name="MomentoUsoMapasDigitais" id="MomentoUsoMapasDigitais" required />
-            </div>
+             </div>
 
              <div>
              <label for="RA">Você já usou aplicações com Realidade Aumentada? (ex.: Pokémon Go)</label>
@@ -199,13 +183,13 @@
                 <input type="text" name="MomentoUsoRA" id="MomentoUsoRA" required />
             </div>
 
-            <div class="Considerações finais sobre o SINRAW">
-                <label for="message">Mensagem</label>
+            <div class="ConsideraçoesSINRAW">
+                <label for="message">Considerações finais sobre o SINRAW</label>
                 <textarea name="Comentários" id="message" required></textarea>
             </div>
 
-            <div class="Considerações finais sobre o teste">
-                <label for="message">Mensagem</label>
+            <div class="ConsideraçoesTeste">
+                <label for="message">Considerações finais sobre o teste</label>
                 <textarea name="Comentários" id="message" required></textarea>
             </div>
         </div>
@@ -216,7 +200,7 @@
         value="https://cartofabricio.github.io/SINRAW_Teste/"
       />
         </div>
-    <button type="submit" class="btn btn-lg btn-blue btn-block">Enviar formulário</button>
+    <button type="submit" class="btn btn-lg btn-dark btn-block">Enviar formulário</button>
     </form>
   </body>
 
@@ -229,7 +213,6 @@
       </footer>
 
     </div><!--/.fluid-container-->
-
     <!-- Le javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
@@ -247,6 +230,4 @@
     <script src="./Bootstrap/bootstrap-carousel.js.download"></script>
     <script src="./Bootstrap/bootstrap-typeahead.js.download"></script>
 
-
-
-</body></html>
+</html>
