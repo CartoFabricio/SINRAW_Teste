@@ -88,7 +88,26 @@
                 <label for="email">E-mail</label>
                 <input type="email" name="email" id="email" required />
             </div>
-            <div class="Mensagem">
+  
+             <div class="Idade">
+                <label for="Idade">Idade</label> 
+                <input type="number" name="Idade" id="Idade" min="10" max="100" required />
+            </div>
+            <div class="Data">
+                <label for="email">Data</label>
+                <input type="date" id="start" name="trip-start"  value="2018-07-22"   min="2022-02-02" max="2035-12-31">
+            </div>
+             
+            <label for="tipoVista">Possui algum tipo de deficiência visual?</label>
+            <select id="tipoVista">
+                <option value="1">Não possuo</option>
+                <option value="2">Sim, miopia</option>
+                <option value="3">Sim, astigmatismo</option>
+                <option value="4">Sim, hipermetropia</option>
+                <option value="5">Outro</option>
+            </select>
+
+            <div class="Considerações Finais">
                 <label for="message">Mensagem</label>
                 <textarea name="message" id="message" required></textarea>
             </div>
@@ -99,7 +118,8 @@
         name="_next"
         value="https://cartofabricio.github.io/SINRAW_Teste/"
       />
-      <button type="submit">Enviar</button>
+        </div>
+    <button type="submit" class="btn btn-lg btn-blue btn-block">Enviar formulário</button>
     </form>
   </body>
       
