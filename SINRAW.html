@@ -1,51 +1,148 @@
-<!doctype html>
-<html>
-	<head>
-		<meta charset="utf-8"/>
-		<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-		<title> SINRAW </title>
-		<script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
-		<script src="https://unpkg.com/aframe-look-at-component@0.8.0/dist/aframe-look-at-component.min.js"></script>
-		<script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
-		<script src="https://cdn.rawgit.com/donmccurdy/aframe-physics-system/v4.0.1/dist/aframe-physics-system.min.js"></script>
-	</head>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <title>AR MAPA</title>
+    <meta charset = "utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" crossorigin="anonymous">
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.css" rel="stylesheet">
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.js"></script>
+</head>
+<style>
+    body { margin: 0; padding: 0; }
+    #map { position: absolute; width: 100%}
+    .container {
+        width: 100%;
+    }
+    .inputBox {
+        width: 10px;
+        padding: 5px 5px;
+        box-sizing: border-box;
+    }
+    .button {
+        background-color: #4CAF50;
+        border: none;
+        color: white;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+    }
+    .text-center {
+      text-align: center;
+    }
+</style>
+  <header>
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/">SINRAW</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav me-auto mb-2 mb-md-0">
+           <li class="nav-item">
+            <a class="nav-link active" href="Mapa3D">SINRAW</a>
+          </li>
+           <li class="nav-item">
+            <a class="nav-link active" href="Estilos">Configurações</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+<body>
+    <br/><br/>
+    <img style="-webkit-user-select: none;margin: auto;width: 100%; height:500px; background-color: hsl(0, 0%, 0%);" src="/video">
+    <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.js"></script>
+    <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.css" type="text/css">
+    <div id='map' style='width: 100%; height:300px;'></div>
+</div>
 
-	<body style="margin: 0; overflow: hidden;">
-		<script>
-			AFRAME.registerComponent('locationfinder',{
-				init: function() {
-					navigator.geolocation.getCurrentPosition(function(location){
-						console.log(location);
-					});
-				}
-			});
-		</script>
+<script>
+    mapboxgl.accessToken = "{{ mapbox_access_token }}";
+        var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/light-v10',
+        center: [-49.2372005,-25.4523559 ],
+        zoom: 13,
+        antialias: true,
+        });
 
-		<a-scene embedded arjs="sorce:webcam;">
+        map.on('load', function () {
+            // Insert the layer beneath any symbol layer.
+            var layers = map.getStyle().layers;
+            var labelLayerId;
+            for (var i = 0; i < layers.length; i++) {
+                if (layers[i].type === 'symbol' && layers[i].layout['text-field']) {
+                    labelLayerId = layers[i].id;
+                     break;
+                }
+            }
+             map.addControl(
+                new MapboxDirections({
+                accessToken: 'pk.eyJ1IjoiZmFicmljaW9hbW9yaW0iLCJhIjoiY2tsaWNsOHRkMmgwaDJucGN0NGJhd3psOSJ9.h665zPxHXNFNVIzh1cJeUQ',
+                unit: 'metric',
+                profile: 'walking',
+                language: 'pt-BR',
+                placeholderOrigin: 'Origem',
+                placeholderDestination: 'Destino',
+                controls: {
+                    profileSwitcher: false,
+                    instructions: false,
+                },
 
-			<a-camera gps-camera="simulateLatitude: -25.4584337; simulateLongitude:-49.2318738"
-			rotation-reader>
-			</a-camera>
+                }),
+                'top-left'
+                );
+            // The 'building' layer in the Mapbox Streets
+            // vector tileset contains building height data
+            // from OpenStreetMap.
+            map.addLayer(
+                {
+                    'id': 'add-3d-buildings',
+                    'source': 'composite',
+                    'source-layer': 'building',
+                    'filter': ['==', 'extrude', 'true'],
+                    'type': 'fill-extrusion',
+                    'minzoom': 15,
+                    'paint': {
+                        'fill-extrusion-color': '#aaa',
 
-			<a-text
-				value="ACADEMIA"
-				scale="30 30 30 "
-				look-at="[gps-camera]"
-				align="center"
-				gps-entity-place="latitude: -25.4629966;longitude: -49.2331451;"
-			></a-text>
+                        // Use an 'interpolate' expression to
+                        // add a smooth transition effect to
+                        // the buildings as the user zooms in.
+                        'fill-extrusion-height': [
+                            'interpolate',
+                            ['linear'],
+                            ['zoom'],
+                            15,
+                            0,
+                            15.05,
+                            ['get', 'height']
+                        ],
+                        'fill-extrusion-base': [
+                            'interpolate',
+                            ['linear'],
+                            ['zoom'],
+                            15,
+                            0,
+                            15.05,
+                            ['get', 'min_height']
+                        ],
+                        'fill-extrusion-opacity': 0.6
+                    }
+                },
+                labelLayerId
+            );
 
-			<a-entity gltf-model="./assets/Pin/Pin_01/scene.gltf" rotation="0 0 0" scale="1 1 1" gps-entity-place="latitude: -25.458132001182022; longitude: -49.23217663541437;" animation-mixer/>
-			<a-entity gltf-model="./assets/Pin/Pin_02/scene.gltf" rotation="0 0 0" scale="1 1 1" gps-entity-place="latitude: -25.457686395498797; longitude: -49.2269379;" animation-mixer/>
-			<a-entity gltf-model="./assets/Pin/Pin_03/scene.gltf" rotation="0 0 0" scale="1 1 1" gps-entity-place="latitude: -25.4579963822357;longitude: -49.23122176900507 ;" animation-mixer/>
-			<a-entity gltf-model="./assets/Pin/Pin_04/scene.gltf" rotation="0 0 0" scale="1 1 1" gps-entity-place="latitude: -25.45837902101299;longitude: -49.23137733712793;" animation-mixer/>
+        });
+</script>
 
-			<a-entity gltf-model="./assets/Arrow/Arrow_01/scene.gltf" rotation="0 0 0" scale="1 1 1" gps-entity-place="latitude: -25.45788982438493; longitude: -49.232047889381654;" animation-mixer/>
-			<a-entity gltf-model="./assets/Arrow/Arrow_02/scene.gltf" rotation="0 0 0" scale="1 1 1" gps-entity-place="latitude: -25.457822014794434; longitude: -49.231602642685175;" animation-mixer/>
-			<a-entity gltf-model="./assets/Arrow/Arrow_03/scene.gltf" rotation="0 0 0" scale="1 1 1" gps-entity-place="latitude: -25.458156218834926;longitude: -49.23127004876733 ;" animation-mixer/>
-			<a-entity gltf-model="./assets/Arrow/Arrow_04/scene.gltf" rotation="0 0 0" scale="1 1 1" gps-entity-place="latitude: -25.458253089397818;longitude: -49.23181721940637;" animation-mixer/>
-
-
-		</a-scene>
-	</body>
+</body>
 </html>

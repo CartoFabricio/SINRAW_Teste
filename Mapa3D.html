@@ -1,37 +1,90 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="utf-8">
-<title>Display buildings in 3D</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge; charset=UTF-8">
+
+<title>SINRAW</title>
+
 <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
-<link href="https://api.mapbox.com/mapbox-gl-js/v2.4.1/mapbox-gl.css" rel="stylesheet">
-<script src="https://api.mapbox.com/mapbox-gl-js/v2.4.1/mapbox-gl.js"></script>
+
+<link href="./Bootstrap/bootstrap.css" rel="stylesheet">
+<link href="./Bootstrap/bootstrap-responsive.css" rel="stylesheet">
+
+<link href="https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.css" rel="stylesheet">
+<script src="https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.js"></script>
+<script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.js"></script>
+<link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.css" type="text/css">
 <style>
-body { margin: 0; padding: 0; }
-#map { position: absolute; top: 0; bottom: 0; width: 100%; }
+body { margin: 5px; padding: 0; }
+#map { position: fixed; top: 6%; bottom: 0.5%; width: 99%; }
 </style>
 </head>
+
 <body>
+	<div class="navbar navbar-inverse navbar-fixed-top">
+	      <div class="navbar-inner">
+	        <div class="container-fluid">
+	          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+	            <span class="icon-bar"></span>
+	            <span class="icon-bar"></span>
+	          </button>
+	          <a class="brand" href="./index.html">SINRAW</a>
+	          <div class="nav-collapse collapse">
+	            <ul class="nav">
+	              <li><a href="./Estilos.html">Configurações</a></li>
+	              <li><a href="./Avaliacao.html">Avalie-nos</a></li>
+	              <li><a href="./Contato.html">Contato</a></li>
+	            </ul>
+	          </div>
+	        </div>
+	      </div>
+	    </div>
+
 <div id="map"></div>
 <script>
 	mapboxgl.accessToken = 'pk.eyJ1IjoiZmFicmljaW9hbW9yaW0iLCJhIjoiY2tsaWNsOHRkMmgwaDJucGN0NGJhd3psOSJ9.h665zPxHXNFNVIzh1cJeUQ';
+
+
     const map = new mapboxgl.Map({
         style: 'mapbox://styles/mapbox/light-v10',
-        center: [-74.0066, 40.7135],
+        center: [-5.08962,-42.77520],
         zoom: 15.5,
         pitch: 45,
         bearing: -17.6,
         container: 'map',
         antialias: true
     });
+		map.addControl(
+			new MapboxDirections({
+				accessToken: mapboxgl.accessToken,
+				language: 'pt-BR',
+				showCompass: true,
+			}),
+			'top-left',
 
-    map.on('load', () => {
+		);
+		map.addControl(
+				geolocate = new mapboxgl.GeolocateControl({
+				positionOptions: {
+				enableHighAccuracy: true
+				},
+				trackUserLocation: true,
+			})
+		);
+
+
+
+
+
+
+
+		map.on('load', () => {
         // Insert the layer beneath any symbol layer.
         const layers = map.getStyle().layers;
         const labelLayerId = layers.find(
             (layer) => layer.type === 'symbol' && layer.layout['text-field']
         ).id;
-
+				geolocate.trigger();
         // The 'building' layer in the Mapbox Streets
         // vector tileset contains building height data
         // from OpenStreetMap.
