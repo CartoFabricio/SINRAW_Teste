@@ -43,11 +43,18 @@ body { margin: 5px; padding: 0; }
 <div id="map"></div>
 <script>
 	mapboxgl.accessToken = 'pk.eyJ1IjoiZmFicmljaW9hbW9yaW0iLCJhIjoiY2tsaWNsOHRkMmgwaDJucGN0NGJhd3psOSJ9.h665zPxHXNFNVIzh1cJeUQ';
-
+//	a = mapbox:'//styles/mapbox/streets-v11';
+//	b = mapbox:'//styles/mapbox/outdoors-v11';
+//	c = mapbox:'//styles/mapbox/light-v10';
+//	d = mapbox:'//styles/mapbox/dark-v10';
+//	e = mapbox:'//styles/mapbox/satellite-v9';
+//	f = mapbox:'//styles/mapbox/satellite-streets-v11';
+//	g = mapbox:'//styles/mapbox/navigation-day-v1';
+//	h = mapbox:'//styles/mapbox/navigation-night-v1';
 
     const map = new mapboxgl.Map({
         style: 'mapbox://styles/mapbox/light-v10',
-        center: [-5.08962,-42.77520],
+        //scenter: [-5.08962,-42.77520],
         zoom: 15.5,
         pitch: 45,
         bearing: -17.6,
@@ -59,6 +66,15 @@ body { margin: 5px; padding: 0; }
 				accessToken: mapboxgl.accessToken,
 				language: 'pt-BR',
 				showCompass: true,
+				unit: 'metric',
+				profile: 'walking',
+				language: 'pt-BR',
+				placeholderOrigin: 'Origem',
+				placeholderDestination: 'Destino',
+				controls: {
+						profileSwitcher: true,
+						instructions: false,
+				},
 			}),
 			'top-left',
 
@@ -71,12 +87,6 @@ body { margin: 5px; padding: 0; }
 				trackUserLocation: true,
 			})
 		);
-
-
-
-
-
-
 
 		map.on('load', () => {
         // Insert the layer beneath any symbol layer.
