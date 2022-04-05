@@ -27,8 +27,8 @@ body {
 	padding-top: 0px;
 	padding-bottom: 0px;
 }
-#map { position: absolute; top: 8%; bottom: 0; left:0;width: 100%;  z-index: 1;}
-#menu{position: fixed; width: 94%;  z-index: 2;}
+#map { position: absolute; top: 7%; bottom: 0; left:0;width: 100%;  z-index: 1;}
+#menu{position: relative; width: 100%;  z-index: 2;}
 </style>
 <div id = 'menu'>
 <div class="navbar navbar-inverse navbar-fixed-top">
@@ -69,7 +69,7 @@ body {
 
     const map = new mapboxgl.Map({
         style: 'mapbox://styles/mapbox/light-v10',
-        //scenter: [-5.08962,-42.77520],
+        center: [-5.08962,-42.77520],
         zoom: 15.5,
         pitch: 45,
         bearing: -17.6,

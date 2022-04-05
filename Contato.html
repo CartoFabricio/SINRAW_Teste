@@ -4,60 +4,47 @@
 
     <title>SINRAW</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <!-- Le styles -->
     <link href="./Bootstrap/bootstrap.css" rel="stylesheet">
-    <style type="text/css">
-    body {
-          padding-top: 60px;
-          padding-bottom: 20px;
-          width:95%;
-          display: inline-block;
-          flex-direction: column;
-          font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-          padding-right: 1rem;
-          padding-left: 1rem;
-        }
-
-        .form label,
-        .form select,
-        .form button {
-          width: 100%;
-          display: inline-block;}
-
-        .form textarea,
-        .form input {
-          width: 98%;
-          display: inline-block;}
-
-        footer {
-           position:relative;
-           bottom:0;
-           width:98%;
-           line-height: 80%;}
-
-
-    </style>
     <link href="./Bootstrap/bootstrap-responsive.css" rel="stylesheet">
-
-    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
-    <!--[if lt IE 9]>
-      <script src="../assets/js/html5shiv.js"></script>
-    <![endif]-->
-
-    <!-- Fav and touch icons -->
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://getbootstrap.com/2.3.2/assets/ico/apple-touch-icon-144-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="https://getbootstrap.com/2.3.2/assets/ico/apple-touch-icon-114-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="https://getbootstrap.com/2.3.2/assets/ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="https://getbootstrap.com/2.3.2/assets/ico/apple-touch-icon-57-precomposed.png">
     <link rel="shortcut icon" href="https://getbootstrap.com/2.3.2/assets/ico/favicon.png">
+
+    <style type="text/css">
+    .form label,
+    .form select,
+    .form button{
+      position:relative;
+      left:2%;
+      right: 2%;
+      width: 95%;
+      display: inline-block;}
+    .form textarea,
+    .form input {
+      position:relative;
+      left:2%;
+      right: 2%;
+      width: 93%;
+      display: inline-block;}
+
+      #footer {
+         position:absolute;
+         bottom:1px;
+         width:100%;
+         line-height: 80%;
+      }
+      #conteudo { position: absolute; top: 7%; bottom: 0; left:2%;width: 98%;  z-index: 1;}
+      #menu{position: relative; width: 100%;  z-index: 2;}
+    </style>
+
   </head>
 
-
-
+  <div id = 'menu'>
     <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container-fluid">
@@ -65,7 +52,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="brand" href=./index.html>SINRAW</a>
+          <a class="brand" href="./index.html">SINRAW</a>
           <div class="nav-collapse collapse">
             <ul class="nav">
               <li><a href="./Configuracoes.html">Configurações</a></li>
@@ -76,50 +63,56 @@
         </div>
       </div>
     </div>
+  </div>
+  <body>
+    <div id = 'conteudo'>
+      <h4 align="center">Formulário de Avaliação do SINRAW</h4>
+      <br />
 
-    <body>
-    <form
-      action="https://formsubmit.co/fabricioamorimeac@hotmail.com"
-      method="POST"
-      class="form"
-    >
-         <div class="Formulario">
-            <div class="Nome">
-               <label align="center" for="name" style="font-size:20px;"><b>Entre em contato conosco</b></label>
-               <br />
-               <label for="name">Nome</label>
-               <input type="text" name="Nome" id="name" required />
-            </div>
+      <form
+        action="https://formsubmit.co/fabricioamorimeac@hotmail.com"
+        method="POST"
+        class="form"
+      >
+           <div class="Formulario">
+              <div class="Nome">
+                 <label align="center" for="name" style="font-size:15px;"><b>Entre em contato conosco</b></label>
+                 <br />
+                 <label for="name">Nome</label>
+                 <input type="text" name="Nome" id="name" required />
+              </div>
 
-            <div class="email">
-                <label for="email">E-mail</label>
-                <input type="email" name="email" id="email" required />
-            </div>
+              <div class="email">
+                  <label for="email">E-mail</label>
+                  <input type="email" name="email" id="email" required />
+              </div>
 
-            <div class="ConsideraçoesSINRAW">
-                <label for="message">Digite aqui sua mensagem, responderemos o mais breve possível.</label>
-                <textarea name="Mensagem" id="message" required></textarea>
-            </div>
-            <br />
-        </div>
-       <input type="hidden" name="_captcha" value="false" />
-      <input
-        type="hidden"
-        name="_next"
-        value="https://cartofabricio.github.io/SINRAW_Teste/"
-      />
+              <div class="ConsideraçoesSINRAW">
+                  <label for="message">Digite aqui sua mensagem, responderemos o mais breve possível.</label>
+                  <textarea name="Mensagem" id="message" required></textarea>
+              </div>
+              <br />
+          </div>
+         <input type="hidden" name="_captcha" value="false" />
+        <input
+          type="hidden"
+          name="_next"
+          value="https://cartofabricio.github.io/SINRAW_Teste/"
+        />
 
-    <button type="submit" class="btn btn-lg btn-dark btn-block">Enviar mensagem</button>
-    </form>
-
-
-      <footer>
-        <p align="center">© Fabrício Amorim 2022</p>
-        <p align="center">Universidade Federal do Paraná - UFPR</p>
-        <p align="center">Programa de Pós-Graduação em Ciências Geodésicas - PPGCG </p>
-      </footer>
+      <button type="submit" class="btn btn-lg btn-dark btn-block">Enviar mensagem</button>
+      </form>
 
 
+    <hr>
+    <div id= 'footer'>
+    <footer>
+      <p align="center">© Fabrício Amorim 2022</p>
+      <p align="center">Universidade Federal do Paraná - UFPR</p>
+      <p align="center">Programa de Pós-Graduação em Ciências Geodésicas - PPGCG </p>
+    </footer>
+    </div>
+</div>
     <!-- Le javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
@@ -136,7 +129,5 @@
     <script src="./Bootstrap/bootstrap-collapse.js.download"></script>
     <script src="./Bootstrap/bootstrap-carousel.js.download"></script>
     <script src="./Bootstrap/bootstrap-typeahead.js.download"></script>
-
-
 
 </body></html>

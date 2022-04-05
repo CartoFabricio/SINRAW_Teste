@@ -3,55 +3,48 @@
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
     <title>SINRAW</title>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
 
-
     <link href="./Bootstrap/bootstrap.css" rel="stylesheet">
-    <style type="text/css">
-      body {
-        padding-top: 60px;
-        padding-bottom: 20px;
-        min-height: 100vh;
-        width:92%;
-        display: block;
-        flex-direction: column;
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-        padding-right: 1rem;
-        padding-left: 1rem;
-      }
-
-      .form label,
-      .form select,
-      .form button {
-        width: 100%;
-        display: inline-block;}
-
-      .form textarea,
-      .form input {
-        width: 98%;
-        display: inline-block;}
-
-      footer {
-         position:relative;
-         bottom:0;
-         width:98%;
-         line-height: 80%;}
-
-
-    </style>
-
     <link href="./Bootstrap/bootstrap-responsive.css" rel="stylesheet">
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://getbootstrap.com/2.3.2/assets/ico/apple-touch-icon-144-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="https://getbootstrap.com/2.3.2/assets/ico/apple-touch-icon-114-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="https://getbootstrap.com/2.3.2/assets/ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="https://getbootstrap.com/2.3.2/assets/ico/apple-touch-icon-57-precomposed.png">
     <link rel="shortcut icon" href="https://getbootstrap.com/2.3.2/assets/ico/favicon.png">
+
+    <style type="text/css">
+    .form label,
+    .form select,
+    .form button{
+      position:relative;
+      left:2%;
+      right: 2%;
+      width: 95%;
+      display: inline-block;}
+    .form textarea,
+    .form input {
+      position:relative;
+      left:2%;
+      right: 2%;
+      width: 93%;
+      display: inline-block;}
+
+      #footer {
+         position:relative;
+         bottom:0;
+         width:100%;
+         line-height: 80%;
+      }
+      #conteudo { position: absolute; top: 7%; bottom: 0; left:2%;width: 98%;  z-index: 1;}
+      #menu{position: relative; width: 100%;  z-index: 2;}
+    </style>
+
   </head>
 
+  <div id = 'menu'>
     <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container-fluid">
@@ -59,7 +52,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="brand" href=./index.html>SINRAW</a>
+          <a class="brand" href="./index.html">SINRAW</a>
           <div class="nav-collapse collapse">
             <ul class="nav">
               <li><a href="./Configuracoes.html">Configurações</a></li>
@@ -70,170 +63,171 @@
         </div>
       </div>
     </div>
+  </div>
+  <body>
+    <div id = 'conteudo'>
+      <h4 align="center">Formulário de Avaliação do SINRAW</h4>
+      <br />
 
-    <body>
-    <h4 align="center">Formulário de Avaliação do SINRAW</h4>
-    <br />
+      <form
+        action="https://formsubmit.co/fabricioamorimeac@hotmail.com"
+        method="POST"
+        class="form"
+      >
+           <div class="Formulario">
+              <div class="Data">
+                 <label for="Data">Data da realização do(a) teste / avaliação </label>
+                 <input type="date" id="start" name="Data"  value="2022-04-03"   min="2022-02-02" max="2035-12-31">
+              </div>
 
-    <form
-      action="https://formsubmit.co/fabricioamorimeac@hotmail.com"
-      method="POST"
-      class="form"
-    >
-         <div class="Formulario">
-            <div class="Data">
-               <label for="Data">Data da realização do(a) teste / avaliação </label>
-               <input type="date" id="start" name="Data"  value="2022-04-03"   min="2022-02-02" max="2035-12-31">
-            </div>
+              <div class="email">
+                  <label for="email">E-mail</label>
+                  <input type="email" name="email" id="email" required />
+              </div>
 
-            <div class="email">
-                <label for="email">E-mail</label>
-                <input type="email" name="email" id="email" required />
-            </div>
+              <div class="Idade">
+                  <label for="Idade">Idade</label>
+                  <input type="number" name="Idade" id="Idade" min="10" max="100" required />
+              </div>
 
-            <div class="Idade">
-                <label for="Idade">Idade</label>
-                <input type="number" name="Idade" id="Idade" min="10" max="100" required />
-            </div>
+              <div>
+              <label for="Sexo">Sexo</label>
+                  <select type="value" name="Sexo" id="Sexo">
+                     <option value="Masculino"> Masculino</option>
+                     <option value="Feminino"> Feminino</option>
+                     <option value="Outro"> Outro</option>
+                 </select>
+              </div>
 
-            <div>
-            <label for="Sexo">Sexo</label>
-                <select type="value" name="Sexo" id="Sexo">
-                   <option value="Masculino"> Masculino</option>
-                   <option value="Feminino"> Feminino</option>
-                   <option value="Outro"> Outro</option>
-               </select>
-            </div>
+              <div class="Escolaridade">
+                 <label for="Escolaridade">Escolaridade</label>
+                 <input type="text" name="Escolaridade" id="Escolaridade" required />
+              </div>
 
-            <div class="Escolaridade">
-               <label for="Escolaridade">Escolaridade</label>
-               <input type="text" name="Escolaridade" id="Escolaridade" required />
-            </div>
+              <div class="Profissão">
+                <label for="Profissão">Profissão</label>
+                <input type="text" name="Profissão" id="Profissão" required />
+              </div>
 
-            <div class="Profissão">
-              <label for="Profissão">Profissão</label>
-              <input type="text" name="Profissão" id="Profissão" required />
-            </div>
+              <div>
+              <label for="tipoVista">Possui algum tipo de deficiência visual?</label>
+                    <select type="value" name="tipoVista" id="tipoVista">
+                      <option value="Não possuo"> Não possuo</option>
+                      <option value="Sim, miopia"> Sim, miopia</option>
+                      <option value="Sim, astigmatismo"> Sim, astigmatismo</option>
+                      <option value="Sim, hipermetropia"> Sim, hipermetropia</option>
+                      <option value="Outro"> Outro</option>
+                    </select>
+              </div>
 
-            <div>
-            <label for="tipoVista">Possui algum tipo de deficiência visual?</label>
-                  <select type="value" name="tipoVista" id="tipoVista">
-                    <option value="Não possuo"> Não possuo</option>
-                    <option value="Sim, miopia"> Sim, miopia</option>
-                    <option value="Sim, astigmatismo"> Sim, astigmatismo</option>
-                    <option value="Sim, hipermetropia"> Sim, hipermetropia</option>
-                    <option value="Outro"> Outro</option>
+              <br /><br />
+
+              <div>
+              <label for="MapasPapel">Você já usou mapas de papel para navegação? </label>
+                   <select type="value" name="MapasPapel" id="MapasPapel">
+                      <option value="Sim"> Sim</option>
+                      <option value="Não"> Não</option>
+                   </select>
+              </div>
+
+              <div>
+              <label for="ExpMapasPapel">Nível de experiência com mapas de papel para navegação</label>
+                 <select type="value" name="ExpMapasPapel" id="ExpMapasPapel">
+                      <option value="Nenhum"> Nenhum</option>
+                      <option value="Baixo"> Baixo</option>
+                      <option value="Médio"> Médio</option>
+                      <option value="Alto"> Alto</option>
+                 </select>
+              </div>
+
+              <div class="MomentoUsoMapaPapel">
+                  <label for="MomentoUsoMapaPapel">Em quais momentos / situação / contexto você costuma(va) utilizá-lo?</label>
+                  <input type="text" name="MomentoUsoMapaPapel" id="MomentoUsoMapaPapel" required />
+              </div>
+
+              <br /><br />
+
+              <div>
+                <label for="MapasDigitais">Você já usou mapas digitais para navegação? (ex.: Waze, Google Maps)</label>
+                   <select type="value" name="MapasDigitais" id="MapasDigitais">
+                      <option value="Sim"> Sim</option>
+                      <option value="Não"> Não</option>
+                   </select>
+              </div>
+
+              <div>
+              <label for="ExpMapasDigitais">Nível de experiência com mapas digitais para navegação</label>
+                   <select type="value" name="ExpMapasDigitais" id="ExpMapasDigitais">
+                      <option value="Nenhum"> Nenhum</option>
+                      <option value="Baixo"> Baixo</option>
+                      <option value="Médio"> Médio</option>
+                      <option value="Alto"> Alto</option>
+                   </select>
+               </div>
+
+               <div class="MomentoUsoMapasDigitais">
+                  <label for="MomentoUsoMapasDigitais">Em quais momentos / situação / contexto você costuma(va) utilizá-lo?</label>
+                  <input type="text" name="MomentoUsoMapasDigitais" id="MomentoUsoMapasDigitais" required />
+               </div>
+
+               <br /><br />
+
+               <div>
+               <label for="RA">Você já usou aplicações com Realidade Aumentada? (ex.: Pokémon Go)</label>
+                   <select type="value" name="RA" id="RA">
+                      <option value="Sim"> Sim</option>
+                      <option value="Não"> Não</option>
                   </select>
-            </div>
+               </div>
 
-            <br /><br />
+               <div>
+               <label for="ExpRA">Nível de experiência com Realidade Aumentada</label>
+                   <select type="value" name="ExpRA" id="ExpRA">
+                      <option value="Nenhum"> Nenhum</option>
+                      <option value="Baixo"> Baixo</option>
+                      <option value="Médio"> Médio</option>
+                      <option value="Alto"> Alto</option>
+                  </select>
+               </div>
 
-            <div>
-            <label for="MapasPapel">Você já usou mapas de papel para navegação? </label>
-                 <select type="value" name="MapasPapel" id="MapasPapel">
-                    <option value="Sim"> Sim</option>
-                    <option value="Não"> Não</option>
-                 </select>
-            </div>
+               <div class="MomentoUsoRA">
+                  <label for="MomentoUsoRA">Em quais momentos / situação / contexto você costuma(va) utilizá-lo?</label>
+                  <input type="text" name="MomentoUsoRA" id="MomentoUsoRA" required />
+              </div>
 
-            <div>
-            <label for="ExpMapasPapel">Nível de experiência com mapas de papel para navegação</label>
-               <select type="value" name="ExpMapasPapel" id="ExpMapasPapel">
-                    <option value="Nenhum"> Nenhum</option>
-                    <option value="Baixo"> Baixo</option>
-                    <option value="Médio"> Médio</option>
-                    <option value="Alto"> Alto</option>
-               </select>
-            </div>
+              <br /><br />
 
-            <div class="MomentoUsoMapaPapel">
-                <label for="MomentoUsoMapaPapel">Em quais momentos / situação / contexto você costuma(va) utilizá-lo?</label>
-                <input type="text" name="MomentoUsoMapaPapel" id="MomentoUsoMapaPapel" required />
-            </div>
+              <div class="ConsideraçoesSINRAW">
+                  <label for="message">Considerações finais sobre o SINRAW</label>
+                  <textarea name="Comentários" id="message" required></textarea>
+              </div>
 
-            <br /><br />
+              <div class="ConsideraçoesTeste">
+                  <label for="message">Considerações finais sobre o teste</label>
+                  <textarea name="Comentários" id="message" required></textarea>
+              </div>
+              <br />
+          </div>
+         <input type="hidden" name="_captcha" value="false" />
+        <input
+          type="hidden"
+          name="_next"
+          value="https://cartofabricio.github.io/SINRAW_Teste/"
+        />
 
-            <div>
-              <label for="MapasDigitais">Você já usou mapas digitais para navegação? (ex.: Waze, Google Maps)</label>
-                 <select type="value" name="MapasDigitais" id="MapasDigitais">
-                    <option value="Sim"> Sim</option>
-                    <option value="Não"> Não</option>
-                 </select>
-            </div>
+      <button type="submit" class="btn btn-lg btn-dark btn-block">Enviar formulário</button>
 
-            <div>
-            <label for="ExpMapasDigitais">Nível de experiência com mapas digitais para navegação</label>
-                 <select type="value" name="ExpMapasDigitais" id="ExpMapasDigitais">
-                    <option value="Nenhum"> Nenhum</option>
-                    <option value="Baixo"> Baixo</option>
-                    <option value="Médio"> Médio</option>
-                    <option value="Alto"> Alto</option>
-                 </select>
-             </div>
-
-             <div class="MomentoUsoMapasDigitais">
-                <label for="MomentoUsoMapasDigitais">Em quais momentos / situação / contexto você costuma(va) utilizá-lo?</label>
-                <input type="text" name="MomentoUsoMapasDigitais" id="MomentoUsoMapasDigitais" required />
-             </div>
-
-             <br /><br />
-
-             <div>
-             <label for="RA">Você já usou aplicações com Realidade Aumentada? (ex.: Pokémon Go)</label>
-                 <select type="value" name="RA" id="RA">
-                    <option value="Sim"> Sim</option>
-                    <option value="Não"> Não</option>
-                </select>
-             </div>
-
-             <div>
-             <label for="ExpRA">Nível de experiência com Realidade Aumentada</label>
-                 <select type="value" name="ExpRA" id="ExpRA">
-                    <option value="Nenhum"> Nenhum</option>
-                    <option value="Baixo"> Baixo</option>
-                    <option value="Médio"> Médio</option>
-                    <option value="Alto"> Alto</option>
-                </select>
-             </div>
-
-             <div class="MomentoUsoRA">
-                <label for="MomentoUsoRA">Em quais momentos / situação / contexto você costuma(va) utilizá-lo?</label>
-                <input type="text" name="MomentoUsoRA" id="MomentoUsoRA" required />
-            </div>
-
-            <br /><br />
-
-            <div class="ConsideraçoesSINRAW">
-                <label for="message">Considerações finais sobre o SINRAW</label>
-                <textarea name="Comentários" id="message" required></textarea>
-            </div>
-
-            <div class="ConsideraçoesTeste">
-                <label for="message">Considerações finais sobre o teste</label>
-                <textarea name="Comentários" id="message" required></textarea>
-            </div>
-            <br />
-        </div>
-       <input type="hidden" name="_captcha" value="false" />
-      <input
-        type="hidden"
-        name="_next"
-        value="https://cartofabricio.github.io/SINRAW_Teste/"
-      />
-        </div>
-    <button type="submit" class="btn btn-lg btn-dark btn-block">Enviar formulário</button>
     </form>
-  </body>
 
-      <hr>
-
-      <footer>
-        <p align="center">© Fabrício Amorim 2022</p>
-        <p align="center">Universidade Federal do Paraná - UFPR</p>
-        <p align="center">Programa de Pós-Graduação em Ciências Geodésicas - PPGCG </p>
-      </footer>
-
-    </div><!--/.fluid-container-->
+    <hr>
+    <div id= 'footer'>
+    <footer>
+      <p align="center">© Fabrício Amorim 2022</p>
+      <p align="center">Universidade Federal do Paraná - UFPR</p>
+      <p align="center">Programa de Pós-Graduação em Ciências Geodésicas - PPGCG </p>
+    </footer>
+    </div>
+</div>
     <!-- Le javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
@@ -251,4 +245,4 @@
     <script src="./Bootstrap/bootstrap-carousel.js.download"></script>
     <script src="./Bootstrap/bootstrap-typeahead.js.download"></script>
 
-</html>
+</body></html>
