@@ -1,148 +1,188 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 <head>
-    <title>AR MAPA</title>
-    <meta charset = "utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" crossorigin="anonymous">
-    <link href="https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.css" rel="stylesheet">
-    <script src="https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.js"></script>
-</head>
+<meta http-equiv="X-UA-Compatible" content="text/html; charset=UTF-8">
+
+<title>SINRAW</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+
+<link href="./Bootstrap/bootstrap.css" rel="stylesheet">
+<link href="./Bootstrap/bootstrap-responsive.css" rel="stylesheet">
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://getbootstrap.com/2.3.2/assets/ico/apple-touch-icon-144-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="https://getbootstrap.com/2.3.2/assets/ico/apple-touch-icon-114-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="https://getbootstrap.com/2.3.2/assets/ico/apple-touch-icon-72-precomposed.png">
+<link rel="apple-touch-icon-precomposed" href="https://getbootstrap.com/2.3.2/assets/ico/apple-touch-icon-57-precomposed.png">
+<link rel="shortcut icon" href="https://getbootstrap.com/2.3.2/assets/ico/favicon.png">
+<script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+<script src="https://unpkg.com/aframe-look-at-component@0.8.0/dist/aframe-look-at-component.min.js"></script>
+<script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
+<script src="https://cdn.rawgit.com/donmccurdy/aframe-physics-system/v4.0.1/dist/aframe-physics-system.min.js"></script>
+
+<link href="https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.css" rel="stylesheet">
+<script src="https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.js"></script>
+<script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.js"></script>
+<link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.css" type="text/css">
+
 <style>
-    body { margin: 0; padding: 0; }
-    #map { position: absolute; width: 100%}
-    .container {
-        width: 100%;
-    }
-    .inputBox {
-        width: 10px;
-        padding: 5px 5px;
-        box-sizing: border-box;
-    }
-    .button {
-        background-color: #4CAF50;
-        border: none;
-        color: white;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        font-size: 16px;
-        margin: 4px 2px;
-        cursor: pointer;
-    }
-    .text-center {
-      text-align: center;
-    }
+body {
+	padding-top: 0px;
+	padding-bottom: 0px;
+}
+
+#menu{position: fixed; top: 0%; width: 95%;  z-index: 2;}
+#AR { position: absolute; top: 10%; bottom: 30%; height: 100%;width: 100%;}
+#map { position: absolute; top: 70%; bottom: 0; left:0;width: 100%;  z-index: 1;}
+
 </style>
-  <header>
-  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="/">SINRAW</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarCollapse">
-        <ul class="navbar-nav me-auto mb-2 mb-md-0">
-           <li class="nav-item">
-            <a class="nav-link active" href="Mapa3D">SINRAW</a>
-          </li>
-           <li class="nav-item">
-            <a class="nav-link active" href="Estilos">Configurações</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-</header>
-<body>
-    <br/><br/>
-    <img style="-webkit-user-select: none;margin: auto;width: 100%; height:500px; background-color: hsl(0, 0%, 0%);" src="/video">
-    <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.js"></script>
-    <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.css" type="text/css">
-    <div id='map' style='width: 100%; height:300px;'></div>
+<div id = 'menu'>
+<div class="navbar navbar-inverse navbar-fixed-top">
+			<div class="navbar-inner">
+				<div class="container-fluid">
+					<button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="brand" href="./index.html">SINRAW</a>
+					<div class="nav-collapse collapse">
+						<ul class="nav">
+							<li><a href="./Configuracoes.html">Configurações</a></li>
+							<li><a href="./Avaliacao.html">Avalie-nos</a></li>
+							<li><a href="./Contato.html">Contato</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
 </div>
 
+</head>
+
+<body>
+<div id="AR">
+		<iframe src="ARJS.html" bottom: 30%; height: 70%;width: 100%;></iframe>
+    	</div>
+
+
+
+<div id='map'>
 <script>
-    mapboxgl.accessToken = "{{ mapbox_access_token }}";
-        var map = new mapboxgl.Map({
-        container: 'map',
+	mapboxgl.accessToken = 'pk.eyJ1IjoiZmFicmljaW9hbW9yaW0iLCJhIjoiY2tsaWNsOHRkMmgwaDJucGN0NGJhd3psOSJ9.h665zPxHXNFNVIzh1cJeUQ';
+
+
+		var longitude, latitude;
+		function getLonLat(){
+				longitude = document.getElementById("Longitude").value;
+				latitude = document.getElementById("Latitude").value;
+				display_map(longitude, latitude);
+		}
+    const map = new mapboxgl.Map({
         style: 'mapbox://styles/mapbox/light-v10',
-        center: [-49.2372005,-25.4523559 ],
-        zoom: 13,
-        antialias: true,
-        });
+        center: [-5.08962,-42.77520],
+        zoom: 15.5,
+        pitch: 45,
+        bearing: -17.6,
+        container: 'map',
+        antialias: true
+    });
 
-        map.on('load', function () {
-            // Insert the layer beneath any symbol layer.
-            var layers = map.getStyle().layers;
-            var labelLayerId;
-            for (var i = 0; i < layers.length; i++) {
-                if (layers[i].type === 'symbol' && layers[i].layout['text-field']) {
-                    labelLayerId = layers[i].id;
-                     break;
+		map.addControl(
+			new MapboxDirections({
+				accessToken: mapboxgl.accessToken,
+				language: 'pt-BR',
+				showCompass: true,
+				unit: 'metric',
+				profile: 'walking',
+				language: 'pt-BR',
+				placeholderOrigin: 'Origem',
+				placeholderDestination: 'Destino',
+				controls: {
+						profileSwitcher: true,
+						instructions: false,
+				},
+			}),
+			'top-left',
+		);
+		var nav = new mapboxgl.NavigationControl();
+            map.addControl(nav, 'top-right');
+		map.addControl(new mapboxgl.FullscreenControl());
+
+		map.addControl(
+				geolocate = new mapboxgl.GeolocateControl({
+				positionOptions: {
+				enableHighAccuracy: true
+				},
+				trackUserLocation: true,
+			})
+		);
+
+		map.on('load', () => {
+        // Insert the layer beneath any symbol layer.
+        const layers = map.getStyle().layers;
+        const labelLayerId = layers.find(
+            (layer) => layer.type === 'symbol' && layer.layout['text-field']
+        ).id;
+				geolocate.trigger();
+
+
+        map.addLayer(
+            {
+                'id': 'add-3d-buildings',
+                'source': 'composite',
+                'source-layer': 'building',
+                'filter': ['==', 'extrude', 'true'],
+                'type': 'fill-extrusion',
+                'minzoom': 15,
+                'paint': {
+                    'fill-extrusion-color': '#aaa',
+
+                    // Use an 'interpolate' expression to
+                    // add a smooth transition effect to
+                    // the buildings as the user zooms in.
+                    'fill-extrusion-height': [
+                        'interpolate',
+                        ['linear'],
+                        ['zoom'],
+                        15,
+                        0,
+                        15.05,
+                        ['get', 'height']
+                    ],
+                    'fill-extrusion-base': [
+                        'interpolate',
+                        ['linear'],
+                        ['zoom'],
+                        15,
+                        0,
+                        15.05,
+                        ['get', 'min_height']
+                    ],
+                    'fill-extrusion-opacity': 0.6
                 }
-            }
-             map.addControl(
-                new MapboxDirections({
-                accessToken: 'pk.eyJ1IjoiZmFicmljaW9hbW9yaW0iLCJhIjoiY2tsaWNsOHRkMmgwaDJucGN0NGJhd3psOSJ9.h665zPxHXNFNVIzh1cJeUQ',
-                unit: 'metric',
-                profile: 'walking',
-                language: 'pt-BR',
-                placeholderOrigin: 'Origem',
-                placeholderDestination: 'Destino',
-                controls: {
-                    profileSwitcher: false,
-                    instructions: false,
-                },
+            },
+            labelLayerId
+        );
+    });
 
-                }),
-                'top-left'
-                );
-            // The 'building' layer in the Mapbox Streets
-            // vector tileset contains building height data
-            // from OpenStreetMap.
-            map.addLayer(
-                {
-                    'id': 'add-3d-buildings',
-                    'source': 'composite',
-                    'source-layer': 'building',
-                    'filter': ['==', 'extrude', 'true'],
-                    'type': 'fill-extrusion',
-                    'minzoom': 15,
-                    'paint': {
-                        'fill-extrusion-color': '#aaa',
 
-                        // Use an 'interpolate' expression to
-                        // add a smooth transition effect to
-                        // the buildings as the user zooms in.
-                        'fill-extrusion-height': [
-                            'interpolate',
-                            ['linear'],
-                            ['zoom'],
-                            15,
-                            0,
-                            15.05,
-                            ['get', 'height']
-                        ],
-                        'fill-extrusion-base': [
-                            'interpolate',
-                            ['linear'],
-                            ['zoom'],
-                            15,
-                            0,
-                            15.05,
-                            ['get', 'min_height']
-                        ],
-                        'fill-extrusion-opacity': 0.6
-                    }
-                },
-                labelLayerId
-            );
-
-        });
 </script>
+<!-- Le javascript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="./Bootstrap/jquery.js.download"></script>
+<script src="./Bootstrap/bootstrap-transition.js.download"></script>
+<script src="./Bootstrap/bootstrap-alert.js.download"></script>
+<script src="./Bootstrap/bootstrap-modal.js.download"></script>
+<script src="./Bootstrap/bootstrap-dropdown.js.download"></script>
+<script src="./Bootstrap/bootstrap-scrollspy.js.download"></script>
+<script src="./Bootstrap/bootstrap-tab.js.download"></script>
+<script src="./Bootstrap/bootstrap-tooltip.js.download"></script>
+<script src="./Bootstrap/bootstrap-popover.js.download"></script>
+<script src="./Bootstrap/bootstrap-button.js.download"></script>
+<script src="./Bootstrap/bootstrap-collapse.js.download"></script>
+<script src="./Bootstrap/bootstrap-carousel.js.download"></script>
+<script src="./Bootstrap/bootstrap-typeahead.js.download"></script>
 
 </body>
 </html>
