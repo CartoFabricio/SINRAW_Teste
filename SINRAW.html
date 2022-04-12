@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta http-equiv="X-UA-Compatible" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <title>SINRAW</title>
 
@@ -26,14 +26,11 @@
 <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.css" type="text/css">
 
 <style>
-body {
-	padding-top: 0px;
-	padding-bottom: 0px;
-}
+
 
 #menu{position: fixed; top: 0%; width: 95%;  z-index: 2;}
-#AR { position: absolute; top: 10%; bottom: 30%; height: 100%;width: 100%;}
-#map { position: absolute; top: 70%; bottom: 0; left:0;width: 100%;  z-index: 1;}
+#AR { position: absolute; top: 7%; bottom: 0%; left:0; ;width: 100%; z-index: 1;}
+#map { position: absolute; top: 70%; bottom: 0%; left:0;width: 100%;  z-index: 1;}
 
 </style>
 <div id = 'menu'>
@@ -60,16 +57,13 @@ body {
 </head>
 
 <body>
-<div id="AR">
-		<iframe src="ARJS.html" bottom: 30%; height: 70%;width: 100%;></iframe>
-    	</div>
-
-
+	<div id="AR">
+		<iframe src="ARJS.html" padding-right= "5px" width= "100%" height="67%"  allow="camera"></iframe>
+	</div>
 
 <div id='map'>
 <script>
 	mapboxgl.accessToken = 'pk.eyJ1IjoiZmFicmljaW9hbW9yaW0iLCJhIjoiY2tsaWNsOHRkMmgwaDJucGN0NGJhd3psOSJ9.h665zPxHXNFNVIzh1cJeUQ';
-
 
 		var longitude, latitude;
 		function getLonLat(){
