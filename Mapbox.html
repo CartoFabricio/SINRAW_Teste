@@ -5,8 +5,8 @@
 <title>Display buildings in 3D</title>
 <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
 
-<link href="https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.css" rel="stylesheet">
-<script src="https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.js"></script>
+<link href="https://api.mapbox.com/mapbox-gl-js/v2.9.2/mapbox-gl.css" rel="stylesheet">
+<script src="https://api.mapbox.com/mapbox-gl-js/v2.9.2/mapbox-gl.js"></script>
 <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.js"></script>
 <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.css" type="text/css">
 
@@ -34,21 +34,26 @@ body { margin: 0; padding: 0; }
         pitch: 45,
         bearing: -17.6,
         container: 'map',
-        antialias: true
+        antialias: false,
+        attributionControl:false,
     });
+    map.addControl(new mapboxgl.AttributionControl({
+      compact: true
+    }), 'bottom-right')
 
 		map.addControl(
 			new MapboxDirections({
 				accessToken: mapboxgl.accessToken,
 				language: 'pt-BR',
 				showCompass: true,
+        geometry: 'polyline',
 				unit: 'metric',
-				profile: 'walking',
+				profile: 'mapbox/walking',
 				language: 'pt-BR',
 				placeholderOrigin: 'Origem',
 				placeholderDestination: 'Destino',
 				controls: {
-						
+						profileSwitcher: false,
 						instructions: false,
 				},
 			}),
@@ -56,6 +61,8 @@ body { margin: 0; padding: 0; }
 		);
 		var nav = new mapboxgl.NavigationControl();
             map.addControl(nav, 'top-right');
+
+
 		map.addControl(new mapboxgl.FullscreenControl());
 
 		map.addControl(
@@ -66,6 +73,8 @@ body { margin: 0; padding: 0; }
 				trackUserLocation: true,
 			})
 		);
+
+
 
 		map.on('load', () => {
         // Insert the layer beneath any symbol layer.
