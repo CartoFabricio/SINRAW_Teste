@@ -22,14 +22,14 @@
       position:relative;
       left:2%;
       right: 2%;
-      width: 95%;
+      width: 92%;
       display: inline-block;}
     .form textarea,
     .form input {
       position:relative;
       left:2%;
       right: 2%;
-      width: 93%;
+      width: 90%;
       display: inline-block;}
 
       #footer {
@@ -38,7 +38,7 @@
          width:100%;
          line-height: 80%;
       }
-      #conteudo { position: absolute; top: 7%; bottom: 0; left:2%;width: 98%;  z-index: 1;}
+      #conteudo { position: absolute; top: 8%; bottom: 0; left:2%;width: 98%;  z-index: 1;}
       #menu{position: fixed; top: 0%; width: 95%;  z-index: 2;}
     </style>
 
@@ -52,12 +52,11 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="brand" href="./index.html">SINRAW</a>
+          <a class="brand" href="./index.html">Início</a>
           <div class="nav-collapse collapse">
             <ul class="nav">
               <li><a href="./SINRAW.html">SINRAW</a></li>
               <li><a href="./Simbolos3D.html">Visualização 3D</a></li>
-              <li><a href="./Configuracoes.html">Configurações</a></li>
               <li><a href="./Avaliacao.html">Avalie-nos</a></li>
               <li><a href="./Contato.html">Contato</a></li>
             </ul>
@@ -79,7 +78,7 @@
            <div class="Formulario">
               <div class="Data">
                  <label for="Data">Data da realização do(a) teste / avaliação </label>
-                 <input type="date" id="start" name="Data"  value="2022-04-03"   min="2022-02-02" max="2035-12-31">
+                 <input type="date" id="start" name="Data"  value="2022-08-12"   min="2022-02-02" max="2035-12-31">
               </div>
 
               <div class="email">
@@ -95,15 +94,26 @@
               <div>
               <label for="Sexo">Sexo</label>
                   <select type="value" name="Sexo" id="Sexo">
-                     <option value="Masculino"> Masculino</option>
-                     <option value="Feminino"> Feminino</option>
-                     <option value="Outro"> Outro</option>
+                      <option value=" ">  </option>
+                      <option value="Masculino"> Masculino</option>
+                      <option value="Feminino"> Feminino</option>
+                      <option value="Outro"> Outro</option>
                  </select>
               </div>
 
-              <div class="Escolaridade">
-                 <label for="Escolaridade">Escolaridade</label>
-                 <input type="text" name="Escolaridade" id="Escolaridade" required />
+              <div>
+              <label for="Escolaridade">Escolaridade</label>
+                <select type="value" name="Escolaridade" id="Escolaridade">
+                  <option value=" ">  </option>
+                  <option value="Ensino Infantil"> Ensino Infantil</option>
+                  <option value="Ensino Fundamental"> Ensino Fundamental</option>
+                  <option value="Ensino Médio"> Ensino Médio</option>
+                  <option value="Ensino Superior Graduação"> Ensino Superior Graduação</option>
+                  <option value="Pós-Graduação"> Pós-Graduação</option>
+                  <option value="Mestrado"> Mestrado</option>
+                  <option value="Doutorado"> Doutorado</option>
+                  <option value="Pós-Doutorado"> Pós-Doutorado</option>
+                 </select>
               </div>
 
               <div class="Profissão">
@@ -114,6 +124,7 @@
               <div>
               <label for="tipoVista">Possui algum tipo de deficiência visual?</label>
                     <select type="value" name="tipoVista" id="tipoVista">
+                      <option value=" ">  </option>
                       <option value="Não possuo"> Não possuo</option>
                       <option value="Sim, miopia"> Sim, miopia</option>
                       <option value="Sim, astigmatismo"> Sim, astigmatismo</option>
@@ -127,6 +138,7 @@
               <div>
               <label for="MapasPapel">Você já usou mapas de papel para navegação? </label>
                    <select type="value" name="MapasPapel" id="MapasPapel">
+                     <option value=" ">  </option>
                       <option value="Sim"> Sim</option>
                       <option value="Não"> Não</option>
                    </select>
@@ -135,6 +147,7 @@
               <div>
               <label for="ExpMapasPapel">Nível de experiência com mapas de papel para navegação</label>
                  <select type="value" name="ExpMapasPapel" id="ExpMapasPapel">
+                      <option value=" ">  </option>
                       <option value="Nenhum"> Nenhum</option>
                       <option value="Baixo"> Baixo</option>
                       <option value="Médio"> Médio</option>
@@ -152,6 +165,7 @@
               <div>
                 <label for="MapasDigitais">Você já usou mapas digitais para navegação? (ex.: Waze, Google Maps)</label>
                    <select type="value" name="MapasDigitais" id="MapasDigitais">
+                     <option value=" ">  </option>
                       <option value="Sim"> Sim</option>
                       <option value="Não"> Não</option>
                    </select>
@@ -160,6 +174,7 @@
               <div>
               <label for="ExpMapasDigitais">Nível de experiência com mapas digitais para navegação</label>
                    <select type="value" name="ExpMapasDigitais" id="ExpMapasDigitais">
+                     <option value=" ">  </option>
                       <option value="Nenhum"> Nenhum</option>
                       <option value="Baixo"> Baixo</option>
                       <option value="Médio"> Médio</option>
@@ -177,6 +192,7 @@
                <div>
                <label for="RA">Você já usou aplicações com Realidade Aumentada? (ex.: Pokémon Go)</label>
                    <select type="value" name="RA" id="RA">
+                     <option value=" ">  </option>
                       <option value="Sim"> Sim</option>
                       <option value="Não"> Não</option>
                   </select>
@@ -185,6 +201,7 @@
                <div>
                <label for="ExpRA">Nível de experiência com Realidade Aumentada</label>
                    <select type="value" name="ExpRA" id="ExpRA">
+                     <option value=" ">  </option>
                       <option value="Nenhum"> Nenhum</option>
                       <option value="Baixo"> Baixo</option>
                       <option value="Médio"> Médio</option>
@@ -217,11 +234,11 @@
           value="https://cartofabricio.github.io/SINRAW_Teste/"
         />
 
-      <button type="submit" class="btn btn-lg btn-dark btn-block">Enviar formulário</button>
+      <button type="submit" class="btn btn-primary btn-lg btn-blue btn-block">Enviar formulário</button>
 
     </form>
 
-    <hr>
+    <br /><br />
     <div id= 'footer'>
     <footer>
       <p align="center">© Fabrício Amorim 2022</p>
