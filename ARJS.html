@@ -10,6 +10,7 @@
 
   </head>
 	<body style="margin: 0; overflow: hidden;">
+          <a-scene vr-mode-ui="enabled: false">
 		<script>
 			AFRAME.registerComponent('locationfinder',{
 				init: function() {
@@ -18,8 +19,9 @@
 					});
 				}
 			});
-		</script>
 
+		</script>
+      <a-scene vr-mode-ui="enabled: false">
 		<a-scene embedded arjs="sorce:webcam;">
 
 			<a-camera gps-camera="simulateLatitude: -25.4584337; simulateLongitude:-49.2318738"
