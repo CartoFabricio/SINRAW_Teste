@@ -1,190 +1,362 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-<title>SINRAW</title>
+		<title>SINRAW</title>
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 
-<link href="./Bootstrap/bootstrap.css" rel="stylesheet">
-<link href="./Bootstrap/bootstrap-responsive.css" rel="stylesheet">
+		<link href="./Bootstrap/bootstrap.css" rel="stylesheet">
+		<link href="./Bootstrap/bootstrap-responsive.css" rel="stylesheet">
+		<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://getbootstrap.com/2.3.2/assets/ico/apple-touch-icon-144-precomposed.png">
+		<link rel="apple-touch-icon-precomposed" sizes="114x114" href="https://getbootstrap.com/2.3.2/assets/ico/apple-touch-icon-114-precomposed.png">
+		<link rel="apple-touch-icon-precomposed" sizes="72x72" href="https://getbootstrap.com/2.3.2/assets/ico/apple-touch-icon-72-precomposed.png">
+		<link rel="apple-touch-icon-precomposed" href="https://getbootstrap.com/2.3.2/assets/ico/apple-touch-icon-57-precomposed.png">
+		<link rel="shortcut icon" href="https://getbootstrap.com/2.3.2/assets/ico/favicon.png">
 
-<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://getbootstrap.com/2.3.2/assets/ico/apple-touch-icon-144-precomposed.png">
-<link rel="apple-touch-icon-precomposed" sizes="114x114" href="https://getbootstrap.com/2.3.2/assets/ico/apple-touch-icon-114-precomposed.png">
-<link rel="apple-touch-icon-precomposed" sizes="72x72" href="https://getbootstrap.com/2.3.2/assets/ico/apple-touch-icon-72-precomposed.png">
-<link rel="apple-touch-icon-precomposed" href="https://getbootstrap.com/2.3.2/assets/ico/apple-touch-icon-57-precomposed.png">
-<link rel="shortcut icon" href="https://getbootstrap.com/2.3.2/assets/ico/favicon.png">
-<script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
-<script src="https://unpkg.com/aframe-look-at-component@0.8.0/dist/aframe-look-at-component.min.js"></script>
-<script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
-<script src="https://cdn.rawgit.com/donmccurdy/aframe-physics-system/v4.0.1/dist/aframe-physics-system.min.js"></script>
+		<script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+		<script src="https://unpkg.com/aframe-look-at-component@0.8.0/dist/aframe-look-at-component.min.js"></script>
+		<script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
+		<script src="https://cdn.rawgit.com/donmccurdy/aframe-physics-system/v4.0.1/dist/aframe-physics-system.min.js"></script>
 
-<link href="https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.css" rel="stylesheet">
-<script src="https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.js"></script>
-<script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.js"></script>
-<link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.css" type="text/css">
+		<script src="https://api.tiles.mapbox.com/mapbox-gl-js/v2.9.2/mapbox-gl.js"></script>
+		<link href="https://api.tiles.mapbox.com/mapbox-gl-js/v2.9.2/mapbox-gl.css" rel="stylesheet">
+		<script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.js"></script>
+		<link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.css" type="text/css">
 
 <style>
+  body {
+    margin: 0;
+    padding: 0;
+  }
+	#menu{position: fixed; top: 0%; width: 96%;  z-index: 3;}
+	#AR { position: fixed; top: 7%; bottom: 0%; left:0%; width: 99%; z-index: 1;}
+  #map { position: fixed; top: 69%; bottom: 0%; left:0; width: 100%;  z-index: 1;}
+  #instructions {
+    position: relative;
+    width: 0%;
+		height:0%;
+    background-color: #fff;
+    font-family: sans-serif;
+		z-index: 1;
+  }
 
-#menu{position: fixed; top: 0%; width: 95%;  z-index: 3;}
-#AR { position: absolute; top: 6%; bottom: 0%; left:0; width: 99%; z-index: 1;}
-#map { position: fixed; top: 69%; bottom: 0%; left:0; width: 100%;  z-index: 1;}
-.geocoder {
-		position: absolute;
-		z-index:2;
-		width: 100%;
-		left: 0;
-		top: 7%;
-}
+	.direction {
+			position: absolute;
+			z-index:2;
+			width: 40%;
+			height: 10%;
+			left: 1%;
+			top: 7%;
+	}
 </style>
-<div id = 'menu'>
-<div class="navbar navbar-inverse navbar-fixed-top">
-			<div class="navbar-inner">
-				<div class="container-fluid">
-					<button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</button>
-					<div class="nav-collapse collapse">
-						<ul class="nav">
-							<li><a href="./index.html">Início</a>
-							<li><a href="./Simbolos3D.html">Visualização 3D</a></li>
-							<li><a href="./Avaliacao.html">Avalie-nos</a></li>
-							<li><a href="./Contato.html">Contato</a></li>
-						</ul>
+
+		<div id = 'menu'>
+		<div class="navbar navbar-inverse navbar-fixed-top">
+					<div class="navbar-inner">
+						<div class="container-fluid">
+							<button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+							</button>
+							<div class="nav-collapse collapse">
+								<ul class="nav">
+									<li><a href="./index.html">Início</a>
+									<li><a href="./Simbolos3D.html">Visualização 3D</a></li>
+									<li><a href="./Avaliacao.html">Avalie-nos</a></li>
+									<li><a href="./Contato.html">Contato</a></li>
+								</ul>
+							</div>
+						</div>
 					</div>
 				</div>
-			</div>
 		</div>
-</div>
-
 </head>
 
-<body>
-	<div id="geocoder" class="geocoder"></div>
+  <body>
+		<div id="direction" class="direction"></div>
 
-	<div id="AR">
-		<iframe src="ARJS.html"  width= "100%" height="67%"  allow="camera"></iframe>
-	</div>
+		<div id="AR">
+			<iframe src="ARJS.html"  width= "100%" height="67%"  allow="camera"></iframe>
+		</div>
 
-	<div id='map'>
-		<script>
-		mapboxgl.accessToken = 'pk.eyJ1IjoiZmFicmljaW9hbW9yaW0iLCJhIjoiY2tsaWNsOHRkMmgwaDJucGN0NGJhd3psOSJ9.h665zPxHXNFNVIzh1cJeUQ';
+		<div id="map" class="mapboxgl-map">
+			<div class="mapboxgl-canary" style="visibility: hidden;"></div>
+			<div class="mapboxgl-canvas-container mapboxgl-interactive mapboxgl-touch-drag-pan mapboxgl-touch-zoom-rotate">
+				<canvas class="mapboxgl-canvas" tabindex="0" aria-label="Map" role="region" width="811" height="657" style="width: 811px; height: 657px;"></canvas>
+			</div>
 
-	    const map = new mapboxgl.Map({
-	        style: 'mapbox://styles/mapbox/light-v10',
-	        center: [-42.77520, -5.08962], //longitude, latitude
-	        zoom: 15.5,
-	        pitch: 45,
-	        bearing: -17.6,
-	        container: 'map',
-	        antialias: false,
-	        attributionControl:false,
-	    });
+			<script>
+		      mapboxgl.accessToken = 'pk.eyJ1IjoiZmFicmljaW9hbW9yaW0iLCJhIjoiY2tsaWNsOHRkMmgwaDJucGN0NGJhd3psOSJ9.h665zPxHXNFNVIzh1cJeUQ';
 
-	    map.addControl(new mapboxgl.AttributionControl({
-	      compact: true
-	    }), 'bottom-right')
+					navigator.geolocation.getCurrentPosition( function(position) {
+						var lng = position.coords.longitude;
+						var lat = position.coords.latitude;
+						mapboxgl.accessToken = mapboxgl.accessToken;
+
+					const map = new mapboxgl.Map({
+						style: 'mapbox://styles/mapbox/light-v10',
+						center: [lng, lat], //longitude, latitude
+						zoom: 15.5,
+						pitch: 45,
+						bearing: -17.6,
+						container: 'map',
+						antialias: false,
+						attributionControl:false,
+		      });
+
+					map.addControl(new mapboxgl.AttributionControl({
+				 			compact: true
+				 		}), 'bottom-right')
 
 
-		//		map.addControl(
-				 	 geocoder = new MapboxDirections({
-						accessToken: mapboxgl.accessToken,
-						language: 'pt-BR',
-						showCompass: true,
-		        geometry: 'polyline',
-						unit: 'metric',
-						profile: 'mapbox/walking',
-						language: 'pt-BR',
-						placeholderOrigin: 'Origem',
-						placeholderDestination: 'Destino',
-						controls: {
-								profileSwitcher: false,
-								instructions: false,
-						},
+						direction = new MapboxDirections({
+ 						accessToken: mapboxgl.accessToken,
+ 						language: 'pt-BR',
+ 						showCompass: true,
+ 		        geometry: 'polyline',
+ 						unit: 'metric',
+ 						profile: 'mapbox/walking',
+ 						language: 'pt-BR',
+ 						placeholderOrigin: 'Origem',
+ 						placeholderDestination: 'Destino',
+ 						controls: {
+ 								profileSwitcher: false,
+ 								instructions: false,
+ 						},
+ 					});
+
+				map.on('load', function() {
+					var direction = new MapboxDirections({
+						accessToken: mapboxgl.accessToken
+					});
+					direction.setOrigin([lng,lat]);
+				});
+
+ 				document.getElementById('direction').appendChild(direction.onAdd(map));
+
+		      // an arbitrary start will always be the same
+		      // only the end or destination will change
+		      const start = [lng, lat];
+
+		      // create a function to make a directions request
+		      async function getRoute(end) {
+		        // make directions request using cycling profile
+		        const query = await fetch(
+		          `https://api.mapbox.com/directions/v5/mapbox/walking/${start[0]},${start[1]};${end[0]},${end[1]}?steps=true&geometries=geojson&access_token=${mapboxgl.accessToken}`,
+		          { method: 'GET' }
+		        );
+		        const json = await query.json();
+		        const data = json.routes[0];
+		        const route = data.geometry.coordinates;
+		        const geojson = {
+		          'type': 'Feature',
+		          'properties': {},
+		          'geometry': {
+		            'type': 'LineString',
+		            'coordinates': route
+		          }
+		        };
+
+		        // if the route already exists on the map, we'll reset it using setData
+		        if (map.getSource('route')) {
+		          map.getSource('route').setData(geojson);
+		        }
+		        // otherwise, we'll make a new request
+		        else {
+		          map.addLayer({
+		            'id': 'route',
+		            'type': 'line',
+		            'source': {
+		              'type': 'geojson',
+		              'data': geojson
+		            },
+		            'layout': {
+		              'line-join': 'round',
+		              'line-cap': 'round'
+		            },
+		            'paint': {
+		              'line-color': '#3887be',
+		              'line-width': 0,
+		              'line-opacity': 0.75
+		            }
+		          });
+		        }
+
+			//			document.getElementById("orig").textContent = JSON.stringify(geojson, undefined, 2);
+
+						// get the sidebar and add the instructions
+		        const instructions = document.getElementById('instructions');
+		        const steps = data.legs[0].steps;
+		        let tripInstructions = '';
+		        for (const step of steps) {
+		          tripInstructions += `<li>${step.maneuver.instruction}</li>`;
+		        }
+		        instructions.innerHTML = `<p><strong>Trip duration: ${Math.floor(
+		          data.duration / 60
+		        )} min 🚴 </strong></p><ol>${tripInstructions}</ol>`;
+		      }
+
+		      map.on('load', () => {
+		        // make an initial directions request that
+		        // starts and ends at the same location
+		        getRoute(start);
+
+		        // Add destination to the map
+		        map.addLayer({
+		          'id': 'point',
+		          'type': 'circle',
+		          'source': {
+		            'type': 'geojson',
+		            'data': {
+		              'type': 'FeatureCollection',
+		              'features': [
+		                {
+		                  'type': 'Feature',
+		                  'properties': {},
+		                  'geometry': {
+		                    'type': 'Point',
+		                    'coordinates': start
+		                  }
+		                }
+		              ]
+		            }
+		          },
+		          'paint': {
+		            'circle-radius': 0,
+		            'circle-color': '#3887be'
+		          }
+		        });
+
+		        // allow the user to click the map to change the destination
+		        map.on('click', (event) => {
+		          const coords = Object.keys(event.lngLat).map(
+		            (key) => event.lngLat[key]
+		          );
+		          const end = {
+		            'type': 'FeatureCollection',
+		            'features': [
+		              {
+		                'type': 'Feature',
+		                'properties': {},
+		                'geometry': {
+		                  'type': 'Point',
+		                  'coordinates': coords
+		                }
+		              }
+		            ]
+		          };
+		          if (map.getLayer('end')) {
+		            map.getSource('end').setData(end);
+		          } else {
+		            map.addLayer({
+		              'id': 'end',
+		              'type': 'circle',
+		              'source': {
+		                'type': 'geojson',
+		                'data': {
+		                  'type': 'FeatureCollection',
+		                  'features': [
+		                    {
+		                      'type': 'Feature',
+		                      'properties': {},
+		                      'geometry': {
+		                        'type': 'Point',
+		                        'coordinates': coords
+		                      }
+		                    }
+		                  ]
+		                }
+		              },
+		              'paint': {
+		                'circle-radius': 0,
+		                'circle-color': '#f30'
+		              }
+		            });
+		          }
+		          getRoute(coords);
+		        });
+		      });
+
+					var nav = new mapboxgl.NavigationControl();
+									map.addControl(nav, 'top-left');
+
+					map.addControl(new mapboxgl.FullscreenControl());
+
+					var geolocate = new mapboxgl.GeolocateControl();
+					map.addControl(
+							geolocate = new mapboxgl.GeolocateControl({
+							positionOptions: {
+							enableHighAccuracy: true
+							},
+							trackUserLocation: true,
+							showUserHeading: true,
+						})
+					);
+
+					map.on('load', () => {
+							// Insert the layer beneath any symbol layer.
+							const layers = map.getStyle().layers;
+							const labelLayerId = layers.find(
+									(layer) => layer.type === 'symbol' && layer.layout['text-field']
+							).id;
+							geolocate.trigger();
+
+							map.addLayer(
+									{
+											'id': 'add-3d-buildings',
+											'source': 'composite',
+											'source-layer': 'building',
+											'filter': ['==', 'extrude', 'true'],
+											'type': 'fill-extrusion',
+											'minzoom': 15,
+											'paint': {
+													'fill-extrusion-color': '#aaa',
+													'fill-extrusion-height': [
+															'interpolate',
+															['linear'],
+															['zoom'],
+															15,
+															0,
+															15.05,
+															['get', 'height']
+													],
+													'fill-extrusion-base': [
+															'interpolate',
+															['linear'],
+															['zoom'],
+															15,
+															0,
+															15.05,
+															['get', 'min_height']
+													],
+													'fill-extrusion-opacity': 0.6
+											} },
+									labelLayerId
+							);
+						});
 					});
 
+				</script>
+			</div>
 
-		document.getElementById('geocoder').appendChild(geocoder.onAdd(map));
+		<!-- Le javascript
+		================================================== -->
+		<!-- Placed at the end of the document so the pages load faster -->
+		<script src="./Bootstrap/jquery.js.download"></script>
+		<script src="./Bootstrap/bootstrap-transition.js.download"></script>
+		<script src="./Bootstrap/bootstrap-alert.js.download"></script>
+		<script src="./Bootstrap/bootstrap-modal.js.download"></script>
+		<script src="./Bootstrap/bootstrap-dropdown.js.download"></script>
+		<script src="./Bootstrap/bootstrap-scrollspy.js.download"></script>
+		<script src="./Bootstrap/bootstrap-tab.js.download"></script>
+		<script src="./Bootstrap/bootstrap-tooltip.js.download"></script>
+		<script src="./Bootstrap/bootstrap-popover.js.download"></script>
+		<script src="./Bootstrap/bootstrap-button.js.download"></script>
+		<script src="./Bootstrap/bootstrap-collapse.js.download"></script>
+		<script src="./Bootstrap/bootstrap-carousel.js.download"></script>
+		<script src="./Bootstrap/bootstrap-typeahead.js.download"></script>
 
-
-			var nav = new mapboxgl.NavigationControl();
-	            map.addControl(nav, 'top-left');
-
-			map.addControl(new mapboxgl.FullscreenControl());
-
-			var geolocate = new mapboxgl.GeolocateControl();
-			map.addControl(
-					geolocate = new mapboxgl.GeolocateControl({
-					positionOptions: {
-					enableHighAccuracy: true
-					},
-					trackUserLocation: true,
-					showUserHeading: true,
-				})
-			);
-
-			map.on('load', () => {
-	        // Insert the layer beneath any symbol layer.
-	        const layers = map.getStyle().layers;
-	        const labelLayerId = layers.find(
-	            (layer) => layer.type === 'symbol' && layer.layout['text-field']
-	        ).id;
-					geolocate.trigger();
-
-	        map.addLayer(
-	            {
-	                'id': 'add-3d-buildings',
-	                'source': 'composite',
-	                'source-layer': 'building',
-	                'filter': ['==', 'extrude', 'true'],
-	                'type': 'fill-extrusion',
-	                'minzoom': 15,
-	                'paint': {
-	                    'fill-extrusion-color': '#aaa',
-	                    'fill-extrusion-height': [
-	                        'interpolate',
-	                        ['linear'],
-	                        ['zoom'],
-	                        15,
-	                        0,
-	                        15.05,
-	                        ['get', 'height']
-	                    ],
-	                    'fill-extrusion-base': [
-	                        'interpolate',
-	                        ['linear'],
-	                        ['zoom'],
-	                        15,
-	                        0,
-	                        15.05,
-	                        ['get', 'min_height']
-	                    ],
-	                    'fill-extrusion-opacity': 0.6
-	                } },
-	            labelLayerId
-	        );  });
-</script>
-	</div>
-
-
-<!-- Le javascript
-================================================== -->
-<!-- Placed at the end of the document so the pages load faster -->
-<script src="./Bootstrap/jquery.js.download"></script>
-<script src="./Bootstrap/bootstrap-transition.js.download"></script>
-<script src="./Bootstrap/bootstrap-alert.js.download"></script>
-<script src="./Bootstrap/bootstrap-modal.js.download"></script>
-<script src="./Bootstrap/bootstrap-dropdown.js.download"></script>
-<script src="./Bootstrap/bootstrap-scrollspy.js.download"></script>
-<script src="./Bootstrap/bootstrap-tab.js.download"></script>
-<script src="./Bootstrap/bootstrap-tooltip.js.download"></script>
-<script src="./Bootstrap/bootstrap-popover.js.download"></script>
-<script src="./Bootstrap/bootstrap-button.js.download"></script>
-<script src="./Bootstrap/bootstrap-collapse.js.download"></script>
-<script src="./Bootstrap/bootstrap-carousel.js.download"></script>
-<script src="./Bootstrap/bootstrap-typeahead.js.download"></script>
-
-</body>
+	</body>
 </html>

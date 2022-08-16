@@ -2,7 +2,7 @@
 <!-- saved from url=(0050)https://getbootstrap.com/2.3.2/examples/fluid.html -->
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-    <title>SINRAW</title>
+<title>SINRAW</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -14,33 +14,43 @@
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="https://getbootstrap.com/2.3.2/assets/ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="https://getbootstrap.com/2.3.2/assets/ico/apple-touch-icon-57-precomposed.png">
     <link rel="shortcut icon" href="https://getbootstrap.com/2.3.2/assets/ico/favicon.png">
-
     <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
 
-    <style type="text/css">
-    .form label,
-    .form select,
-    .form button{
-      position:relative;
-      left:2%;
-      right: 2%;
-      width: 95%;
-      display: inline-block;}
-    .form textarea,
-    .form input {
-      position:relative;
-      left:2%;
-      right: 2%;
-      width: 97%;
-      display: inline-block;}
+<style type="text/css">
 
+  #aframe{ position: fixed; top: 37%; bottom: 5%; left:2%; width: 96%; height: 60%; z-index: 1;}
+  #menu{position: fixed; top: 0%; width: 95%;  z-index: 2;}
+  #lista{position: fixed; top: 15%; width: 95%;  z-index: 2;}
 
+  .dropdown-container {
+    float:center;
+    height:60px;
+    left: 10%;
+    align: center;
+  }
+  .dropdown-toggle,
+  .dropdown-menu {
+    width: 45%;
+    min-width: 0;
+    text-align: center;
+  }
+  .dropdown-menu {
+    height: 0;
+    text-align: left;
+    visibility: hidden;
+    position: relative;
+    float: none;
+  }
+  .open .dropdown-menu {
+    visibility: visible;
+    height: auto;
+  }
+  .radio{
+    left:5%;
+  }
 
-      #aframe{ position: absolute; top: 20%; bottom: 5%; left:5%; width: 90%; height: 60%; z-index: 1;}
-      #menu{position: fixed; top: 0%; width: 95%;  z-index: 2;}
-    </style>
-
-  </head>
+</style>
+</head>
 
   <div id = 'menu'>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -62,10 +72,51 @@
       </div>
     </div>
   </div>
-  <body>
-    <div id = 'aframe'>
-        	<iframe src="Aframe.html" width= "100%" height="100%"></iframe>
+<body>
+
+<div id="lista">
+    <div class="dropdown">
+      <div class="Escolha01">
+      <button class="btn btn-primary dropdown-toggle " type="button" data-toggle="dropdown">Pontos de Partida e Chegada <span class="caret"></span></button>
+       <ul class="dropdown-menu">
+         <div class="radio">
+            <label><input type="radio" name="optradio" checked>Opção 1</label>
+          </div>
+          <div class="radio">
+            <label><input type="radio" name="optradio">Opção 2</label>
+          </div>
+       </ul>
+       <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Pontos de Interesse <span class="caret"></span></button>
+          <ul class="dropdown-menu">
+            <li><a href="#">HTML</a></li>
+            <li><a href="#">CSS</a></li>
+            <li><a href="#">JavaScript</a></li>
+          </ul>
+  <br/>  <br/>
+      <div class="Escolha03">
+        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"> Caminho - Linhas <span class="caret"></span></button>
+         <ul class="dropdown-menu">
+           <li><a href="#">HTML</a></li>
+           <li><a href="#">CSS</a></li>
+           <li><a href="#">JavaScript</a></li>
+         </ul>
+         <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"> Caminho - Setas <span class="caret"></span></button>
+          <ul class="dropdown-menu">
+            <li><a href="#">HTML</a></li>
+            <li><a href="#">CSS</a></li>
+            <li><a href="#">JavaScript</a></li>
+          </ul>
+        </div>
+      </div>
     </div>
+</div>
+
+<div id = 'aframe'>
+  <div class="MomentoUsoMapaPapel">
+      <label for="MomentoUsoMapaPapel">Em quais momentos / situação / contexto você costuma(va) utilizá-lo?</label>
+      <input type="text" name="MomentoUsoMapaPapel" id="MomentoUsoMapaPapel" required />
+  </div>
+</div>
 
 
     <!-- Le javascript
