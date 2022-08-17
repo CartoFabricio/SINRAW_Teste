@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <!-- saved from url=(0050)https://getbootstrap.com/2.3.2/examples/fluid.html -->
-<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <title>SINRAW</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,6 +11,7 @@
 
     <link href="./Bootstrap/bootstrap.css" rel="stylesheet">
     <link href="./Bootstrap/bootstrap-responsive.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://getbootstrap.com/2.3.2/assets/ico/apple-touch-icon-144-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="https://getbootstrap.com/2.3.2/assets/ico/apple-touch-icon-114-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="https://getbootstrap.com/2.3.2/assets/ico/apple-touch-icon-72-precomposed.png">
@@ -18,40 +21,21 @@
 
 <style type="text/css">
 
-  #aframe{ position: fixed; top: 37%; bottom: 5%; left:2%; width: 96%; height: 60%; z-index: 1;}
-  #menu{position: fixed; top: 0%; width: 95%;  z-index: 2;}
-  #lista{position: fixed; top: 15%; width: 95%;  z-index: 2;}
-
-  .dropdown-container {
-    float:center;
-    height:60px;
+#aframe{ position: fixed; top: 37%; bottom: 5%; left:2%; width: 96%; height: 60%; z-index: 1;}
+#menu{position: fixed; top: 0%; width: 95%;  z-index: 2;}
+#lista{position: fixed; top: 9%; width: 95%;  z-index: 2;}
+#textArea{ position: fixed; left:37%;  width: 60%; border: white;}
+#Buttons{ position: fixed; left:2%; height: 25%; width: 35%; max-width:35%; }
+.navbar-form label{
+    display:block;
     left: 10%;
-    align: center;
-  }
-  .dropdown-toggle,
-  .dropdown-menu {
-    width: 45%;
-    min-width: 0;
-    text-align: center;
-  }
-  .dropdown-menu {
-    height: 0;
-    text-align: left;
-    visibility: hidden;
-    position: relative;
-    float: none;
-  }
-  .open .dropdown-menu {
-    visibility: visible;
-    height: auto;
-  }
-  .radio{
-    left:5%;
-  }
+    align-items:left;
+    padding-top: 0.7%;
+}
 
 </style>
 </head>
-
+<body>
   <div id = 'menu'>
     <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-inner">
@@ -75,65 +59,95 @@
 <body>
 
 <div id="lista">
-    <div class="dropdown">
-      <div class="Escolha01">
-      <button class="btn btn-primary dropdown-toggle " type="button" data-toggle="dropdown">Pontos de Partida e Chegada <span class="caret"></span></button>
-       <ul class="dropdown-menu">
-         <div class="radio">
-            <label><input type="radio" name="optradio" checked>Opção 1</label>
-          </div>
-          <div class="radio">
-            <label><input type="radio" name="optradio">Opção 2</label>
-          </div>
-       </ul>
-       <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Pontos de Interesse <span class="caret"></span></button>
-          <ul class="dropdown-menu">
-            <li><a href="#">HTML</a></li>
-            <li><a href="#">CSS</a></li>
-            <li><a href="#">JavaScript</a></li>
-          </ul>
-  <br/>  <br/>
-      <div class="Escolha03">
-        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"> Caminho - Linhas <span class="caret"></span></button>
-         <ul class="dropdown-menu">
-           <li><a href="#">HTML</a></li>
-           <li><a href="#">CSS</a></li>
-           <li><a href="#">JavaScript</a></li>
-         </ul>
-         <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"> Caminho - Setas <span class="caret"></span></button>
-          <ul class="dropdown-menu">
-            <li><a href="#">HTML</a></li>
-            <li><a href="#">CSS</a></li>
-            <li><a href="#">JavaScript</a></li>
-          </ul>
+
+  <div class="w3-container">
+        <div id= "Buttons" class="w3-sidebar w3-bar-block w3-light-gray">
+          <button class="w3-bar-item w3-button tablink w3-border w3-blue" onclick="openCity(event,'Tab1')">Começo e final</button>
+          <button class="w3-bar-item w3-button tablink w3-border" onclick="openCity(event,'Tab2')">POI's</button>
+          <button class="w3-bar-item w3-button tablink w3-border" onclick="openCity(event,'Tab3')">Seta</button>
+          <button class="w3-bar-item w3-button tablink w3-border" onclick="openCity(event,'Tab4')">Linha</button>
         </div>
-      </div>
+
+        <div id= "textArea">
+            <div id="Tab1" class="w3-container w3-border city">
+              <h6><b>Selecione o símbolo para representar os pontos de começo e final da rota</b></h6>
+                <form class="navbar-form" id="radioButton">
+                  <label><input type="radio" id="radio1" checked/> Opção 01</label>
+                  <label><input type="radio" id="radio2" /> Opção 02</label>
+                  <label><input type="radio" id="radio3" /> Opção 03</label>
+                  <label><input type="radio" id="radio4" /> Opção 04</label>
+                </form>
+            </div>
+
+            <div id="Tab2" class="w3-container w3-border city" style="display:none">
+              <h6><b>Selecione o símbolo para representar os pontos de informações relevantes ao longo da rota</b></h6>
+              <form class="navbar-form" id="radioButton">
+                <label><input type="radio" id="radio1" checked/> Opção 01</label>
+                <label><input type="radio" id="radio2" /> Opção 02</label>
+                <label><input type="radio" id="radio3" /> Opção 03</label>
+                <label><input type="radio" id="radio4" /> Opção 04</label>
+              </form>
+            </div>
+
+            <div id="Tab3" class="w3-container w3-border city" style="display:none">
+              <h6><b>Selecione o símbolo para representar as setas de mudança de caminho ao longo da rota</b></h6>
+              <form class="navbar-form" id="radioButton">
+                <label><input type="radio" id="radio1" checked/> Opção 01</label>
+                <label><input type="radio" id="radio2" /> Opção 02</label>
+                <label><input type="radio" id="radio3" /> Opção 03</label>
+                <label><input type="radio" id="radio4" /> Opção 04</label>
+              </form>
+            </div>
+
+            <div id="Tab4" class="w3-container w3-border city" style="display:none">
+              <h6><b>Selecione o símbolo para representar a linha ao longo do caminho da rota</b></h6>
+              <form class="navbar-form" id="radioButton">
+                <label><input type="radio" id="radio1" checked/> Opção 01</label>
+                <label><input type="radio" id="radio2" /> Opção 02</label>
+                <label><input type="radio" id="radio3" /> Opção 03</label>
+                <label><input type="radio" id="radio4" /> Opção 04</label>
+              </form>
+            </div>
+        </div>
     </div>
-</div>
+
+        <script>
+        function openCity(evt, cityName) {
+            var i, x, tablinks;
+            x = document.getElementsByClassName("city");
+            for (i = 0; i < x.length; i++) {
+              x[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablink");
+            for (i = 0; i < x.length; i++) {
+              tablinks[i].className = tablinks[i].className.replace(" w3-blue", "");
+            }
+            document.getElementById(cityName).style.display = "block";
+            evt.currentTarget.className += " w3-blue";
+          }
+        </script>
+    </div>
 
 <div id = 'aframe'>
-  <div class="MomentoUsoMapaPapel">
-      <label for="MomentoUsoMapaPapel">Em quais momentos / situação / contexto você costuma(va) utilizá-lo?</label>
-      <input type="text" name="MomentoUsoMapaPapel" id="MomentoUsoMapaPapel" required />
-  </div>
+  <iframe src="Aframe.html" width= "100%" height="100%"></iframe>
 </div>
 
+<!-- Le javascript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="./Bootstrap/jquery.js.download"></script>
+<script src="./Bootstrap/bootstrap-transition.js.download"></script>
+<script src="./Bootstrap/bootstrap-alert.js.download"></script>
+<script src="./Bootstrap/bootstrap-modal.js.download"></script>
+<script src="./Bootstrap/bootstrap-dropdown.js.download"></script>
+<script src="./Bootstrap/bootstrap-scrollspy.js.download"></script>
+<script src="./Bootstrap/bootstrap-tab.js.download"></script>
+<script src="./Bootstrap/bootstrap-tooltip.js.download"></script>
+<script src="./Bootstrap/bootstrap-popover.js.download"></script>
+<script src="./Bootstrap/bootstrap-button.js.download"></script>
+<script src="./Bootstrap/bootstrap-collapse.js.download"></script>
+<script src="./Bootstrap/bootstrap-carousel.js.download"></script>
+<script src="./Bootstrap/bootstrap-typeahead.js.download"></script>
 
-    <!-- Le javascript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="./Bootstrap/jquery.js.download"></script>
-    <script src="./Bootstrap/bootstrap-transition.js.download"></script>
-    <script src="./Bootstrap/bootstrap-alert.js.download"></script>
-    <script src="./Bootstrap/bootstrap-modal.js.download"></script>
-    <script src="./Bootstrap/bootstrap-dropdown.js.download"></script>
-    <script src="./Bootstrap/bootstrap-scrollspy.js.download"></script>
-    <script src="./Bootstrap/bootstrap-tab.js.download"></script>
-    <script src="./Bootstrap/bootstrap-tooltip.js.download"></script>
-    <script src="./Bootstrap/bootstrap-popover.js.download"></script>
-    <script src="./Bootstrap/bootstrap-button.js.download"></script>
-    <script src="./Bootstrap/bootstrap-collapse.js.download"></script>
-    <script src="./Bootstrap/bootstrap-carousel.js.download"></script>
-    <script src="./Bootstrap/bootstrap-typeahead.js.download"></script>
-
-</body></html>
+  </body>
+</html>
