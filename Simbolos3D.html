@@ -25,15 +25,12 @@
 #menu{position: fixed; top: 0%; width: 95%;  z-index: 2;}
 #lista{position: fixed; top: 8%; width: 95%;  z-index: 2;}
 #textArea{ position: fixed; left:37%;  width: 60%; border: white;}
-#Buttons{ position: fixed; left:2%; height: 27%; width: 35%; max-width:35% !important;display:inline-block;}
+#Buttons{ position: fixed; left:2%; height: 27%; width: 35%; max-width:35% !important;display:inline-grid;}
 .navbar-form label{
-    display:block;
     left: 10%;
     align-items:left;
     padding-top: 0.7%;
-    height: 27% !important;
-    max-height: 27% !important;
-}
+    }
 
 </style>
 </head>
@@ -74,40 +71,40 @@
             <div id="Tab1" class="w3-container w3-border city">
               <h6><b>Selecione o símbolo para representar os pontos de começo e final da rota</b></h6>
                 <form class="navbar-form" id="radioButton">
-                  <label><input type="radio" id="radio1" checked/> Opção 01</label>
-                  <label><input type="radio" id="radio2" /> Opção 02</label>
-                  <label><input type="radio" id="radio3" /> Opção 03</label>
-                  <label><input type="radio" id="radio4" /> Opção 04</label>
+                  <label><input type="radio" id="radio1" name="radAnswer"checked/> Opção 01</label>
+                  <label><input type="radio" id="radio2" name="radAnswer"/> Opção 02</label>
+                  <label><input type="radio" id="radio3" name="radAnswer"/> Opção 03</label>
+                  <label><input type="radio" id="radio4" name="radAnswer"/> Opção 04</label>
                 </form>
             </div>
 
             <div id="Tab2" class="w3-container w3-border city" style="display:none">
               <h6><b>Selecione o símbolo para representar os pontos de informações relevantes ao longo da rota</b></h6>
               <form class="navbar-form" id="radioButton">
-                <label><input type="radio" id="radio1" checked/> Opção 01</label>
-                <label><input type="radio" id="radio2" /> Opção 02</label>
-                <label><input type="radio" id="radio3" /> Opção 03</label>
-                <label><input type="radio" id="radio4" /> Opção 04</label>
+                <label><input type="radio" id="radio1" name="radAnswer" checked/> Opção 01</label>
+                <label><input type="radio" id="radio2" name="radAnswer" /> Opção 02</label>
+                <label><input type="radio" id="radio3" name="radAnswer" /> Opção 03</label>
+                <label><input type="radio" id="radio4" name="radAnswer"/> Opção 04</label>
               </form>
             </div>
 
             <div id="Tab3" class="w3-container w3-border city" style="display:none">
               <h6><b>Selecione o símbolo para representar as setas de mudança de caminho ao longo da rota</b></h6>
               <form class="navbar-form" id="radioButton">
-                <label><input type="radio" id="radio1" checked/> Opção 01</label>
-                <label><input type="radio" id="radio2" /> Opção 02</label>
-                <label><input type="radio" id="radio3" /> Opção 03</label>
-                <label><input type="radio" id="radio4" /> Opção 04</label>
+                <label><input type="radio" id="radio1" name="radAnswer" checked/> Opção 01</label>
+                <label><input type="radio" id="radio2" name="radAnswer" /> Opção 02</label>
+                <label><input type="radio" id="radio3" name="radAnswer" /> Opção 03</label>
+                <label><input type="radio" id="radio4" name="radAnswer" /> Opção 04</label>
               </form>
             </div>
 
             <div id="Tab4" class="w3-container w3-border city" style="display:none">
               <h6><b>Selecione o símbolo para representar a linha ao longo do caminho da rota</b></h6>
               <form class="navbar-form" id="radioButton">
-                <label><input type="radio" id="radio1" checked/> Opção 01</label>
-                <label><input type="radio" id="radio2" /> Opção 02</label>
-                <label><input type="radio" id="radio3" /> Opção 03</label>
-                <label><input type="radio" id="radio4" /> Opção 04</label>
+                <label><input type="radio" id="radio1" name="radAnswer" checked/> Opção 01</label>
+                <label><input type="radio" id="radio2" name="radAnswer" /> Opção 02</label>
+                <label><input type="radio" id="radio3" name="radAnswer" /> Opção 03</label>
+                <label><input type="radio" id="radio4" name="radAnswer" /> Opção 04</label>
               </form>
             </div>
         </div>
