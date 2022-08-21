@@ -17,21 +17,25 @@
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="https://getbootstrap.com/2.3.2/assets/ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="https://getbootstrap.com/2.3.2/assets/ico/apple-touch-icon-57-precomposed.png">
     <link rel="shortcut icon" href="https://getbootstrap.com/2.3.2/assets/ico/favicon.png">
+
     <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
 
 <style type="text/css">
 
-#aframe{ position: fixed; top: 37%; bottom: 5%; left:2%; width: 96%; height: 60%; z-index: 1;}
-#menu{position: fixed; top: 0%; width: 95%;  z-index: 3;}
-#lista{position: fixed; top: 8%; width: 95%;  z-index: 2;}
-#textArea{ position: fixed; left:37%;  width: 60%; border: white;}
-#Buttons{ position: fixed; left:2%; height: 27%; width: 35%; max-width:35% !important;display:inline-grid;}
+#aframe{ position: fixed; top: 45%; bottom: 2%; left:2%; width: 96%; height: 55%; z-index: 1;}
+#menu{position: fixed; top: 0%; width: 100%;  z-index: 3;}
+#lista{position: fixed; top: 15%; width: 95%;  z-index: 2;}
+#textArea{ position: fixed; left:37%;  width: 60%; height: 27%; border: white;}
+#conteudo { position: absolute; top: 7%; bottom: 0; left: 3%; width: 97%;  z-index: 1;}
+#Buttons{ position: fixed; left:2%; height: 27.5%; width: 35%; max-width:35% !important;display:inline-grid;}
 .navbar-form label{
-    left: 10%;
+    left: 5%;
     align-items:left;
     padding-top: 0.7%;
+    display: inline;
     }
-
+#collapse1{
+padding-right: 10%}
 </style>
 </head>
 <body>
@@ -39,7 +43,7 @@
     <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container-fluid">
-          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+          <button type="button" id ="collapse1" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
@@ -56,55 +60,57 @@
     </div>
   </div>
 <body>
-
+  <div id = 'conteudo'>
+    <h6 align="center"><b>Selecione os símbolos para representar as informações da rota</h6> </b>
+  </div>
 <div id="lista">
 
   <div class="w3-container">
         <div id= "Buttons" class="w3-sidebar w3-bar-block w3-light-gray">
           <button class="w3-bar-item w3-button tablink w3-border w3-blue" onclick="openCity(event,'Tab1')">Começo e final</button>
           <button class="w3-bar-item w3-button tablink w3-border" onclick="openCity(event,'Tab2')">POI's</button>
-          <button class="w3-bar-item w3-button tablink w3-border" onclick="openCity(event,'Tab3')">Seta</button>
+          <button class="w3-bar-item w3-button tablink w3-border" onclick="openCity(event,'Tab3')">Setas</button>
           <button class="w3-bar-item w3-button tablink w3-border" onclick="openCity(event,'Tab4')">Linha</button>
         </div>
 
         <div id= "textArea">
             <div id="Tab1" class="w3-container w3-border city">
-              <h6><b>Selecione o símbolo para representar os pontos de começo e final da rota</b></h6>
+              <h6><b> Pontos de começo e final da rota</b></h6>
                 <form class="navbar-form" id="radioButton">
-                  <label><input type="radio" id="radio1" name="radAnswer"checked/> Opção 01</label>
-                  <label><input type="radio" id="radio2" name="radAnswer"/> Opção 02</label>
-                  <label><input type="radio" id="radio3" name="radAnswer"/> Opção 03</label>
-                  <label><input type="radio" id="radio4" name="radAnswer"/> Opção 04</label>
+                  <label><input type="radio" id="radio1" name="radAnswer" value="1"  onclick="display()" /> Opção 01</label><br>
+                  <label><input type="radio" id="radio2" name="radAnswer"  value="2" onclick="display()"/> Opção 02</label><br>
+                  <label><input type="radio" id="radio3" name="radAnswer"  /> Opção 03</label><br>
+                  <label><input type="radio" id="radio4" name="radAnswer"  /> Opção 04</label><br><br><br>
                 </form>
             </div>
 
             <div id="Tab2" class="w3-container w3-border city" style="display:none">
-              <h6><b>Selecione o símbolo para representar os pontos de informações relevantes ao longo da rota</b></h6>
+              <h6><b>Pontos de informações relevantes</b></h6>
               <form class="navbar-form" id="radioButton">
-                <label><input type="radio" id="radio1" name="radAnswer" checked/> Opção 01</label>
-                <label><input type="radio" id="radio2" name="radAnswer" /> Opção 02</label>
-                <label><input type="radio" id="radio3" name="radAnswer" /> Opção 03</label>
-                <label><input type="radio" id="radio4" name="radAnswer"/> Opção 04</label>
+                <label><input type="radio" id="radio5" name="radAnswer" /> Opção 01</label><br>
+                <label><input type="radio" id="radio6" name="radAnswer" /> Opção 02</label><br>
+                <label><input type="radio" id="radio7" name="radAnswer" /> Opção 03</label><br>
+                <label><input type="radio" id="radio8" name="radAnswer"/> Opção 04</label><br><br><br>
               </form>
             </div>
 
             <div id="Tab3" class="w3-container w3-border city" style="display:none">
-              <h6><b>Selecione o símbolo para representar as setas de mudança de caminho ao longo da rota</b></h6>
+              <h6><b>Setas de mudança de direção </b></h6>
               <form class="navbar-form" id="radioButton">
-                <label><input type="radio" id="radio1" name="radAnswer" checked/> Opção 01</label>
-                <label><input type="radio" id="radio2" name="radAnswer" /> Opção 02</label>
-                <label><input type="radio" id="radio3" name="radAnswer" /> Opção 03</label>
-                <label><input type="radio" id="radio4" name="radAnswer" /> Opção 04</label>
+                <label><input type="radio" id="radio9" name="radAnswer" /> Opção 01</label><br>
+                <label><input type="radio" id="radio10" name="radAnswer" /> Opção 02</label><br>
+                <label><input type="radio" id="radio11" name="radAnswer" /> Opção 03</label><br>
+                <label><input type="radio" id="radio12" name="radAnswer" /> Opção 04</label><br><br><br>
               </form>
             </div>
 
             <div id="Tab4" class="w3-container w3-border city" style="display:none">
-              <h6><b>Selecione o símbolo para representar a linha ao longo do caminho da rota</b></h6>
+              <h6><b> Linha ao longo do caminho </b></h6>
               <form class="navbar-form" id="radioButton">
-                <label><input type="radio" id="radio1" name="radAnswer" checked/> Opção 01</label>
-                <label><input type="radio" id="radio2" name="radAnswer" /> Opção 02</label>
-                <label><input type="radio" id="radio3" name="radAnswer" /> Opção 03</label>
-                <label><input type="radio" id="radio4" name="radAnswer" /> Opção 04</label>
+                <label><input type="radio" id="radio13" name="radAnswer" /> Opção 01</label><br>
+                <label><input type="radio" id="radio14" name="radAnswer" /> Opção 02</label><br>
+                <label><input type="radio" id="radio15" name="radAnswer" /> Opção 03</label><br>
+                <label><input type="radio" id="radio16" name="radAnswer" /> Opção 04</label><br><br><br>
               </form>
             </div>
         </div>
@@ -124,11 +130,18 @@
             document.getElementById(cityName).style.display = "block";
             evt.currentTarget.className += " w3-blue";
           }
+
+        function display() {
+          var getSelectedValue = document.querySelector('input[name="radAnswer"]:checked');
+            var strLink = "Aframe" +getSelectedValue.value+ ".html";
+            document.getElementById("Aframe00").setAttribute("src",strLink);
+          };
         </script>
     </div>
 
 <div id = 'aframe'>
-  <iframe src="Aframe.html" width= "100%" height="100%"></iframe>
+    <iframe id= "Aframe00" width= "100%" height="100%"></iframe>
+
 </div>
 
 <!-- Le javascript

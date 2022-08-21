@@ -39,7 +39,11 @@
          line-height: 80%;
       }
       #conteudo { position: absolute; top: 7%; bottom: 0; left:2%;width: 98%;  z-index: 1;}
-      #menu{position: fixed; top: 0%; width: 95%;  z-index: 2;}
+      #menu{position: fixed; top: 0%; width: 100%;  z-index: 2;}
+      .nav{padding-left: 5%}
+      #collapse1{
+        padding-right: 10%;
+      }
     </style>
 
   </head>
@@ -48,7 +52,7 @@
     <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container-fluid">
-          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+          <button type="button" id="collapse1" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
