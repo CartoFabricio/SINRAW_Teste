@@ -10,9 +10,11 @@
  <body>
    <a-scene>
      <a-camera position="0 1 3"></a-camera>
-     <a-assets> <a-asset-item id="scene" position="0 0 -4" scale="2 2 2" rotation="0 0 90" src="https://cdn.glitch.global/c5b64583-63c7-4806-a18f-9da936a15a07/Pin01.glb?v=1661047077855"></a-asset-item> </a-assets>
-     <a-entity gltf-model="#scene"></a-entity>
-   </a-scene>
+      <a-assets>
+        <a-asset-item id="scene"  src="https://cdn.glitch.global/c5b64583-63c7-4806-a18f-9da936a15a07/Arrow05.glb?v=1661107882896"></a-asset-item>
+      </a-assets>
+        <a-entity gltf-model="#scene" position="0 0 -2" scale="0.4 0.4 0.4" rotation="0 0 0"></a-entity>
+      </a-scene>
    <script>
    var renderer = new THREE.WebGLRenderer({
   logarithmicDepthBuffer: true

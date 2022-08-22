@@ -77,40 +77,42 @@ padding-right: 10%}
             <div id="Tab1" class="w3-container w3-border city">
               <h6><b> Pontos de começo e final da rota</b></h6>
                 <form class="navbar-form" id="radioButton">
-                  <label><input type="radio" id="radio1" name="radAnswer" value="1"  onclick="display()" /> Opção 01</label><br>
-                  <label><input type="radio" id="radio2" name="radAnswer"  value="2" onclick="display()"/> Opção 02</label><br>
-                  <label><input type="radio" id="radio3" name="radAnswer"  /> Opção 03</label><br>
-                  <label><input type="radio" id="radio4" name="radAnswer"  /> Opção 04</label><br><br><br>
+                  <label><input type="radio" id="radio1" name="radAnswer" value="Pin01"  selected onclick="display()" /> Opção 01</label><br>
+                  <label><input type="radio" id="radio2" name="radAnswer"  value="Pin02" onclick="display()"/> Opção 02</label><br>
+                  <label><input type="radio" id="radio3" name="radAnswer"  value="Pin03" onclick="display()"/> Opção 03</label><br>
+                  <label><input type="radio" id="radio4" name="radAnswer"  value="Pin04" onclick="display()"/> Opção 04</label><br><br><br>
                 </form>
             </div>
 
             <div id="Tab2" class="w3-container w3-border city" style="display:none">
               <h6><b>Pontos de informações relevantes</b></h6>
               <form class="navbar-form" id="radioButton">
-                <label><input type="radio" id="radio5" name="radAnswer" /> Opção 01</label><br>
-                <label><input type="radio" id="radio6" name="radAnswer" /> Opção 02</label><br>
-                <label><input type="radio" id="radio7" name="radAnswer" /> Opção 03</label><br>
-                <label><input type="radio" id="radio8" name="radAnswer"/> Opção 04</label><br><br><br>
+                <label><input type="radio" id="radio5" name="radAnswer" value="Pin01" onclick="display()"/> Opção 01</label><br>
+                <label><input type="radio" id="radio6" name="radAnswer" value="Pin02" onclick="display()"/> Opção 02</label><br>
+                <label><input type="radio" id="radio7" name="radAnswer" value="Pin03" onclick="display()"/> Opção 03</label><br>
+                <label><input type="radio" id="radio8" name="radAnswer" value="Pin04" onclick="display()"/> Opção 04</label><br><br><br>
               </form>
             </div>
 
             <div id="Tab3" class="w3-container w3-border city" style="display:none">
               <h6><b>Setas de mudança de direção </b></h6>
               <form class="navbar-form" id="radioButton">
-                <label><input type="radio" id="radio9" name="radAnswer" /> Opção 01</label><br>
-                <label><input type="radio" id="radio10" name="radAnswer" /> Opção 02</label><br>
-                <label><input type="radio" id="radio11" name="radAnswer" /> Opção 03</label><br>
-                <label><input type="radio" id="radio12" name="radAnswer" /> Opção 04</label><br><br><br>
+                <label><input type="radio" id="radio9" name="radAnswer" value="Seta01" onclick="display()"/> Opção 01</label><br>
+                <label><input type="radio" id="radio10" name="radAnswer" value="Seta02" onclick="display()"/> Opção 02</label><br>
+                <label><input type="radio" id="radio11" name="radAnswer" value="Seta03" onclick="display()"/> Opção 03</label><br>
+                <label><input type="radio" id="radio12" name="radAnswer" value="Seta04" onclick="display()"/> Opção 04</label><br>
+                <label><input type="radio" id="radio11" name="radAnswer" value="Seta05" onclick="display()"/> Opção 05</label><br>
+                <label><input type="radio" id="radio12" name="radAnswer" value="Seta06" onclick="display()"/> Opção 06</label><br>
               </form>
             </div>
 
             <div id="Tab4" class="w3-container w3-border city" style="display:none">
               <h6><b> Linha ao longo do caminho </b></h6>
               <form class="navbar-form" id="radioButton">
-                <label><input type="radio" id="radio13" name="radAnswer" /> Opção 01</label><br>
-                <label><input type="radio" id="radio14" name="radAnswer" /> Opção 02</label><br>
-                <label><input type="radio" id="radio15" name="radAnswer" /> Opção 03</label><br>
-                <label><input type="radio" id="radio16" name="radAnswer" /> Opção 04</label><br><br><br>
+                <label><input type="radio" id="radio13" name="radAnswer" value="Pin01" onclick="display()"/> Opção 01</label><br>
+                <label><input type="radio" id="radio14" name="radAnswer" value="Pin02" onclick="display()"/> Opção 02</label><br>
+                <label><input type="radio" id="radio15" name="radAnswer" value="Pin03" onclick="display()"/> Opção 03</label><br>
+                <label><input type="radio" id="radio16" name="radAnswer" value="Pin04" onclick="display()"/> Opção 04</label><br><br><br>
               </form>
             </div>
         </div>
@@ -133,15 +135,14 @@ padding-right: 10%}
 
         function display() {
           var getSelectedValue = document.querySelector('input[name="radAnswer"]:checked');
-            var strLink = "Aframe" +getSelectedValue.value+ ".html";
+            var strLink = "./Simbolos3D/" + getSelectedValue.value+ ".html";
             document.getElementById("Aframe00").setAttribute("src",strLink);
           };
         </script>
     </div>
 
 <div id = 'aframe'>
-    <iframe id= "Aframe00" width= "100%" height="100%"></iframe>
-
+    <iframe id="Aframe00" width= "100%" height="100%"></iframe>
 </div>
 
 <!-- Le javascript
