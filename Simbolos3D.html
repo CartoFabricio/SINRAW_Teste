@@ -87,8 +87,8 @@ padding-right: 10%}
             <div id="Tab2" class="w3-container w3-border city" style="display:none">
               <h6><b>Pontos de informações relevantes</b></h6>
               <form class="navbar-form" id="radioButton">
-                <label><input type="radio" id="radio5" name="radAnswer" value="Pin01" onclick="display()"/> Opção 01</label><br>
-                <label><input type="radio" id="radio6" name="radAnswer" value="Pin02" onclick="display()"/> Opção 02</label><br>
+                <label><input type="radio" id="radio5" name="radAnswer" value="Pin05" onclick="display()"/> Opção 01</label><br>
+                <label><input type="radio" id="radio6" name="radAnswer" value="Pin06" onclick="display()"/> Opção 02</label><br>
                 <label><input type="radio" id="radio7" name="radAnswer" value="Pin03" onclick="display()"/> Opção 03</label><br>
                 <label><input type="radio" id="radio8" name="radAnswer" value="Pin04" onclick="display()"/> Opção 04</label><br><br><br>
               </form>
@@ -99,10 +99,8 @@ padding-right: 10%}
               <form class="navbar-form" id="radioButton">
                 <label><input type="radio" id="radio9" name="radAnswer" value="Seta01" onclick="display()"/> Opção 01</label><br>
                 <label><input type="radio" id="radio10" name="radAnswer" value="Seta02" onclick="display()"/> Opção 02</label><br>
-                <label><input type="radio" id="radio11" name="radAnswer" value="Seta03" onclick="display()"/> Opção 03</label><br>
-                <label><input type="radio" id="radio12" name="radAnswer" value="Seta04" onclick="display()"/> Opção 04</label><br>
-                <label><input type="radio" id="radio11" name="radAnswer" value="Seta05" onclick="display()"/> Opção 05</label><br>
-                <label><input type="radio" id="radio12" name="radAnswer" value="Seta06" onclick="display()"/> Opção 06</label><br>
+                <label><input type="radio" id="radio12" name="radAnswer" value="Seta03" onclick="display()"/> Opção 03</label><br>
+                <label><input type="radio" id="radio11" name="radAnswer" value="Seta04" onclick="display()"/> Opção 04</label><br>
               </form>
             </div>
 
@@ -120,6 +118,7 @@ padding-right: 10%}
 
         <script>
         function openCity(evt, cityName) {
+            $("input:radio").removeAttr("checked");
             var i, x, tablinks;
             x = document.getElementsByClassName("city");
             for (i = 0; i < x.length; i++) {

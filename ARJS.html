@@ -21,7 +21,16 @@
        vr-mode-ui="enabled: true"
 		embedded
         arjs='sourceType: webcam; sourceWidth:1280; sourceHeight:960; displayWidth: 1280; displayHeight: 960; debugUIEnabled: false;'>
-        <a-camera gps-camera rotation-reader>
-		</a-camera>
+
+        <!--  Reducing shaking effects -->
+        <a-camera id='camera1' look-controls-enabled='false' arjs-look-controls='smoothingFactor: 0.1' maxDistance= '100' gps-camera='gpsMinDistance: 5' rotation-reader> </a-camera>
+        <!--  Ponto de Começo da Rota-->
+        <a-assets> <a-asset-item id="scene"  src="https://cdn.glitch.global/c5b64583-63c7-4806-a18f-9da936a15a07/Pin01.glb?v=1661047077855"></a-asset-item> </a-assets>
+        <a-entity gltf-model="#scene" 'gps-entity-place', `latitude: ${lat}; longitude: ${lng};` scale="4 4 4" rotation="0 0 90"></a-entity>
+
+        <!--  Ponto de Final da Rota -->
+        <a-assets> <a-asset-item id="scene"  src="https://cdn.glitch.global/c5b64583-63c7-4806-a18f-9da936a15a07/Pin01.glb?v=1661047077855"></a-asset-item> </a-assets>
+        <a-entity gltf-model="#scene" 'gps-entity-place', `latitude: ${end[1]; longitude: ${end[0]};` scale="4 4 4" rotation="0 0 90"></a-entity>
+
 	</a-scene>
 </body
