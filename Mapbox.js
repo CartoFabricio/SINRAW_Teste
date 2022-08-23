@@ -5,22 +5,22 @@
 		var lng = position.coords.longitude;
 		var lat = position.coords.latitude;
 		mapboxgl.accessToken = mapboxgl.accessToken;
-	sessionStorage.setItem("lng", lng);
-	sessionStorage.setItem("lat", lat);
-	const map = new mapboxgl.Map({
-		style: 'mapbox://styles/mapbox/light-v10',
-		center: [lng, lat], //longitude, latitude
-		zoom: 15.5,
-		pitch: 45,
-		bearing: -17.6,
-		container: 'map',
-		antialias: false,
-		attributionControl:false,
-  });
+  	sessionStorage.setItem("lng", lng);
+  	sessionStorage.setItem("lat", lat);
+  	const map = new mapboxgl.Map({
+  		style: 'mapbox://styles/mapbox/light-v10',
+  		center: [lng, lat], //longitude, latitude
+  		zoom: 15.5,
+  		pitch: 45,
+  		bearing: -17.6,
+  		container: 'map',
+  		antialias: false,
+  		attributionControl:false,
+    });
 
-	map.addControl(new mapboxgl.AttributionControl({
- 			compact: true
- 		}), 'bottom-right')
+  	map.addControl(new mapboxgl.AttributionControl({
+   			compact: true
+   		}), 'bottom-right')
 
 
 		direction = new MapboxDirections({
@@ -59,6 +59,8 @@ map.on('load', function() {
       `https://api.mapbox.com/directions/v5/mapbox/walking/${start[0]},${start[1]};${end[0]},${end[1]}?steps=true&geometries=geojson&access_token=${mapboxgl.accessToken}`,
       { method: 'GET' }
     );
+    const latFim await ${end[1]};
+    const lngFim await ${end[0]};
     const json = await query.json();
     const data = json.routes[0];
     const route = data.geometry.coordinates;
