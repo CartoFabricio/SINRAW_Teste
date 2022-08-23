@@ -41,7 +41,15 @@
     font-family: sans-serif;
 		z-index: 1;
   }
-
+	.informacoes {
+    position: fixed;
+    width: 20%;
+		height:20%;
+		top:30%;
+    background-color: #fff;
+    font-family: sans-serif;
+		z-index: 2;
+  }
 	.direction {
 			position: absolute;
 			z-index:2;
@@ -81,7 +89,7 @@
 
   <body>
 		<div id="direction" class="direction"></div>
-
+		<div id="informacoes" class="informacoes"></div>
 		<div id="AR">
 			<iframe src="ARJS.html"  width= "100%" height="67%"  ></iframe>
 		</div>
@@ -92,7 +100,7 @@
 				<canvas class="mapboxgl-canvas" tabindex="0" aria-label="Map" role="region" width="811" height="657" style="width: 811px; height: 657px;"></canvas>
 			</div>
 
-			<script src ="./Mapbox.js"> 
+			<script src ="./Mapbox.js">
 
 
 				</script>
