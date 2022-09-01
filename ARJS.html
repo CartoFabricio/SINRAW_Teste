@@ -45,17 +45,11 @@
         <a-assets> <a-asset-item id="scene"  src="https://cdn.glitch.global/c5b64583-63c7-4806-a18f-9da936a15a07/Pin01.glb?v=1661047077855"></a-asset-item> </a-assets>
         <a-entity gltf-model="#scene" gps-entity-place= `latitude: -5.087071; longitude:-42.775033;` scale="4 4 4" rotation="0 0 90"></a-entity>
 
-        <a-text
-       value= `lat:${lat};lng:${lng};`
-       look-at="[gps-camera]"
-       scale="30 30 30"
-       gps-entity-place=`latitude: ${lat}; longitude: ${lng};`
-     ></a-text>
      <a-text
     value="This content will always face you."
     look-at="[gps-camera]"
     scale="30 30 30"
-    gps-entity-place= `latitude: ${lat}; longitude: ${lng};`
+    gps-entity-place= "latitude: -5.087071; longitude: -42.775033;"
   ></a-text>
 
   </a-scene>

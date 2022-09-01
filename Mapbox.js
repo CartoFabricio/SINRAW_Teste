@@ -59,8 +59,7 @@ map.on('load', function() {
       `https://api.mapbox.com/directions/v5/mapbox/walking/${start[0]},${start[1]};${end[0]},${end[1]}?steps=true&geometries=geojson&access_token=${mapboxgl.accessToken}`,
       { method: 'GET' }
     );
-    const latFim = ${end[1]};
-    const lngFim = ${end[0]};
+
     const json = await query.json();
     const data = json.routes[0];
     const route = data.geometry.coordinates;
@@ -98,11 +97,12 @@ map.on('load', function() {
       });
     }
 
-			document.getElementById("informacoes").textContent = JSON.stringify(geojson, undefined, 2);
+//			document.getElementById("orig").textContent = JSON.stringify(geojson, undefined, 2);
 //    const informacoes = document.getElementById('informacoes');
-  //  var latFim = `${end[1]}`;
-    //var lngFim = `${end[0]}`;
-    //informacoes.innerHTML = `<li> ${end[1]} ; ${end[0]}</li>`;
+//    var latFim = `${end[1]}`;
+//    var lngFim = `${end[0]}`;
+//    informacoes.innerHTML = `<li> ${end[1]} ; ${end[0]}</li>`;
+
 
     // get the sidebar and add the instructions
     const instructions = document.getElementById('instructions');
