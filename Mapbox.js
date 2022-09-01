@@ -97,11 +97,11 @@ map.on('load', function() {
       });
     }
 
-//			document.getElementById("orig").textContent = JSON.stringify(geojson, undefined, 2);
-    const informacoes = document.getElementById('informacoes');
-    var latFim = `${end[1]}`;
-    var lngFim = `${end[0]}`;
-    informacoes.innerHTML = `<li> ${end[1]} ; ${end[0]}</li>`;
+			document.getElementById("informacoes").textContent = JSON.stringify(geojson, undefined, 2);
+//    const informacoes = document.getElementById('informacoes');
+  //  var latFim = `${end[1]}`;
+    //var lngFim = `${end[0]}`;
+    //informacoes.innerHTML = `<li> ${end[1]} ; ${end[0]}</li>`;
 
     // get the sidebar and add the instructions
     const instructions = document.getElementById('instructions');
