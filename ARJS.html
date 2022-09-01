@@ -46,15 +46,17 @@
         <a-entity gltf-model="#scene" gps-entity-place= `latitude: -5.087071; longitude:-42.775033;` scale="4 4 4" rotation="0 0 90"></a-entity>
 
         <a-text
-       value="This content will always face you."
+       value= `lat:${lat};lng:${lng};`
        look-at="[gps-camera]"
        scale="30 30 30"
-       gps-entity-place="latitude: -5.087071; longitude: -42.775033;"
+       gps-entity-place=`latitude: ${lat}; longitude: ${lng};`
      ></a-text>
      <a-text
     value="This content will always face you."
     look-at="[gps-camera]"
-    scale="50 50 50"
-    gps-entity-place= `latitude: ${end[1]}; longitude: ${end[0]};`
-	</a-scene>
+    scale="30 30 30"
+    gps-entity-place= `latitude: ${lat}; longitude: ${lng};`
+  ></a-text>
+
+  </a-scene>
 </body
