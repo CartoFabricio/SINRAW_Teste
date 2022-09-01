@@ -99,10 +99,16 @@ map.on('load', function() {
 
 //			document.getElementById("orig").textContent = JSON.stringify(geojson, undefined, 2);
     const informacoes = document.getElementById('informacoes');
-
     var latFim = `${end[1]}`;
     var lngFim = `${end[0]}`;
     informacoes.innerHTML = `<li> ${end[1]} ; ${end[0]}</li>`;
+
+    const fimrota = document.getElementById('fimrota');
+    var latFim = `${end[1]}`;
+    var lngFim = `${end[0]}`;
+    fimrota.innerHTML = `gltf-model="#scene" gps-projected-entity-place= `latitude: ${end[1]}; longitude: ${end[0]};``;
+    
+
     // get the sidebar and add the instructions
     const instructions = document.getElementById('instructions');
     const steps = data.legs[0].steps;
