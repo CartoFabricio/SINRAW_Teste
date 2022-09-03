@@ -1,13 +1,6 @@
 
   mapboxgl.accessToken = 'pk.eyJ1IjoiZmFicmljaW9hbW9yaW0iLCJhIjoiY2tsaWNsOHRkMmgwaDJucGN0NGJhd3psOSJ9.h665zPxHXNFNVIzh1cJeUQ';
-  var lat1=-5.088858;
-  var lng1= -42.775483;
-  var lat2=-5.088682;
-  var lng2= -42.774857;
-  var lat3=-5.087058;
-  var lng3= -42.775271;
-  var lat4=-5.087071;
-  var lng4= -42.775033;
+
 	navigator.geolocation.getCurrentPosition( function(position) {
 		var lng = position.coords.longitude;
 		var lat = position.coords.latitude;
@@ -24,6 +17,7 @@
   		antialias: false,
   		attributionControl:false,
     });
+
 
   	map.addControl(new mapboxgl.AttributionControl({
    			compact: true
@@ -46,12 +40,12 @@
 			},
 		});
 
-map.on('load', function() {
-	var direction = new MapboxDirections({
-		accessToken: mapboxgl.accessToken
-	});
-	direction.setOrigin([lng,lat]);
-});
+  map.on('load', function() {
+  	var direction = new MapboxDirections({
+  		accessToken: mapboxgl.accessToken
+  	});
+  	direction.setOrigin([lng,lat]);
+  });
 
 	document.getElementById('direction').appendChild(direction.onAdd(map));
 
@@ -103,13 +97,6 @@ map.on('load', function() {
         }
       });
     }
-
-//			document.getElementById("orig").textContent = JSON.stringify(geojson, undefined, 2);
-//    const informacoes = document.getElementById('informacoes');
-//    var latFim = `${end[1]}`;
-//    var lngFim = `${end[0]}`;
-//    informacoes.innerHTML = `<li> ${end[1]} ; ${end[0]}</li>`;
-
 
     // get the sidebar and add the instructions
     const instructions = document.getElementById('instructions');
