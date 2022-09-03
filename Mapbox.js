@@ -18,27 +18,26 @@
   		attributionControl:false,
     });
 
+	map.addControl(new mapboxgl.AttributionControl({
+ 			compact: true
+ 		}), 'bottom-right')
 
-  	map.addControl(new mapboxgl.AttributionControl({
-   			compact: true
-   		}), 'bottom-right')
 
-
-		direction = new MapboxDirections({
-			accessToken: mapboxgl.accessToken,
-			language: 'pt-BR',
-			showCompass: true,
-      geometry: 'polyline',
-			unit: 'metric',
-			profile: 'mapbox/walking',
-			language: 'pt-BR',
-			placeholderOrigin: 'Origem',
-			placeholderDestination: 'Destino',
-			controls: {
-					profileSwitcher: false,
-					instructions: false,
-			},
-		});
+	direction = new MapboxDirections({
+		accessToken: mapboxgl.accessToken,
+		language: 'pt-BR',
+		showCompass: true,
+    geometry: 'polyline',
+		unit: 'metric',
+		profile: 'mapbox/walking',
+		language: 'pt-BR',
+		placeholderOrigin: 'Origem',
+		placeholderDestination: 'Destino',
+		controls: {
+				profileSwitcher: false,
+				instructions: false,
+		},
+	});
 
   map.on('load', function() {
   	var direction = new MapboxDirections({
@@ -60,7 +59,6 @@
       `https://api.mapbox.com/directions/v5/mapbox/walking/${start[0]},${start[1]};${end[0]},${end[1]}?steps=true&geometries=geojson&access_token=${mapboxgl.accessToken}`,
       { method: 'GET' }
     );
-
     const json = await query.json();
     const data = json.routes[0];
     const route = data.geometry.coordinates;
@@ -98,7 +96,9 @@
       });
     }
 
-    // get the sidebar and add the instructions
+//			document.getElementById("orig").textContent = JSON.stringify(geojson, undefined, 2);
+
+		// get the sidebar and add the instructions
     const instructions = document.getElementById('instructions');
     const steps = data.legs[0].steps;
     let tripInstructions = '';
