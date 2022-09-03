@@ -15,16 +15,15 @@
   <script> type="text/javascript"  src="./Mapbox.js"</script>
 </head>
 
-
 <body style='margin: 0; overflow: hidden;'>
 
     <a-scene
        vr-mode-ui="enabled: true"
 		embedded
-        arjs='sourceType: webcam; videoTexture: true;  sourceWidth:1280; sourceHeight:960; displayWidth: 1280; displayHeight: 960; debugUIEnabled: false;'>
+        arjs='sourceType: webcam; videoTexture: true;  sourceWidth:1280; sourceHeight:960; displayWidth: 1280; displayHeight: 960; debugUIEnabled: true;'>
 
         <!--  Reducing shaking effects -->
-        <a-camera id='camera1' gps-projected-camera look-controls-enabled='false' arjs-look-controls='smoothingFactor: 0.1' maxDistance= '500' gps-camera='gpsMinDistance: 5' rotation-reader> </a-camera>
+        <a-camera id='camera1' look-controls-enabled='false' arjs-look-controls='smoothingFactor: 0.1' maxDistance= '500' gps-camera='gpsMinDistance: 5' rotation-reader> </a-camera>
 
         <!--  Ponto de Começo da Rota-->
         <a-assets> <a-asset-item id="scene"  src="https://cdn.glitch.global/c5b64583-63c7-4806-a18f-9da936a15a07/Pin01.glb?v=1661047077855"></a-asset-item> </a-assets>
