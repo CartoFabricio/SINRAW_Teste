@@ -9,7 +9,7 @@ navigator.geolocation.getCurrentPosition( function(position) {
   const map = new mapboxgl.Map({
     style: 'mapbox://styles/mapbox/light-v10',
     center: [lng, lat], //longitude, latitude
-    zoom: 19,
+    zoom: 20,
     pitch: 60,
     bearing: -60,
     container: 'map',
@@ -79,7 +79,7 @@ map.addControl(new mapboxgl.AttributionControl({
     };
 
 
-        const geojson2 = {
+    const geojson2 = {
       'type': 'FeatureCollection',
       'features': [
         {
@@ -704,7 +704,7 @@ map.on('load', () => {
             'source-layer': 'building',
             'filter': ['==', 'extrude', 'true'],
             'type': 'fill-extrusion',
-            'minzoom': 15,
+            'minzoom': 20,
             'paint': {
                 'fill-extrusion-color': '#aaa',
                 'fill-extrusion-height': [
