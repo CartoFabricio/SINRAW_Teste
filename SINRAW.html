@@ -26,43 +26,97 @@
 		<link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.css" type="text/css">
 
 <style>
-  body {
-    margin: 0;
-    padding: 0;
+#menu{position: fixed; top: 0%; width: 100%;  z-index: 3;}
+#AR { position: fixed; top: 6%; bottom: 0%; left:0%; width: 100%; z-index: 1;}
+#map { position: fixed; top: 69%; bottom: 0%; left:0; width: 100%;  z-index: 1;}
+#instructions {
+  position: relative;
+  width: 0%;
+  height:0%;
+  background-color: #fff;
+  font-family: sans-serif;
+  z-index: 1;
+}
+.informacoes {
+  position: fixed;
+  width: 20%;
+  height:20%;
+  top:30%;
+  background-color: #fff;
+  font-family: sans-serif;
+  z-index: 2;
+}
+.direction {
+  position: absolute;
+  z-index:2;
+  max-width: 100px;
+  width: 30%;
+  height: 10%;
+  left: 0%;
+  top: 7%;
+}
+.nav{padding-left: 5%}
+#collapse1{
+  padding-right: 15%:
+}
+
+.marker {
+    background-image: url('https://www.dropbox.com/s/svexsguknik1vio/Restaurante1.png?dl=1');
+    width: 12.5px;
+    height: 25px;
   }
-	#menu{position: fixed; top: 0%; width: 100%;  z-index: 3;}
-	#AR { position: fixed; top: 6%; bottom: 0%; left:0%; width: 100%; z-index: 1;}
-  #map { position: fixed; top: 69%; bottom: 0%; left:0; width: 100%;  z-index: 1;}
-  #instructions {
-    position: relative;
-    width: 0%;
-		height:0%;
-    background-color: #fff;
-    font-family: sans-serif;
-		z-index: 1;
+
+.marker1 {
+    background-image: url('https://www.dropbox.com/s/i0io5eloarhksre/entrada.png?dl=1');
+    width: 20px;
+    height: 20px;
   }
-	.informacoes {
-    position: fixed;
-    width: 20%;
-		height:20%;
-		top:30%;
-    background-color: #fff;
-    font-family: sans-serif;
-		z-index: 2;
+
+.marker2 {
+    background-image: url('https://www.dropbox.com/s/rlcoj089fj39w83/Onibus.png?dl=1');
+    width: 22px;
+    height: 20px;
   }
-	.direction {
-			position: absolute;
-			z-index:2;
-			max-width: 100px;
-			width: 30%;
-			height: 10%;
-			left: 0%;
-			top: 7%;
-	}
-  .nav{padding-left: 5%}
-	#collapse1{
-		padding-right: 15%:
-	}
+.marker3 {
+    background-image: url('https://www.dropbox.com/s/zmrpt0gofg5b8qu/Correios.png?dl=1');
+    width: 25px;
+    height: 17px;
+  }
+.marker4 {
+    background-image: url('https://www.dropbox.com/s/xr7xqazmgoohldl/Estacionamento.png?dl=1');
+    width: 15px;
+    height: 12px;
+  }
+.marker, .marker1, .marker2, .marker3, .marker4 {
+    background-size: cover;
+    border-radius: 10%;
+    cursor: pointer;
+  }
+.mapboxgl-popup {
+    position:fixed;
+    left:50%;
+    top: 25%;
+    height: 50%;
+    width: 350px;
+    transform:none !important;
+  }
+
+.mapboxgl-popup-content {
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+  }
+}
+.mapboxgl-popup-anchor-top .mapboxgl-popup-tip,
+.mapboxgl-popup-anchor-bottom .mapboxgl-popup-tip,
+.mapboxgl-popup-anchor-center .mapboxgl-popup-tip,
+.mapboxgl-popup-anchor-left .mapboxgl-popup-tip,
+.mapboxgl-popup-anchor-right .mapboxgl-popup-tip,
+.mapboxgl-popup-anchor-bottom-right .mapboxgl-popup-tip,
+.mapboxgl-popup-anchor-bottom-left .mapboxgl-popup-tip,
+.mapboxgl-popup-anchor-top-right .mapboxgl-popup-tip,
+.mapboxgl-popup-anchor-top-left .mapboxgl-popup-tip{
+    display:none !important;
+}
 </style>
 
 		<div id = 'menu'>
