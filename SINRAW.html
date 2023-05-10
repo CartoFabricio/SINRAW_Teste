@@ -32,10 +32,8 @@
 <link rel="stylesheet"  href="./style.css" type="text/css">
 <style>
 
-	
 </style>
-
-		<div id = 'menu'>
+	<div id = 'menu'>
 		<div class="navbar navbar-inverse navbar-fixed-top">
 					<div class="navbar-inner">
 						<div class="container-fluid">
@@ -57,78 +55,75 @@
 		</div>
 </head>
 
-  <body>
-		<div id="direction" class="direction"></div>
-	<!-- 	<div id="informacoes" class="informacoes"></div>-->
-		<div id="AR">
-			<iframe src="ARJS.html"  width= "100%" height="67%"  ></iframe>
+<body>
+	<div id="direction" class="direction"></div>
+
+	<div id="AR">
+		<iframe src="ARJS.html"  width= "100%" height="67%"  ></iframe>
+	</div>
+
+	<div id="map" class="mapboxgl-map">
+		<div class="mapboxgl-canary" style="visibility: hidden;"></div>
+		<div class="mapboxgl-canvas-container mapboxgl-interactive mapboxgl-touch-drag-pan mapboxgl-touch-zoom-rotate">
+			<canvas class="mapboxgl-canvas" tabindex="0" aria-label="Map" role="region" width="811" height="657" style="width: 811px; height: 657px;"></canvas>
 		</div>
+			<script src ="./Mapbox.js"></script>
+		</div>
+		<div class="map-overlay">
+	    <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo"><span class="glyphicon glyphicon-cog" aria-hidden="true"> </button>
+	    <div id="demo" class="collapse">
+          <div class="map-overlay-inner">
+               <fieldset>
+                  <label>Mapa Base</label>
+                  <select id='basemap-selector' name='basemap-selector'>
+                      <option value='mapbox://styles/mapbox/light-v10'>Light</option>
+                      <option value='mapbox://styles/mapbox/streets-v11'>Streets</option>
+                      <option value='mapbox://styles/mapbox/satellite-v9'>Satellite</option>
+                      <option value='mapbox://styles/mapbox/dark-v10'>Dark</option>
+                      <option value='mapbox://styles/mapbox/outdoors-v11'>Outdoors</option>
+                      <option value='mapbox://styles/mapbox/navigation-day-v1'>navigation-day</option>
+                      <option value='mapbox://styles/mapbox/navigation-night-v1'>navigation-night</option>
+                  </select>
+              </fieldset>
+              <fieldset>
+                   <label>Ângulo da Câmera<span id="pitch-slider-value">80</span></label>
+                  <input type='range' id='pitch-slider' min='0' max='90' value='80' step='1'>
+                  <label>Rotação <span id="slider-value1">0</span></label>
+                  <input type='range' id='bearing-slider' min='0' max='360' value='0' step='1'>
+              </fieldset>
+              <fieldset>
+                  <label>Editar camada</label>
+                  <select id="layer" name="layer">
+                      <!-- Each value matches a layer ID. -->
+                      <option value="building">Contruções</option>
+                      <option value="water">Água</option>
+                      <option class="landuse" >Área Verde</option>
+                      <option value="triangles">Triangles</option>
+                  </select>
+              </fieldset>
+              <fieldset>
+                  <label>Cor de preenchimento</label>
+                  <div id="swatches"></div>
+              </fieldset>
+          </div>
+      </div>
+   </div>
+	<!-- Le javascript
+	================================================== -->
+	<!-- Placed at the end of the document so the pages load faster -->
+	<script src="./Bootstrap/jquery.js.download"></script>
+	<script src="./Bootstrap/bootstrap-transition.js.download"></script>
+	<script src="./Bootstrap/bootstrap-alert.js.download"></script>
+	<script src="./Bootstrap/bootstrap-modal.js.download"></script>
+	<script src="./Bootstrap/bootstrap-dropdown.js.download"></script>
+	<script src="./Bootstrap/bootstrap-scrollspy.js.download"></script>
+	<script src="./Bootstrap/bootstrap-tab.js.download"></script>
+	<script src="./Bootstrap/bootstrap-tooltip.js.download"></script>
+	<script src="./Bootstrap/bootstrap-popover.js.download"></script>
+	<script src="./Bootstrap/bootstrap-button.js.download"></script>
+	<script src="./Bootstrap/bootstrap-collapse.js.download"></script>
+	<script src="./Bootstrap/bootstrap-carousel.js.download"></script>
+	<script src="./Bootstrap/bootstrap-typeahead.js.download"></script>
 
-		<div id="map" class="mapboxgl-map">
-			<div class="mapboxgl-canary" style="visibility: hidden;"></div>
-			<div class="mapboxgl-canvas-container mapboxgl-interactive mapboxgl-touch-drag-pan mapboxgl-touch-zoom-rotate">
-				<canvas class="mapboxgl-canvas" tabindex="0" aria-label="Map" role="region" width="811" height="657" style="width: 811px; height: 657px;"></canvas>
-			</div>
-				<script src ="./Mapbox.js"></script>
-			</div>
-
-			<div class="map-overlay">
-		    <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo"><span class="glyphicon glyphicon-cog" aria-hidden="true"> </button>
-		    <div id="demo" class="collapse">
-            <div class="map-overlay-inner">
-                 <fieldset>
-                    <label>Mapa Base</label>
-                    <select id='basemap-selector' name='basemap-selector'>
-                        <option value='mapbox://styles/mapbox/light-v10'>Light</option>
-                        <option value='mapbox://styles/mapbox/streets-v11'>Streets</option>
-                        <option value='mapbox://styles/mapbox/satellite-v9'>Satellite</option>
-                        <option value='mapbox://styles/mapbox/dark-v10'>Dark</option>
-                        <option value='mapbox://styles/mapbox/outdoors-v11'>Outdoors</option>
-                        <option value='mapbox://styles/mapbox/navigation-day-v1'>navigation-day</option>
-                        <option value='mapbox://styles/mapbox/navigation-night-v1'>navigation-night</option>
-                    </select>
-                </fieldset>
-                <fieldset>
-                     <label>Ângulo da Câmera<span id="pitch-slider-value">80</span></label>
-                    <input type='range' id='pitch-slider' min='0' max='90' value='80' step='1'>
-                    <label>Rotação <span id="slider-value1">0</span></label>
-                    <input type='range' id='bearing-slider' min='0' max='360' value='0' step='1'>
-                </fieldset>
-                <fieldset>
-                    <label>Editar camada</label>
-                    <select id="layer" name="layer">
-                        <!-- Each value matches a layer ID. -->
-                        <option value="building">Contruções</option>
-                        <option value="water">Água</option>
-                        <option class="landuse" >Área Verde</option>
-                        <option value="triangles">Triangles</option>
-                    </select>
-                </fieldset>
-                <fieldset>
-                    <label>Cor de preenchimento</label>
-                    <div id="swatches"></div>
-                </fieldset>
-
-            </div>
-        </div>
-     </div>
-
-		<!-- Le javascript
-		================================================== -->
-		<!-- Placed at the end of the document so the pages load faster -->
-		<script src="./Bootstrap/jquery.js.download"></script>
-		<script src="./Bootstrap/bootstrap-transition.js.download"></script>
-		<script src="./Bootstrap/bootstrap-alert.js.download"></script>
-		<script src="./Bootstrap/bootstrap-modal.js.download"></script>
-		<script src="./Bootstrap/bootstrap-dropdown.js.download"></script>
-		<script src="./Bootstrap/bootstrap-scrollspy.js.download"></script>
-		<script src="./Bootstrap/bootstrap-tab.js.download"></script>
-		<script src="./Bootstrap/bootstrap-tooltip.js.download"></script>
-		<script src="./Bootstrap/bootstrap-popover.js.download"></script>
-		<script src="./Bootstrap/bootstrap-button.js.download"></script>
-		<script src="./Bootstrap/bootstrap-collapse.js.download"></script>
-		<script src="./Bootstrap/bootstrap-carousel.js.download"></script>
-		<script src="./Bootstrap/bootstrap-typeahead.js.download"></script>
-
-	</body>
+</body>
 </html>
