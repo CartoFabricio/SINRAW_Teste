@@ -80,54 +80,474 @@ map.addControl(new mapboxgl.AttributionControl({
     compact: true
   }), 'bottom-right')
 
-  map.on('load', function () {
-       map.addSource('layer1', {
-           type: 'geojson',
-           data: './Geojson/RU.geojson'
-       });
 
-       map.addLayer({
-           id: 'layer1',
-           type: 'fill',
-           source: 'layer1',
-           paint: {
-               'fill-color': '#f00',
-               'fill-opacity': 0.5
-           },
-           layout: {
-               'visibility': 'visible'
-           }
-       });
+   const geojson = {
+      'type': 'FeatureCollection',
+      'features': [
+        {
+          'type': 'Feature',
+          'geometry': {
+            'type': 'Point',
+            'coordinates': [-49.235028, -25.449557]
+          },
+          'properties': {
+            'title': 'RU',
+            'description': 'Restaurante Universitário'
+          }
+        },
+      ]
+    };
 
-       map.addSource('layer2', {
-           type: 'geojson',
-           data: 'path/to/Correios.geojson',
-       });
+    const geojson1 = {
+      'type': 'FeatureCollection',
+      'features': [
+        {
+          'type': 'Feature',
+          'geometry': {
+            'type': 'Point',
+            'coordinates': [-49.229949, -25.451687]
+          },
+          'properties': {
+            'title': 'Mapbox',
+            'description': 'Portaria'
+          }
+        },
+        {
+          'type': 'Feature',
+          'geometry': {
+            'type': 'Point',
+            'coordinates': [-49.232931, -25.453522]
+          },
+          'properties': {
+            'title': 'Mapbox',
+            'description': 'Portaria'
+          }
+        },
+        {
+          'type': 'Feature',
+          'geometry': {
+            'type': 'Point',
+            'coordinates': [-49.230441, -25.449003]
+          },
+          'properties': {
+            'title': 'Mapbox',
+            'description': 'Portaria'
+          }
+        }
+      ]
+    };
 
-       map.addLayer({
-           id: 'layer2',
-           type: 'line',
-           source: 'layer2',
-           paint: {
-               'line-color': '#00f',
-               'line-width': 2
-           },
-           layout: {
-               'visibility': 'none'
-           }
-       });
 
-       var layerRadioButtons = document.getElementsByName('camada');
+    const geojson2 = {
+      'type': 'FeatureCollection',
+      'features': [
+        {
+          'type': 'Feature',
+          'geometry': {
+            'type': 'Point',
+            'coordinates': [-49.232580, -25.453163]
+          },
+          'properties': {
+            'title': 'Ponto de Ônibus',
+            'description': 'Ponto de Ônibus'
+          }
+        },
+        {
+          'type': 'Feature',
+          'geometry': {
+            'type': 'Point',
+            'coordinates': [-49.232136, -25.449854]
+          },
+          'properties': {
+            'title': 'Ponto de Ônibus',
+            'description': 'Ponto de Ônibus'
+          }
+        },
+        {
+          'type': 'Feature',
+          'geometry': {
+            'type': 'Point',
+            'coordinates': [-49.231291, -25.450282]
+          },
+          'properties': {
+            'title': 'Ponto de Ônibus',
+            'description': 'Ponto de Ônibus'
+          }
+        },
+        {
+          'type': 'Feature',
+          'geometry': {
+            'type': 'Point',
+            'coordinates': [-49.231550, -25.450184]
+          },
+          'properties': {
+            'title': 'Ponto de Ônibus',
+            'description': 'Ponto de Ônibus'
+          }
+        }
+      ]
+    };
 
-       for (var i = 0; i < layerRadioButtons.length; i++) {
-           layerRadioButtons[i].addEventListener('change', function() {
-               var layerId = this.value;
-               map.setLayoutProperty('layer1', 'visibility', layerId === 'layer1' ? 'visible' : 'none');
-               map.setLayoutProperty('layer2', 'visibility', layerId === 'layer2' ? 'visible' : 'none');
-           });
-       }
-   });
+         const geojson3 = {
+      'type': 'FeatureCollection',
+      'features': [
+        {
+          'type': 'Feature',
+          'geometry': {
+            'type': 'Point',
+            'coordinates': [-49.234099, -25.44999]
+          },
+          'properties': {
+            'title': 'Correios',
+            'description': 'Correios'
+          }
+        },
+      ]
+    };
 
+     const geojson4 =   {
+    "type": "FeatureCollection",
+    "features": [
+      {
+        "type": "Feature",
+        "properties": {},
+        "geometry": {
+          "coordinates": [
+            -49.233085960737924,
+            -25.453344376797858
+          ],
+          "type": "Point"
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {},
+        "geometry": {
+          "coordinates": [
+            -49.23354358116649,
+            -25.453187921663584
+          ],
+          "type": "Point"
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {},
+        "geometry": {
+          "coordinates": [
+            -49.23282382864804,
+            -25.453051524714468
+          ],
+          "type": "Point"
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {},
+        "geometry": {
+          "coordinates": [
+            -49.23257058239133,
+            -25.4525661107876
+          ],
+          "type": "Point"
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {},
+        "geometry": {
+          "coordinates": [
+            -49.23213331089232,
+            -25.453098276993444
+          ],
+          "type": "Point"
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {},
+        "geometry": {
+          "coordinates": [
+            -49.23144208152905,
+            -25.451743710824402
+          ],
+          "type": "Point"
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {},
+        "geometry": {
+          "coordinates": [
+            -49.23181972945565,
+            -25.451839992085638
+          ],
+          "type": "Point"
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {},
+        "geometry": {
+          "coordinates": [
+            -49.233814601085186,
+            -25.452473841045702
+          ],
+          "type": "Point"
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {},
+        "geometry": {
+          "coordinates": [
+            -49.233485825243434,
+            -25.451787838988665
+          ],
+          "type": "Point"
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {},
+        "geometry": {
+          "coordinates": [
+            -49.233112620233754,
+            -25.45097345720221
+          ],
+          "type": "Point"
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {},
+        "geometry": {
+          "coordinates": [
+            -49.23224625146139,
+            -25.451860049915567
+          ],
+          "type": "Point"
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {},
+        "geometry": {
+          "coordinates": [
+            -49.23196634770443,
+            -25.451254279129785
+          ],
+          "type": "Point"
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {},
+        "geometry": {
+          "coordinates": [
+            -49.23080230869519,
+            -25.451559174926842
+          ],
+          "type": "Point"
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {},
+        "geometry": {
+          "coordinates": [
+            -49.232333417311594,
+            -25.45015945481181
+          ],
+          "type": "Point"
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {},
+        "geometry": {
+          "coordinates": [
+            -49.23350634734177,
+            -25.450785289871703
+          ],
+          "type": "Point"
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {},
+        "geometry": {
+          "coordinates": [
+            -49.23358325450266,
+            -25.449893455622558
+          ],
+          "type": "Point"
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {},
+        "geometry": {
+          "coordinates": [
+            -49.233712099088876,
+            -25.4498493260068
+          ],
+          "type": "Point"
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {},
+        "geometry": {
+          "coordinates": [
+            -49.234609568278984,
+            -25.450045903260985
+          ],
+          "type": "Point"
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {},
+        "geometry": {
+          "coordinates": [
+            -49.23063575000012,
+            -25.44960241230737
+          ],
+          "type": "Point"
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {},
+        "geometry": {
+          "coordinates": [
+            -49.231398728557224,
+            -25.44807491690277
+          ],
+          "type": "Point"
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {},
+        "geometry": {
+          "coordinates": [
+            -49.231660321594376,
+            -25.447630050165046
+          ],
+          "type": "Point"
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {},
+        "geometry": {
+          "coordinates": [
+            -49.2336527885561,
+            -25.44729147791888
+          ],
+          "type": "Point"
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {},
+        "geometry": {
+          "coordinates": [
+            -49.23665128297114,
+            -25.452082228467205
+          ],
+          "type": "Point"
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {},
+        "geometry": {
+          "coordinates": [
+            -49.236088857942406,
+            -25.45103505227719
+          ],
+          "type": "Point"
+        }
+      }
+    ]
+  };
+
+    // add markers to map
+    for (const feature of geojson.features) {
+      const el = document.createElement('div');
+      el.className = 'marker';
+      new mapboxgl.Marker(el)
+        .setLngLat(feature.geometry.coordinates)
+        .setPopup(
+          new mapboxgl.Popup({ offset: 25 }) // add popups
+            .setHTML(
+              `<h3>${feature.properties.title}</h3><p>${feature.properties.description}</p>`
+            )
+        )
+        .addTo(map);
+    }
+
+    // add markers to map
+    for (const feature of geojson1.features) {
+      const el = document.createElement('div');
+      el.className = 'marker1';
+      new mapboxgl.Marker(el)
+        .setLngLat(feature.geometry.coordinates)
+        .setPopup(
+          new mapboxgl.Popup({ offset: 25 }) // add popups
+            .setHTML(
+              `<h3>${feature.properties.title}</h3><p>${feature.properties.description}</p>`
+            )
+        )
+        .addTo(map);
+    }
+
+    // add markers to map
+    for (const feature of geojson2.features) {
+      const el = document.createElement('div');
+      el.className = 'marker2';
+      new mapboxgl.Marker(el)
+        .setLngLat(feature.geometry.coordinates)
+        .setPopup(
+          new mapboxgl.Popup({ offset: 25 }) // add popups
+            .setHTML(
+              `<h3>${feature.properties.title}</h3><p>${feature.properties.description}</p>`
+            )
+        )
+        .addTo(map);
+    }
+
+    // add markers to map
+    for (const feature of geojson3.features) {
+      const el = document.createElement('div');
+      el.className = 'marker3';
+      new mapboxgl.Marker(el)
+        .setLngLat(feature.geometry.coordinates)
+        .setPopup(
+          new mapboxgl.Popup({ offset: 25 })
+            .setHTML(
+              `<h3>${feature.properties.title}</h3><p>${feature.properties.description}</p>`
+            )
+        )
+        .addTo(map);
+    }
+    // add markers to map
+     for (const feature of geojson4.features) {
+      const el = document.createElement('div');
+      el.className = 'marker4';
+      new mapboxgl.Marker(el)
+        .setLngLat(feature.geometry.coordinates)
+        .setPopup(
+          new mapboxgl.Popup({ offset: 25 }) // add popups
+            .setHTML(
+              `<h3>${feature.properties.title}</h3><p>${feature.properties.description}</p>`
+            )
+        )
+        .addTo(map);
+    }
 
 
 direction = new MapboxDirections({
