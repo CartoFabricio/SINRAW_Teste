@@ -1,0 +1,49 @@
+{
+ 'type': 'FeatureCollection',
+ 'features': [
+   {
+     'type': 'Feature',
+     'geometry': {
+       'type': 'Point',
+       'coordinates': [-49.232580, -25.453163]
+     },
+     'properties': {
+       'title': 'Ponto de Ônibus',
+       'description': 'Ponto de Ônibus'
+     }
+   },
+   {
+     'type': 'Feature',
+     'geometry': {
+       'type': 'Point',
+       'coordinates': [-49.232136, -25.449854]
+     },
+     'properties': {
+       'title': 'Ponto de Ônibus',
+       'description': 'Ponto de Ônibus'
+     }
+   },
+   {
+     'type': 'Feature',
+     'geometry': {
+       'type': 'Point',
+       'coordinates': [-49.231291, -25.450282]
+     },
+     'properties': {
+       'title': 'Ponto de Ônibus',
+       'description': 'Ponto de Ônibus'
+     }
+   },
+   {
+     'type': 'Feature',
+     'geometry': {
+       'type': 'Point',
+       'coordinates': [-49.231550, -25.450184]
+     },
+     'properties': {
+       'title': 'Ponto de Ônibus',
+       'description': 'Ponto de Ônibus'
+     }
+   }
+ ]
+}

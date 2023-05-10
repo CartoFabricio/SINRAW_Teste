@@ -1,0 +1,16 @@
+{
+'type': 'FeatureCollection',
+'features': [
+{
+ 'type': 'Feature',
+ 'geometry': {
+   'type': 'Point',
+   'coordinates': [-49.234099, -25.44999]
+ },
+ 'properties': {
+   'title': 'Correios',
+   'description': 'Correios'
+ }
+},
+]
+}
