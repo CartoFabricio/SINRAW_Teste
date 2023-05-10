@@ -9,13 +9,14 @@ navigator.geolocation.getCurrentPosition( function(position) {
   const map = new mapboxgl.Map({
     style: 'mapbox://styles/mapbox/light-v10',
     center: [lng, lat], //longitude, latitude
-    zoom: 20,
-    pitch: 60,
-    bearing: -60,
+    zoom: 21,
+    pitch: 80,
+    bearing: 0,
     container: 'map',
     antialias: false,
     attributionControl:false,
   });
+
   var basemapSelector = document.getElementById('basemap-selector');
   basemapSelector.addEventListener('change', function () {
     var basemap = basemapSelector.value;
