@@ -2,6 +2,15 @@
 #menu{position: fixed; top: 0%; width: 100%;  z-index: 3;}
 #AR { position: fixed; top: 6%; bottom: 0%; left:0%; width: 100%; z-index: 1;}
 #map { position: fixed; top: 69%; bottom: 0%; left:0; width: 100%;  z-index: 1;}
+
+.footer {
+   position:fixed;
+   bottom:2px;
+   width:100%;
+   line-height: 80%;
+}
+#conteudo { position: absolute; top: 7%; bottom: 0; width: 96%; left:2%; z-index: 1; }
+
 #instructions {
   position: relative;
   width: 0%;

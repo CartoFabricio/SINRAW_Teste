@@ -23,7 +23,6 @@ navigator.geolocation.getCurrentPosition( function(position) {
     map.setStyle(basemap);
   });
 
-
   var pitchSlider = document.getElementById('pitch-slider');
   pitchSlider.addEventListener('input', function () {
     var pitch = Number(pitchSlider.value);
