@@ -43,12 +43,12 @@
 }
 
 .map-overlay {
-    font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    font: 13px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
     position: fixed;
     width: 100%;
     background-color: rgba(0,0,0,0) !important;
-    top: 20%;
-    left: 10%;
+    top: 15%;
+    left: 90%;
     z-index: 1;
 }
 
@@ -84,7 +84,7 @@
 
 
 .map-overlay-inner label {
-  font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font: 13px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
   display: block;
   font-weight: bold;
   margin: 0 0 5px;

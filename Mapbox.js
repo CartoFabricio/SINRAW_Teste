@@ -23,6 +23,7 @@ navigator.geolocation.getCurrentPosition( function(position) {
     map.setStyle(basemap);
   });
 
+
   var pitchSlider = document.getElementById('pitch-slider');
   pitchSlider.addEventListener('input', function () {
     var pitch = Number(pitchSlider.value);
@@ -79,6 +80,53 @@ map.addControl(new mapboxgl.AttributionControl({
     compact: true
   }), 'bottom-right')
 
+  map.on('load', function () {
+       map.addSource('layer1', {
+           type: 'geojson',
+           data: './Geojson/RU.geojson'
+       });
+
+       map.addLayer({
+           id: 'layer1',
+           type: 'fill',
+           source: 'layer1',
+           paint: {
+               'fill-color': '#f00',
+               'fill-opacity': 0.5
+           },
+           layout: {
+               'visibility': 'visible'
+           }
+       });
+
+       map.addSource('layer2', {
+           type: 'geojson',
+           data: 'path/to/Correios.geojson',
+       });
+
+       map.addLayer({
+           id: 'layer2',
+           type: 'line',
+           source: 'layer2',
+           paint: {
+               'line-color': '#00f',
+               'line-width': 2
+           },
+           layout: {
+               'visibility': 'none'
+           }
+       });
+
+       var layerRadioButtons = document.getElementsByName('camada');
+
+       for (var i = 0; i < layerRadioButtons.length; i++) {
+           layerRadioButtons[i].addEventListener('change', function() {
+               var layerId = this.value;
+               map.setLayoutProperty('layer1', 'visibility', layerId === 'layer1' ? 'visible' : 'none');
+               map.setLayoutProperty('layer2', 'visibility', layerId === 'layer2' ? 'visible' : 'none');
+           });
+       }
+   });
 
    const geojson = {
       'type': 'FeatureCollection',
@@ -533,7 +581,7 @@ map.addControl(new mapboxgl.AttributionControl({
         )
         .addTo(map);
     }
-    // add markers to map
+
      for (const feature of geojson4.features) {
       const el = document.createElement('div');
       el.className = 'marker4';
