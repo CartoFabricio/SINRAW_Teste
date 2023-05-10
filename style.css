@@ -2,15 +2,6 @@
 #menu{position: fixed; top: 0%; width: 100%;  z-index: 3;}
 #AR { position: fixed; top: 6%; bottom: 0%; left:0%; width: 100%; z-index: 1;}
 #map { position: fixed; top: 69%; bottom: 0%; left:0; width: 100%;  z-index: 1;}
-
-.footer {
-   position:fixed;
-   bottom:2px;
-   width:100%;
-   line-height: 80%;
-}
-#conteudo { position: absolute; top: 7%; bottom: 0; width: 96%; left:2%; z-index: 1; }
-
 #instructions {
   position: relative;
   width: 0%;
@@ -43,7 +34,7 @@
 }
 
 .map-overlay {
-    font: 13px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
     position: fixed;
     width: 100%;
     background-color: rgba(0,0,0,0) !important;
@@ -84,10 +75,11 @@
 
 
 .map-overlay-inner label {
-  font: 13px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
   display: block;
   font-weight: bold;
   margin: 0 0 5px;
+  text-shadow: 0 0 3px #FFFFFF, 0 0 5px #FFFFFF;
 }
 
 .map-overlay-inner button {
