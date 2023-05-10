@@ -101,7 +101,7 @@ map.addControl(new mapboxgl.AttributionControl({
 
        map.addSource('layer2', {
            type: 'geojson',
-           data: 'path/to/Correios.geojson'
+           data: 'path/to/Correios.geojson',
        });
 
        map.addLayer({
@@ -524,11 +524,8 @@ map.addControl(new mapboxgl.AttributionControl({
 
     // add markers to map
     for (const feature of geojson.features) {
-      // create a HTML element for each feature
       const el = document.createElement('div');
       el.className = 'marker';
-
-      // make a marker for each feature and add it to the map
       new mapboxgl.Marker(el)
         .setLngLat(feature.geometry.coordinates)
         .setPopup(
@@ -540,13 +537,10 @@ map.addControl(new mapboxgl.AttributionControl({
         .addTo(map);
     }
 
-          // add markers to map
+    // add markers to map
     for (const feature of geojson1.features) {
-      // create a HTML element for each feature
       const el = document.createElement('div');
       el.className = 'marker1';
-
-      // make a marker for each feature and add it to the map
       new mapboxgl.Marker(el)
         .setLngLat(feature.geometry.coordinates)
         .setPopup(
@@ -557,13 +551,11 @@ map.addControl(new mapboxgl.AttributionControl({
         )
         .addTo(map);
     }
-          // add markers to map
+
+    // add markers to map
     for (const feature of geojson2.features) {
-      // create a HTML element for each feature
       const el = document.createElement('div');
       el.className = 'marker2';
-
-      // make a marker for each feature and add it to the map
       new mapboxgl.Marker(el)
         .setLngLat(feature.geometry.coordinates)
         .setPopup(
@@ -575,29 +567,25 @@ map.addControl(new mapboxgl.AttributionControl({
         .addTo(map);
     }
 
+    // add markers to map
     for (const feature of geojson3.features) {
-      // create a HTML element for each feature
       const el = document.createElement('div');
       el.className = 'marker3';
-
-      // make a marker for each feature and add it to the map
       new mapboxgl.Marker(el)
         .setLngLat(feature.geometry.coordinates)
         .setPopup(
-          new mapboxgl.Popup({ offset: 25 }) // add popups
+          new mapboxgl.Popup({ offset: 25 })
             .setHTML(
               `<h3>${feature.properties.title}</h3><p>${feature.properties.description}</p>`
             )
         )
         .addTo(map);
     }
-
+    
+    // add markers to map
      for (const feature of geojson4.features) {
-      // create a HTML element for each feature
       const el = document.createElement('div');
       el.className = 'marker4';
-
-      // make a marker for each feature and add it to the map
       new mapboxgl.Marker(el)
         .setLngLat(feature.geometry.coordinates)
         .setPopup(
@@ -608,6 +596,8 @@ map.addControl(new mapboxgl.AttributionControl({
         )
         .addTo(map);
     }
+
+
 direction = new MapboxDirections({
   accessToken: mapboxgl.accessToken,
   language: 'pt-BR',
