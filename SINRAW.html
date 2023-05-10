@@ -8,12 +8,17 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 
 		<link href="./Bootstrap/bootstrap.css" rel="stylesheet">
-		<link href="./Bootstrap/bootstrap-responsive.css" rel="stylesheet">
-		<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://getbootstrap.com/2.3.2/assets/ico/apple-touch-icon-144-precomposed.png">
-		<link rel="apple-touch-icon-precomposed" sizes="114x114" href="https://getbootstrap.com/2.3.2/assets/ico/apple-touch-icon-114-precomposed.png">
-		<link rel="apple-touch-icon-precomposed" sizes="72x72" href="https://getbootstrap.com/2.3.2/assets/ico/apple-touch-icon-72-precomposed.png">
-		<link rel="apple-touch-icon-precomposed" href="https://getbootstrap.com/2.3.2/assets/ico/apple-touch-icon-57-precomposed.png">
-		<link rel="shortcut icon" href="https://getbootstrap.com/2.3.2/assets/ico/favicon.png">
+    <link href="./Bootstrap/bootstrap-responsive.css" rel="stylesheet">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://getbootstrap.com/2.3.2/assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="https://getbootstrap.com/2.3.2/assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="https://getbootstrap.com/2.3.2/assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="https://getbootstrap.com/2.3.2/assets/ico/apple-touch-icon-57-precomposed.png">
+    <link rel="shortcut icon" href="https://getbootstrap.com/2.3.2/assets/ico/favicon.png">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link type="text/css" rel="stylesheet" href="/icons/GlyphiconsV2/font/glyphicons.css" media="all">
+    <link type="text/css" rel="stylesheet" href="/icons/GlyphiconsV2/font/style.css" media="all">
 
 		<script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
 		<script src="https://unpkg.com/aframe-look-at-component@0.8.0/dist/aframe-look-at-component.min.js"></script>
@@ -26,6 +31,10 @@
 		<link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.css" type="text/css">
 
 <style>
+body {
+  margin: 0;
+  padding: 0;
+}
 #menu{position: fixed; top: 0%; width: 100%;  z-index: 3;}
 #AR { position: fixed; top: 6%; bottom: 0%; left:0%; width: 100%; z-index: 1;}
 #map { position: fixed; top: 69%; bottom: 0%; left:0; width: 100%;  z-index: 1;}
@@ -116,6 +125,75 @@
 .mapboxgl-popup-anchor-top-right .mapboxgl-popup-tip,
 .mapboxgl-popup-anchor-top-left .mapboxgl-popup-tip{
     display:none !important;
+}
+
+.map-overlay {
+        font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+        position: absolute;
+        width: 50px;
+        background-color: #deecf9;
+        top: 25%;
+        left: 2%;
+        z-index: 1;
+    }
+
+.map-overlay-inner {
+  position: fixed;
+  background-color: transparent;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  border-style: solid;
+  border-radius: 3px;
+  border-color:#598CB3;
+  padding: 10px;
+  margin-bottom: 10px;
+  position: absolute;
+  width: 300px;
+  top: -30px;
+  left: 50px;
+  z-index: 1;
+}
+
+.map-overlay-inner fieldset {
+  font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  border: none;
+  padding: 0;
+  margin: 0 0 10px;
+}
+
+.map-overlay-inner fieldset:last-child {
+  margin: 0;
+}
+
+.map-overlay-inner select {
+  font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  width: 100%;
+}
+
+.button{
+  position: fixed;
+  width: 150px;
+}
+.map-overlay-inner label {
+  font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  display: block;
+  font-weight: bold;
+  margin: 0 0 5px;
+}
+
+.map-overlay-inner button {
+  display: inline-block;
+  width: 36px;
+  height: 20px;
+  border: 1px;
+  cursor: pointer;
+}
+
+.map-overlay-inner button:focus {
+  outline: none;
+}
+
+.map-overlay-inner button:hover {
+  box-shadow: inset 0 0 0 3px rgba(0, 0, 0, 0.1);
 }
 </style>
 

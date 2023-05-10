@@ -16,6 +16,62 @@ navigator.geolocation.getCurrentPosition( function(position) {
     antialias: false,
     attributionControl:false,
   });
+  var basemapSelector = document.getElementById('basemap-selector');
+  basemapSelector.addEventListener('change', function () {
+    var basemap = basemapSelector.value;
+    map.setStyle(basemap);
+  });
+
+
+  var pitchSlider = document.getElementById('pitch-slider');
+  pitchSlider.addEventListener('input', function () {
+    var pitch = Number(pitchSlider.value);
+    map.setPitch(pitch);
+  });
+
+  var bearingSlider = document.getElementById('bearing-slider');
+  bearingSlider.addEventListener('input', function () {
+    var bearing = Number(bearingSlider.value);
+    map.setBearing(bearing);
+  });
+
+  map.on('load', () => {
+      // Add a custom layer that uses
+      // a vector tileset source.
+      map.addLayer({
+          id: 'triangles',
+          source: {
+              type: 'vector',
+              url: 'mapbox://examples.ckv9z0wgf5v7c27p7me2mf0l9-9wrve' // custom tileset
+          },
+          'source-layer': 'triangles',
+          type: 'fill'
+      });
+  });
+
+  const swatches = document.getElementById('swatches');
+  const layer = document.getElementById('layer');
+  const colors = [
+      '#ffffcc',
+      '#a1dab4',
+      '#41b6c4',
+      '#2c7fb8',
+      '#253494',
+      '#fed976',
+      '#feb24c',
+      '#fd8d3c',
+      '#f03b20',
+      '#bd0026'
+  ];
+
+  for (const color of colors) {
+      const swatch = document.createElement('button');
+      swatch.style.backgroundColor = color;
+      swatch.addEventListener('click', () => {
+          map.setPaintProperty(layer.value, 'fill-color', color);
+      });
+      swatches.appendChild(swatch);
+  }
 
 map.addControl(new mapboxgl.AttributionControl({
     compact: true
