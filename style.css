@@ -106,18 +106,16 @@ body {
 
 .map-overlay-inner {
   position: fixed;
-  background-color: transparent;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  top: -30px;
+  left: 50px;
+  background-color: rgba(0,0,0,0) !important;
   border-style: solid;
   border-radius: 3px;
   border-color:#598CB3;
   padding: 10px;
   margin-bottom: 10px;
-  position: absolute;
-  width: 300px;
-  top: -30px;
-  left: 50px;
-  z-index: 1;
+  z-index: 2;
 }
 
 .map-overlay-inner fieldset {
