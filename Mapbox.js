@@ -582,6 +582,7 @@ map.addControl(new mapboxgl.AttributionControl({
         .addTo(map);
     }
 
+    // add markers to map
      for (const feature of geojson4.features) {
       const el = document.createElement('div');
       el.className = 'marker4';
