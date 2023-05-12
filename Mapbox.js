@@ -17,6 +17,10 @@ navigator.geolocation.getCurrentPosition( function(position) {
     attributionControl:false,
   });
 
+  map.on('style.load', () => {
+      map.setFog({}); // Set the default atmosphere style
+  });
+
   var basemapSelector = document.getElementById('basemap-selector');
   basemapSelector.addEventListener('change', function () {
     var basemap = basemapSelector.value;
