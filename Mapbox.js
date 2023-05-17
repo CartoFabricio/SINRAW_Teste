@@ -9,24 +9,22 @@ navigator.geolocation.getCurrentPosition( function(position) {
   const map = new mapboxgl.Map({
     style: 'mapbox://styles/mapbox/light-v10',
     center: [lng, lat], //longitude, latitude
-    zoom: 21,
+    zoom: 19,
     pitch: 80,
     bearing: 0,
     container: 'map',
     antialias: false,
     attributionControl:false,
   });
-
-  map.on('style.load', () => {
-      map.setFog({}); // Set the default atmosphere style
-  });
+	map.on('style.load', () => {
+        map.setFog({}); // Set the default atmosphere style
+    });
 
   var basemapSelector = document.getElementById('basemap-selector');
   basemapSelector.addEventListener('change', function () {
     var basemap = basemapSelector.value;
     map.setStyle(basemap);
   });
-
 
   var pitchSlider = document.getElementById('pitch-slider');
   pitchSlider.addEventListener('input', function () {
@@ -40,566 +38,167 @@ navigator.geolocation.getCurrentPosition( function(position) {
     map.setBearing(bearing);
   });
 
-  map.on('load', () => {
-      // Add a custom layer that uses
-      // a vector tileset source.
-      map.addLayer({
-          id: 'triangles',
-          source: {
-              type: 'vector',
-              url: 'mapbox://examples.ckv9z0wgf5v7c27p7me2mf0l9-9wrve' // custom tileset
-          },
-          'source-layer': 'triangles',
-          type: 'fill'
-      });
-  });
-
-  const swatches = document.getElementById('swatches');
-  const layer = document.getElementById('layer');
-  const colors = [
-      '#ffffcc',
-      '#a1dab4',
-      '#41b6c4',
-      '#2c7fb8',
-      '#253494',
-      '#fed976',
-      '#feb24c',
-      '#fd8d3c',
-      '#f03b20',
-      '#bd0026',
-      '#000000',
-      '#FFFFFF',
+	// Create marker arrays for each layer
+  var layer1Markers = [
+      {
+          coordinates: [-49.232580, -25.453163],
+          color: '#000000',
+          size: 20
+      },
+     {
+          coordinates: [-49.232136, -25.449854],
+          color: '#000000',
+          size: 20
+      },
   ];
 
-  for (const color of colors) {
-      const swatch = document.createElement('button');
-      swatch.style.backgroundColor = color;
-      swatch.addEventListener('click', () => {
-          map.setPaintProperty(layer.value, 'fill-color', color);
+  var layer2Markers = [
+      {
+          coordinates: [-49.229949, -25.451687],
+          color: '#000000',
+          size: 20,
+      },
+    {
+          coordinates: [-49.232931, -25.453522],
+          color: '#000000',
+          size: 20,
+      },
+    {
+          coordinates: [-49.230441, -25.449003],
+          color: '#000000',
+          size: 20,
+      },
+  ];
+
+  var layer3Markers = [
+      {
+          coordinates: [-49.235028, -25.449557],
+          color: '#000000',
+          size: 20
+      },
+  ];
+
+  var layer4Markers = [
+      {
+          coordinates: [-49.234099, -25.44999],
+          color: '#000000',
+          size: 20
+      },
+  ];
+
+  function addMarkerLayer(markers, layerId) {
+      markers.forEach(function(marker, index) {
+          var el = document.createElement('div');
+          el.className = 'marker ' + layerId;
+          el.style.color = marker.color;
+          el.style.fontSize = marker.size + 'px';
+          el.style.lineHeight = marker.size + 'px';
+          el.style.cursor = 'pointer';
+
+          // Set marker content based on the layerId
+          switch (layerId) {
+              case 'layer1':
+                  el.innerHTML = '<i class="fas fa-bus"></i>'; // Bus symbol
+                  break;
+              case 'layer2':
+                  el.innerHTML = '<i class="fas fa-school"></i>'; // School symbol
+                  break;
+              case 'layer3':
+                  el.innerHTML = '<i class="fas fa-utensils"></i>'; // Food symbol
+                  break;
+               case 'layer4':
+                  el.innerHTML = '<i class="fas fa-envelope"></i>'; // Correios symbol
+                  break;
+              default:
+                  break;
+          }
+
+          new mapboxgl.Marker(el)
+              .setLngLat(marker.coordinates)
+              .addTo(map)
+              .getElement()
+              .addEventListener('click', function() {
+                  // Handle marker click event if needed
+                  console.log('Marker clicked: Layer ' + layerId + ', Index ' + index);
+              });
       });
-      swatches.appendChild(swatch);
   }
 
-map.addControl(new mapboxgl.AttributionControl({
-    compact: true
-  }), 'bottom-right')
+  addMarkerLayer(layer1Markers, 'layer1');
+  addMarkerLayer(layer2Markers, 'layer2');
+  addMarkerLayer(layer3Markers, 'layer3');
+  addMarkerLayer(layer4Markers, 'layer4');
 
-  map.on('load', function () {
-       map.addSource('layer1', {
-           type: 'geojson',
-           data: './Geojson/RU.geojson'
-       });
+  // Bind event listeners to layer controls
+  var layerSelect = document.getElementById('layer-select');
+  var swatches1 = document.getElementById('swatches1');
+  var iconSizeInput = document.getElementById('icon-size');
 
-       map.addLayer({
-           id: 'layer1',
-           type: 'fill',
-           source: 'layer1',
-           paint: {
-               'fill-color': '#f00',
-               'fill-opacity': 0.5
-           },
-           layout: {
-               'visibility': 'visible'
-           }
-       });
+  layerSelect.addEventListener('change', function() {
+      var selectedLayer = layerSelect.value;
 
-       map.addSource('layer2', {
-           type: 'geojson',
-           data: 'path/to/Correios.geojson',
-       });
+      // Update marker colors for the selected layer
+      var markers = document.getElementsByClassName(selectedLayer);
+      Array.from(markers).forEach(function(marker) {
+          marker.style.background = layerColorInput.value;
+      });
 
-       map.addLayer({
-           id: 'layer2',
-           type: 'line',
-           source: 'layer2',
-           paint: {
-               'line-color': '#00f',
-               'line-width': 2
-           },
-           layout: {
-               'visibility': 'none'
-           }
-       });
+      // Update marker sizes for the selected layer
+      iconSizeInput.removeEventListener('input', handleIconSizeChange);
+      iconSizeInput.value = 20;
+      iconSizeInput.addEventListener('input', handleIconSizeChange);
+  });
 
-       var layerRadioButtons = document.getElementsByName('camada');
+  function changeMarkerColor(color) {
+      var selectedLayer = layerSelect.value;
 
-       for (var i = 0; i < layerRadioButtons.length; i++) {
-           layerRadioButtons[i].addEventListener('change', function() {
-               var layerId = this.value;
-               map.setLayoutProperty('layer1', 'visibility', layerId === 'layer1' ? 'visible' : 'none');
-               map.setLayoutProperty('layer2', 'visibility', layerId === 'layer2' ? 'visible' : 'none');
-           });
-       }
-   });
+      // Update marker colors for the selected layer
+      var markers = document.getElementsByClassName(selectedLayer);
+      Array.from(markers).forEach(function(marker) {
+          marker.style.color = color;
+      });
+  }
 
-   const geojson = {
-      'type': 'FeatureCollection',
-      'features': [
-        {
-          'type': 'Feature',
-          'geometry': {
-            'type': 'Point',
-            'coordinates': [-49.235028, -25.449557]
-          },
-          'properties': {
-            'title': 'RU',
-            'description': 'Restaurante Universitário'
-          }
-        },
-      ]
-    };
+  // Function to create a color swatch
+  function createSwatch(color) {
+      const swatch = document.createElement('div');
+      swatch.className = 'swatch';
+      swatch.style.backgroundColor = color;
+      swatch.addEventListener('click', () => {
+          changeMarkerColor(color);
+      });
+      return swatch;
+  }
 
-    const geojson1 = {
-      'type': 'FeatureCollection',
-      'features': [
-        {
-          'type': 'Feature',
-          'geometry': {
-            'type': 'Point',
-            'coordinates': [-49.229949, -25.451687]
-          },
-          'properties': {
-            'title': 'Mapbox',
-            'description': 'Portaria'
-          }
-        },
-        {
-          'type': 'Feature',
-          'geometry': {
-            'type': 'Point',
-            'coordinates': [-49.232931, -25.453522]
-          },
-          'properties': {
-            'title': 'Mapbox',
-            'description': 'Portaria'
-          }
-        },
-        {
-          'type': 'Feature',
-          'geometry': {
-            'type': 'Point',
-            'coordinates': [-49.230441, -25.449003]
-          },
-          'properties': {
-            'title': 'Mapbox',
-            'description': 'Portaria'
-          }
-        }
-      ]
-    };
+  const colors = ['#ffffcc', '#a1dab4', '#41b6c4', '#2c7fb8', '#253494','#fed976', '#feb24c', '#fd8d3c', '#f03b20', '#bd0026'];
 
+  // Create color swatches and set event listeners
+  for (const color of colors) {
+      const swatch = createSwatch(color);
+                  swatches1.appendChild(swatch);
+  }
 
-    const geojson2 = {
-      'type': 'FeatureCollection',
-      'features': [
-        {
-          'type': 'Feature',
-          'geometry': {
-            'type': 'Point',
-            'coordinates': [-49.232580, -25.453163]
-          },
-          'properties': {
-            'title': 'Ponto de Ônibus',
-            'description': 'Ponto de Ônibus'
-          }
-        },
-        {
-          'type': 'Feature',
-          'geometry': {
-            'type': 'Point',
-            'coordinates': [-49.232136, -25.449854]
-          },
-          'properties': {
-            'title': 'Ponto de Ônibus',
-            'description': 'Ponto de Ônibus'
-          }
-        },
-        {
-          'type': 'Feature',
-          'geometry': {
-            'type': 'Point',
-            'coordinates': [-49.231291, -25.450282]
-          },
-          'properties': {
-            'title': 'Ponto de Ônibus',
-            'description': 'Ponto de Ônibus'
-          }
-        },
-        {
-          'type': 'Feature',
-          'geometry': {
-            'type': 'Point',
-            'coordinates': [-49.231550, -25.450184]
-          },
-          'properties': {
-            'title': 'Ponto de Ônibus',
-            'description': 'Ponto de Ônibus'
-          }
-        }
-      ]
-    };
+  function handleIconSizeChange() {
+      var size = parseFloat(iconSizeInput.value);
+      var selectedLayer = layerSelect.value;
+      // Update marker sizes for the selected layer
+      var markers = document.getElementsByClassName(selectedLayer);
+      Array.from(markers).forEach(function(marker) {
+          marker.style.fontSize = size + 'px';
+          marker.style.lineHeight = size + 'px';
+      });
+  }
 
-         const geojson3 = {
-      'type': 'FeatureCollection',
-      'features': [
-        {
-          'type': 'Feature',
-          'geometry': {
-            'type': 'Point',
-            'coordinates': [-49.234099, -25.44999]
-          },
-          'properties': {
-            'title': 'Correios',
-            'description': 'Correios'
-          }
-        },
-      ]
-    };
+  iconSizeInput.addEventListener('input', handleIconSizeChange);
 
-     const geojson4 =   {
-    "type": "FeatureCollection",
-    "features": [
-      {
-        "type": "Feature",
-        "properties": {},
-        "geometry": {
-          "coordinates": [
-            -49.233085960737924,
-            -25.453344376797858
-          ],
-          "type": "Point"
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {},
-        "geometry": {
-          "coordinates": [
-            -49.23354358116649,
-            -25.453187921663584
-          ],
-          "type": "Point"
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {},
-        "geometry": {
-          "coordinates": [
-            -49.23282382864804,
-            -25.453051524714468
-          ],
-          "type": "Point"
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {},
-        "geometry": {
-          "coordinates": [
-            -49.23257058239133,
-            -25.4525661107876
-          ],
-          "type": "Point"
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {},
-        "geometry": {
-          "coordinates": [
-            -49.23213331089232,
-            -25.453098276993444
-          ],
-          "type": "Point"
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {},
-        "geometry": {
-          "coordinates": [
-            -49.23144208152905,
-            -25.451743710824402
-          ],
-          "type": "Point"
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {},
-        "geometry": {
-          "coordinates": [
-            -49.23181972945565,
-            -25.451839992085638
-          ],
-          "type": "Point"
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {},
-        "geometry": {
-          "coordinates": [
-            -49.233814601085186,
-            -25.452473841045702
-          ],
-          "type": "Point"
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {},
-        "geometry": {
-          "coordinates": [
-            -49.233485825243434,
-            -25.451787838988665
-          ],
-          "type": "Point"
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {},
-        "geometry": {
-          "coordinates": [
-            -49.233112620233754,
-            -25.45097345720221
-          ],
-          "type": "Point"
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {},
-        "geometry": {
-          "coordinates": [
-            -49.23224625146139,
-            -25.451860049915567
-          ],
-          "type": "Point"
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {},
-        "geometry": {
-          "coordinates": [
-            -49.23196634770443,
-            -25.451254279129785
-          ],
-          "type": "Point"
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {},
-        "geometry": {
-          "coordinates": [
-            -49.23080230869519,
-            -25.451559174926842
-          ],
-          "type": "Point"
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {},
-        "geometry": {
-          "coordinates": [
-            -49.232333417311594,
-            -25.45015945481181
-          ],
-          "type": "Point"
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {},
-        "geometry": {
-          "coordinates": [
-            -49.23350634734177,
-            -25.450785289871703
-          ],
-          "type": "Point"
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {},
-        "geometry": {
-          "coordinates": [
-            -49.23358325450266,
-            -25.449893455622558
-          ],
-          "type": "Point"
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {},
-        "geometry": {
-          "coordinates": [
-            -49.233712099088876,
-            -25.4498493260068
-          ],
-          "type": "Point"
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {},
-        "geometry": {
-          "coordinates": [
-            -49.234609568278984,
-            -25.450045903260985
-          ],
-          "type": "Point"
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {},
-        "geometry": {
-          "coordinates": [
-            -49.23063575000012,
-            -25.44960241230737
-          ],
-          "type": "Point"
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {},
-        "geometry": {
-          "coordinates": [
-            -49.231398728557224,
-            -25.44807491690277
-          ],
-          "type": "Point"
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {},
-        "geometry": {
-          "coordinates": [
-            -49.231660321594376,
-            -25.447630050165046
-          ],
-          "type": "Point"
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {},
-        "geometry": {
-          "coordinates": [
-            -49.2336527885561,
-            -25.44729147791888
-          ],
-          "type": "Point"
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {},
-        "geometry": {
-          "coordinates": [
-            -49.23665128297114,
-            -25.452082228467205
-          ],
-          "type": "Point"
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {},
-        "geometry": {
-          "coordinates": [
-            -49.236088857942406,
-            -25.45103505227719
-          ],
-          "type": "Point"
-        }
-      }
-    ]
-  };
-
-    // add markers to map
-    for (const feature of geojson.features) {
-      const el = document.createElement('div');
-      el.className = 'marker';
-      new mapboxgl.Marker(el)
-        .setLngLat(feature.geometry.coordinates)
-        .setPopup(
-          new mapboxgl.Popup({ offset: 25 }) // add popups
-            .setHTML(
-              `<h3>${feature.properties.title}</h3><p>${feature.properties.description}</p>`
-            )
-        )
-        .addTo(map);
-    }
-
-    // add markers to map
-    for (const feature of geojson1.features) {
-      const el = document.createElement('div');
-      el.className = 'marker1';
-      new mapboxgl.Marker(el)
-        .setLngLat(feature.geometry.coordinates)
-        .setPopup(
-          new mapboxgl.Popup({ offset: 25 }) // add popups
-            .setHTML(
-              `<h3>${feature.properties.title}</h3><p>${feature.properties.description}</p>`
-            )
-        )
-        .addTo(map);
-    }
-
-    // add markers to map
-    for (const feature of geojson2.features) {
-      const el = document.createElement('div');
-      el.className = 'marker2';
-      new mapboxgl.Marker(el)
-        .setLngLat(feature.geometry.coordinates)
-        .setPopup(
-          new mapboxgl.Popup({ offset: 25 }) // add popups
-            .setHTML(
-              `<h3>${feature.properties.title}</h3><p>${feature.properties.description}</p>`
-            )
-        )
-        .addTo(map);
-    }
-
-    // add markers to map
-    for (const feature of geojson3.features) {
-      const el = document.createElement('div');
-      el.className = 'marker3';
-      new mapboxgl.Marker(el)
-        .setLngLat(feature.geometry.coordinates)
-        .setPopup(
-          new mapboxgl.Popup({ offset: 25 })
-            .setHTML(
-              `<h3>${feature.properties.title}</h3><p>${feature.properties.description}</p>`
-            )
-        )
-        .addTo(map);
-    }
-
-    // add markers to map
-     for (const feature of geojson4.features) {
-      const el = document.createElement('div');
-      el.className = 'marker4';
-      new mapboxgl.Marker(el)
-        .setLngLat(feature.geometry.coordinates)
-        .setPopup(
-          new mapboxgl.Popup({ offset: 25 }) // add popups
-            .setHTML(
-              `<h3>${feature.properties.title}</h3><p>${feature.properties.description}</p>`
-            )
-        )
-        .addTo(map);
-    }
+  // Update initial marker sizes based on the default layer selection and size
+  var initialSelectedLayer = layerSelect.value;
+  var initialSize = parseFloat(iconSizeInput.value);
+  var initialMarkers = document.getElementsByClassName(initialSelectedLayer);
+  Array.from(initialMarkers).forEach(function(marker) {
+      marker.style.fontSize = initialSize + 'px';
+      marker.style.lineHeight = initialSize + 'px';
+  });
 
 
 direction = new MapboxDirections({
@@ -770,64 +369,46 @@ map.on('load', () => {
   });
 });
 
-var nav = new mapboxgl.NavigationControl();
-        map.addControl(nav, 'top-left');
+	var nav = new mapboxgl.NavigationControl();
+	        map.addControl(nav, 'top-left');
 
-map.addControl(new mapboxgl.FullscreenControl());
+	map.addControl(new mapboxgl.FullscreenControl());
 
-var geolocate = new mapboxgl.GeolocateControl();
-map.addControl(
-    geolocate = new mapboxgl.GeolocateControl({
-    positionOptions: {
-    enableHighAccuracy: true
-    },
-    trackUserLocation: true,
-    showUserHeading: true,
-  })
-);
+	var geolocate = new mapboxgl.GeolocateControl();
+	map.addControl(
+	    geolocate = new mapboxgl.GeolocateControl({
+	    positionOptions: {
+	    enableHighAccuracy: true
+	    },
+	    trackUserLocation: true,
+	    showUserHeading: true,
+	  })
+	);
+	// Add 3D Buildings Layer
+	map.on('load', function () {
+		map.addLayer({
+			'id': '3d-buildings',
+			'source': 'composite',
+			'source-layer': 'building',
+			'filter': ['==', 'extrude', 'true'],
+			'type': 'fill-extrusion',
+			'minzoom': 10,
+			'paint': {
+				'fill-extrusion-color': '#aaa',
+				'fill-extrusion-height': ["get", "height"],
+				'fill-extrusion-base': ["get", "min_height"],
+				'fill-extrusion-opacity': 0.6
+			}
+		});
+	});
 
-
-
-
-map.on('load', () => {
-    // Insert the layer beneath any symbol layer.
-    const layers = map.getStyle().layers;
-    const labelLayerId = layers.find(
-        (layer) => layer.type === 'symbol' && layer.layout['text-field']
-    ).id;
-    geolocate.trigger();
-
-    map.addLayer(
-        {
-            'id': 'add-3d-buildings',
-            'source': 'composite',
-            'source-layer': 'building',
-            'filter': ['==', 'extrude', 'true'],
-            'type': 'fill-extrusion',
-            'minzoom': 20,
-            'paint': {
-                'fill-extrusion-color': '#aaa',
-                'fill-extrusion-height': [
-                    'interpolate',
-                    ['linear'],
-                    ['zoom'],
-                    15,
-                    0,
-                    15.05,
-                    ['get', 'height']
-                ],
-                'fill-extrusion-base': [
-                    'interpolate',
-                    ['linear'],
-                    ['zoom'],
-                    15,
-                    0,
-                    15.05,
-                    ['get', 'min_height']
-                ],
-                'fill-extrusion-opacity': 0.6
-            } },
-        labelLayerId
-    );
-  });
-});
+		// Toggle 3D Buildings
+		var toggle = document.getElementById('toggle');
+		toggle.addEventListener('change', function () {
+			if (toggle.checked) {
+				map.setLayoutProperty('3d-buildings', 'visibility', 'visible');
+			} else {
+				map.setLayoutProperty('3d-buildings', 'visibility', 'none');
+			}
+		});
+	});
