@@ -101,50 +101,39 @@
     position: fixed;
     width: 100%;
     background-color: rgba(0,0,0,0) !important;
-    top: 10%;
-    left: 84%;
+    top: 94%;
+    left: 87%;
     z-index: 2;
 }
-
 .map-overlay-inner {
   position: fixed;
   width: 72%;
   top: 18%;
-  left: 13%;
+  left: 12%;
   background-color: rgba(0,0,0,0) !important;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-  border-style: solid;
-  border-radius: 3px;
-  border-color: #598CB3;
   padding: 10px;
   z-index: 2;
 }
-
 .map-overlay-inner fieldset {
   font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
   border: none;
   padding: 0;
   margin: 0 0 10px;
 }
-
 .map-overlay-inner fieldset:last-child {
   margin: 0;
 }
-
 .map-overlay-inner select {
   font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
   width: 100%;
 }
-
-
 .map-overlay-inner label {
   font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
   display: block;
   font-weight: bold;
   margin: 0 0 5px;
-  text-shadow: 0 0 3px #FFFFFF, 0 0 5px #FFFFFF;
+  text-shadow: 0 0 10px #FFFFFF, 0 0 10px #FFFFFF;
 }
-
 .map-overlay-inner button {
   display: inline-block;
   width: 36px;
@@ -152,38 +141,11 @@
   border: 1px;
   cursor: pointer;
 }
-
 .map-overlay-inner button:focus {
   outline: none;
 }
-
 .map-overlay-inner button:hover {
   box-shadow: inset 0 0 0 3px rgba(0, 0, 0, 0.1);
-}
-.mapboxgl-popup {
-    position:fixed;
-    left:50%;
-    top: 25%;
-    height: 50%;
-    width: 350px;
-    transform:none !important;
-  }
-
-.mapboxgl-popup-content {
-    text-align: center;
-    font-family: 'Open Sans', sans-serif;
-  }
-}
-.mapboxgl-popup-anchor-top .mapboxgl-popup-tip,
-.mapboxgl-popup-anchor-bottom .mapboxgl-popup-tip,
-.mapboxgl-popup-anchor-center .mapboxgl-popup-tip,
-.mapboxgl-popup-anchor-left .mapboxgl-popup-tip,
-.mapboxgl-popup-anchor-right .mapboxgl-popup-tip,
-.mapboxgl-popup-anchor-bottom-right .mapboxgl-popup-tip,
-.mapboxgl-popup-anchor-bottom-left .mapboxgl-popup-tip,
-.mapboxgl-popup-anchor-top-right .mapboxgl-popup-tip,
-.mapboxgl-popup-anchor-top-left .mapboxgl-popup-tip{
-    display:none !important;
 }
 
 </style>
@@ -225,7 +187,7 @@
 	</div>
 
 	<div id= "map-overlay" class="map-overlay">
-    <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo"><span class="glyphicon glyphicon-cog" aria-hidden="true"> </button>
+    <button type="button" class="btn btn-light btn-sm" data-toggle="collapse" data-target="#demo"><span class="glyphicon glyphicon-cog fa-lg" aria-hidden="true"> </button>
     <div id="demo" class="collapse">
             <div class="map-overlay-inner">
                  <fieldset>
@@ -266,7 +228,7 @@
              	<fieldset>
 								<div class='toggle-container'>
 										<label for='toggle'>
-											<input type='checkbox' id='toggle' checked > 3D Buildings</label>
+											<input type='checkbox' id='toggle' checked >  3D Buildings</label>
 								</div>
               </fieldset>
             </div>
