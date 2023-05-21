@@ -1,55 +1,201 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+  <head>
+    <title>AR.js + A-Frame Example</title>
+       <link href="./Bootstrap/bootstrap.css" rel="stylesheet">
+    <link href="./Bootstrap/bootstrap-responsive.css" rel="stylesheet">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://getbootstrap.com/2.3.2/assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="https://getbootstrap.com/2.3.2/assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="https://getbootstrap.com/2.3.2/assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="https://getbootstrap.com/2.3.2/assets/ico/apple-touch-icon-57-precomposed.png">
+    <link rel="shortcut icon" href="https://getbootstrap.com/2.3.2/assets/ico/favicon.png">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link type="text/css" rel="stylesheet" href="/icons/GlyphiconsV2/font/glyphicons.css" media="all">
+    <link type="text/css" rel="stylesheet" href="/icons/GlyphiconsV2/font/style.css" media="all">
 
-<head>
-
-  <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
-  <script src="https://unpkg.com/aframe-look-at-component@0.8.0/dist/aframe-look-at-component.min.js"></script>
-  <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
-  <script src="https://cdn.rawgit.com/donmccurdy/aframe-physics-system/v4.0.1/dist/aframe-physics-system.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
-  <script src="https://raw.githack.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
-  <script src="https://raw.githack.com/jeromeetienne/AR.js/master/aframe/build/aframe-ar.min.js"></script>
-  <script> THREEx.ArToolkitContext.baseURL = 'https://raw.githack.com/jeromeetienne/ar.js/master/three.js/'</script>
-
-  <script> type="text/javascript"  src="./Mapbox.js"</script>
-</head>
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-look-at-component@0.8.0/dist/aframe-look-at-component.min.js"></script>
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
+    <script src="https://cdn.rawgit.com/donmccurdy/aframe-physics-system/v4.0.1/dist/aframe-physics-system.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
+    <script src="https://raw.githack.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
+    <script src="https://raw.githack.com/jeromeetienne/AR.js/master/aframe/build/aframe-ar.min.js"></script>
+    <script> THREEx.ArToolkitContext.baseURL = 'https://raw.githack.com/jeromeetienne/ar.js/master/three.js/'</script>
 
 
-<body style='margin: 0; overflow: hidden;'>
+    <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v2.9.2/mapbox-gl.js"></script>
+    <link href="https://api.tiles.mapbox.com/mapbox-gl-js/v2.9.2/mapbox-gl.css" rel="stylesheet">
+    <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.js"></script>
+    <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.css" type="text/css">
+    <style>
+      #controls {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        background-color: rgba(0,0,0,0) !important;
+        padding: 10px;
+        border-radius: 5px;
+      }
 
-    <a-scene
-       vr-mode-ui="enabled: true"
-		embedded
-        arjs='sourceType: webcam; sourceWidth:1280; sourceHeight:960; displayWidth: 1280; displayHeight: 960; debugUIEnabled: false;'>
+      #collapseButton {
+        cursor: pointer;
+        margin-bottom: 10px;
+      }
 
-        <!--  Reducing shaking effects -->
-        <a-camera
-            look-controls-enabled='false'
-            arjs-look-controls='smoothingFactor: 0.1'
-            gps-camera='maxDistance: 1500; gpsMinDistance: 5;'
-            rotation-reader
-        > </a-camera>
+      .collapsible {
+        display: none;
+      }
 
-        <!--  Ponto de Começo da Rota-->
-        <a-assets> <a-asset-item id="scene"  src="https://cdn.glitch.global/c5b64583-63c7-4806-a18f-9da936a15a07/Pin01.glb?v=1661047077855"></a-asset-item> </a-assets>
-        <a-entity gltf-model="#scene" gps-entity-place= `latitude: ${lat}; longitude: ${lng};` scale="4 4 4" rotation="0 0 90"></a-entity>
+      .collapsed {
+        display: block;
+      }
+    </style>
+  </head>
+  <body style="margin: 0; overflow: hidden;">
+    <a-scene embedded arjs="trackingMethod: best;">
+      <a-assets>
+        <a-asset-item id="pin1" src="https://cdn.glitch.global/c5b64583-63c7-4806-a18f-9da936a15a07/Pin01.glb?v=1661047077855"></a-asset-item>
+        <a-asset-item id="pin2" src="https://cdn.glitch.global/c5b64583-63c7-4806-a18f-9da936a15a07/Pin02.glb?v=1661104816276"></a-asset-item>
+        <a-asset-item id="pin3" src="https://cdn.glitch.global/c5b64583-63c7-4806-a18f-9da936a15a07/Pin03.glb?v=1661104945189"></a-asset-item>
+      </a-assets>
 
-        <!--  Ponto de Final da Rota -->
-        <a-assets> <a-asset-item id="scene"  src="https://cdn.glitch.global/c5b64583-63c7-4806-a18f-9da936a15a07/Pin01.glb?v=1661047077855"></a-asset-item> </a-assets>
-        <a-entity gltf-model="#scene" gps-entity-place= `latitude: -5.088858; longitude: -42.775483;` scale="4 4 4" rotation="0 0 90"></a-entity>
+      <a-entity id="modelContainer"></a-entity>
 
-        <!--  Ponto de Final da Rota -->
-        <a-assets> <a-asset-item id="scene"  src="https://cdn.glitch.global/c5b64583-63c7-4806-a18f-9da936a15a07/Pin01.glb?v=1661047077855"></a-asset-item> </a-assets>
-        <a-entity gltf-model="#scene" gps-entity-place= `latitude: -5.088682; longitude: -42.774857;`  scale="4 4 4" rotation="0 0 90"></a-entity>
+      <a-entity camera></a-entity>
+    </a-scene>
 
-        <!--  Ponto de Final da Rota -->
-        <a-assets> <a-asset-item id="scene"  src="https://cdn.glitch.global/c5b64583-63c7-4806-a18f-9da936a15a07/Pin01.glb?v=1661047077855"></a-asset-item> </a-assets>
-        <a-entity gltf-model="#scene" gps-entity-place= `latitude: -5.087058; longitude: -42.775271;`  scale="4 4 4" rotation="0 0 90"></a-entity>
+    <div id="controls">
+      <div id="collapseButton" onclick="toggleCollapse()" class="glyphicon glyphicon-cog"></div>
+      <div id="collapsibleControls" class="collapsible">
+        <p>Símbolos
+        <select id="modelSelector" onchange="loadModel()">
+          <option value="pin1">Pin 1</option>
+          <option value="pin2">Pin 2</option>
+          <option value="pin3">Pin 3</option>
+        </select></p>
+        <div>
+          <p>Posição</p>
+          <button onclick="moveLeft()"class="glyphicon glyphicon-arrow-left"></button>
+          <button onclick="moveUp()" class="glyphicon glyphicon-arrow-up"></button>
+          <button onclick="moveDown()" class="glyphicon glyphicon-arrow-down"></button>
+          <button onclick="moveRight()" class="glyphicon glyphicon-arrow-right"></button>
+          </br>
+          <button onclick="resetPosition()">Reset</button>
+        </div>
+        <div>
+          <p>Tamanho</p>
+          <input type="range" id="size" min="0" max="3" step="0.1" value="1" onchange="changeSize()">
+          <button onclick="animateScale()" class="glyphicon glyphicon-play"> </button>
+          <button onclick="stopAnimation()" class="glyphicon glyphicon-stop"> </button>
+        </div>
+      </div>
+    </div>
 
-        <!--  Ponto de Final da Rota -->
-        <a-assets> <a-asset-item id="scene"  src="https://cdn.glitch.global/c5b64583-63c7-4806-a18f-9da936a15a07/Pin01.glb?v=1661047077855"></a-asset-item> </a-assets>
-        <a-entity gltf-model="#scene" gps-entity-place= `latitude: -5.087071; longitude: -42.775033;`  scale="4 4 4" rotation="0 0 90"></a-entity>
+    <script>
 
-  </a-scene>
-</body
+      var currentModel = null;
+      var initialPosition = { x: 0, y: 0, z: -15 };
+
+      // Function to load the selected model
+      function loadModel() {
+        var modelSelector = document.getElementById("modelSelector");
+        var selectedModel = modelSelector.value;
+        var modelContainer = document.getElementById("modelContainer");
+
+        // Remove any existing models
+        while (modelContainer.firstChild) {
+          modelContainer.removeChild(modelContainer.firstChild);
+        }
+
+        // Load the selected model
+        var model = document.createElement("a-entity");
+        model.setAttribute("gltf-model", "#" + selectedModel);
+
+        // Position and scale the model
+        model.setAttribute("position", "0 0 -15");
+        model.setAttribute("scale", "1 1 1");
+
+        // Add the model to the container
+        modelContainer.appendChild(model);
+
+        currentModel = model;
+        initialPosition = { x: 0, y: 0, z: -15 };
+
+      }
+
+      // Function to move the model up
+      function moveUp() {
+        if (currentModel) {
+          currentModel.object3D.position.y += 0.1;
+        }
+      }
+
+      // Function to move the model down
+      function moveDown() {
+        if (currentModel) {
+          currentModel.object3D.position.y -= 0.1;
+        }
+      }
+
+      // Function to move the model right
+      function moveRight() {
+        if (currentModel) {
+          currentModel.object3D.position.x += 0.1;
+        }
+      }
+
+      // Function to move the model left
+      function moveLeft() {
+        if (currentModel) {
+          currentModel.object3D.position.x -= 0.1;
+        }
+      }
+
+      // Function to reset the position of the model
+      function resetPosition() {
+        if (currentModel) {
+          currentModel.object3D.position.copy(initialPosition);
+        }
+      }
+
+      // Function to animate the scale of the model
+      function animateScale() {
+        if (currentModel) {
+          currentModel.setAttribute("animation", {
+            property: "scale",
+            to: "2 2 2",
+            dur: 2000,
+            easing: "easeInOutQuad",
+            loop: true,
+            direction: "alternate"
+          });
+        }
+      }
+
+      // Function to stop the animation
+      function stopAnimation() {
+        if (currentModel) {
+          currentModel.removeAttribute("animation");
+        }
+      }
+
+
+      // Function to change the size of the model
+      function changeSize() {
+        if (currentModel) {
+          var size = document.getElementById("size").value / 1;
+
+          currentModel.setAttribute("scale", `${size} ${size} ${size}`);
+        }
+      }
+
+      // Function to toggle the visibility of the collapsible controls
+      function toggleCollapse() {
+        var collapsible = document.getElementById("collapsibleControls");
+        collapsible.classList.toggle("collapsed");
+      }
+    </script>
+  </body>
+</html>
