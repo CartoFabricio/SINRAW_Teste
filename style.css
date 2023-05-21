@@ -1,24 +1,4 @@
-#controls {
-  position: fixed;
-  top: 15%;
-  right: 5%;
-  background-color: rgba(0,0,0,0) !important;
-  padding: 10px;
-  border-radius: 5px;
-}
 
-#collapseButton {
-  cursor: pointer;
-  margin-bottom: 10px;
-}
-
-.collapsible {
-  display: none;
-}
-
-.collapsed {
-  display: block;
-}
 
 #menu{position: fixed; top: 0%; width: 100%;  z-index: 3;}
 #AR { position: fixed; top: 6%; bottom: 0%; left:0%; width: 100%; z-index: 1;}
@@ -149,4 +129,25 @@
 .toggle-container {
     display: flex;
     align-items: center;
+}
+#controls {
+  position: fixed;
+  top: 15%;
+  right: 5%;
+  background-color: rgba(0,0,0,0) !important;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+#collapseButton {
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.collapsible {
+  display: none;
+}
+
+.collapsed {
+  display: block;
 }
