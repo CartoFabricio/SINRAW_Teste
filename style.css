@@ -169,8 +169,8 @@
 
 #collapseButton {
   cursor: pointer;
-  margin-bottom: 10px;
-    background-color:#000000;
+  background-color: #ffffff;
+    border: 1px solid #000000;
 }
 
 .collapsible {
