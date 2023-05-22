@@ -654,7 +654,7 @@ map.on('load', () => {
 var nav = new mapboxgl.NavigationControl();
         map.addControl(nav, 'top-left');
 
-map.addControl(new mapboxgl.FullscreenControl());
+map.addControl(new mapboxgl.FullscreenControl(), 'top-left');
 
 var geolocate = new mapboxgl.GeolocateControl();
 map.addControl(
@@ -664,7 +664,7 @@ map.addControl(
     },
     trackUserLocation: true,
     showUserHeading: true,
-  })
+  }),'top-left'
 );
 
   // Add 3D Buildings Layer
