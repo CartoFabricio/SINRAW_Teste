@@ -162,8 +162,10 @@
   background-color: #FFFFFF;
   top: 80%;
   right: 5%;
+  z-index: 2;
 }
-#collapsibleControls{
+
+.collapsible {
   position: fixed;
   top: 10%;
   right: 15%;
@@ -174,9 +176,6 @@
   font-weight: bold;
   margin: 0 0 5px;
   text-shadow: 0 0 10px #FFFFFF, 0 0 10px #FFFFFF;
-}
-.collapsible {
-  display: none;
 }
 
 .collapsed {
