@@ -81,8 +81,8 @@
     width: 100%;
     background-color: rgba(0,0,0,0) !important;
     top: 70%;
-    right: 50%;
-    z-index: 2;
+    right: 13%;
+    z-index: 1;
 }
 .map-overlay-inner {
   position: fixed;
@@ -165,10 +165,11 @@
   z-index: 2;
 }
 
-.collapsible {
+#collapsible {
+  display: none;
   position: fixed;
   top: 15%;
-  right: 5%;
+  left: 5%;
   background-color: rgba(0,0,0,0) !important;
   padding: 10px;
   border-radius: 5px;
