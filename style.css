@@ -142,8 +142,8 @@
 }
 #controls {
   position: fixed;
-  top: 50%;
-  right: 5%;
+  top: 90%;
+  right: 15%;
   background-color: rgba(0,0,0,0) !important;
   padding: 10px;
   border-radius: 5px;
