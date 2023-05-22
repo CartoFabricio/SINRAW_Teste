@@ -78,7 +78,7 @@
 	</div>
 
 	<div id= "map-overlay" class="map-overlay">
-    <button type="button" data-toggle="collapse" data-target="#demo"><span class="glyphicon glyphicon-cog fa-lg" aria-hidden="false"> </button>
+    <button type="button" data-toggle="collapse" style="font-size: 20px" data-target="#demo"><span class="glyphicon glyphicon-cog" aria-hidden="false"> </button>
     <div id="demo" class="collapse">
             <div class="map-overlay-inner">
                  <fieldset>
@@ -649,9 +649,9 @@ map.on('load', () => {
 });
 
 var nav = new mapboxgl.NavigationControl();
-        map.addControl(nav, 'top-left');
+        map.addControl(nav, 'top-right');
 
-map.addControl(new mapboxgl.FullscreenControl(), 'top-left');
+map.addControl(new mapboxgl.FullscreenControl(), 'top-right');
 
 var geolocate = new mapboxgl.GeolocateControl();
 map.addControl(
@@ -661,7 +661,7 @@ map.addControl(
     },
     trackUserLocation: true,
     showUserHeading: true,
-  }),'top-left'
+  }),'top-right'
 );
 
   // Add 3D Buildings Layer

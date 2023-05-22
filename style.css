@@ -83,7 +83,7 @@
     width: 100%;
     background-color: rgba(0,0,0,0) !important;
     top: 70%;
-    left: 88%;
+    left: 3%;
     z-index: 2;
 }
 
@@ -155,22 +155,17 @@
 }
 #controls {
   position: absolute;
-  top: 80%;
-  left: 85%;
-  background-color: #FFFFFF;
-  padding: 10px;
-  border-radius: 5px;
+  top: 20%;
+  left: 3%;
   font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
   font-weight: bold;
-  margin: 0 0 5px;
-  border: 1px solid #000000;
-  text-shadow: 0 0 10px #FFFFFF, 0 0 10px #FFFFFF;
 }
 
 #collapseButton {
   cursor: pointer;
-  background-color: #ffffff;
-    border: 1px solid #000000;
+   background-color: #ffffff;
+  padding: 5px;
+  margin:10px;
 }
 
 .collapsible {
@@ -178,6 +173,7 @@
   top:30%;
   left: 5%;
   background-color:rgba(0,0,0,0) !important;
+  text-shadow: 0 0 10px #FFFFFF, 0 0 10px #FFFFFF;
 }
 
 .collapsed {
