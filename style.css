@@ -167,8 +167,8 @@
 
 .collapsible {
   position: fixed;
-  top: 10%;
-  right: 15%;
+  top: 15%;
+  right: 5%;
   background-color: rgba(0,0,0,0) !important;
   padding: 10px;
   border-radius: 5px;
