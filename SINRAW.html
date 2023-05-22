@@ -157,7 +157,7 @@ navigator.geolocation.getCurrentPosition( function(position) {
     bearing: 0,
     container: 'map',
     antialias: false,
-    attributionControl:false,
+    attributionControl:true,
   });
     map.on('style.load', () => {
         map.setFog({}); // Set the default atmosphere style
