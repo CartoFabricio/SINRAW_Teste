@@ -165,10 +165,9 @@
   position: fixed;
   cursor: pointer;
   background-color: #ffffff;
-  padding: 5px;
   margin:10px;
-  top: 55%;
-  left: 5%;
+  top: 90%;
+  left: 2%;
 }
 
 .collapsible {
