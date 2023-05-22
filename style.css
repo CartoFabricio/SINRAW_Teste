@@ -82,7 +82,7 @@
     background-color: rgba(0,0,0,0) !important;
     top: 70%;
     right: 50%;
-    z-index: 3;
+    z-index: 2;
 }
 .map-overlay-inner {
   position: fixed;
@@ -145,8 +145,6 @@
 }
 #controls {
   position: fixed;
-  top: 20%;
-  left: 5%;
   background-color: rgba(0,0,0,0) !important;
   padding: 10px;
   border-radius: 5px;
