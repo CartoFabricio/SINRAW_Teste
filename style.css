@@ -77,7 +77,7 @@
 }
 .map-overlay {
     font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
-    position: absolute;
+    position: fixed;
     width: 100%;
     background-color: rgba(0,0,0,0) !important;
     top: 70%;
@@ -150,12 +150,22 @@
   background-color: rgba(0,0,0,0) !important;
   padding: 10px;
   border-radius: 5px;
+  width: 50px;
+  height: 50px;
+  font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  margin: 0 0 5px;
+  text-shadow: 0 0 10px #FFFFFF, 0 0 10px #FFFFFF;
 }
 
 #collapseButton {
   cursor: pointer;
   margin-bottom: 10px;
   background-color: #FFFFFF;
+  width: 50px;
+  height: 50px;
+  top: 80%;
+  right: 5%;
 }
 
 .collapsible {
