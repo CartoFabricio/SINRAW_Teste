@@ -165,7 +165,18 @@
   top: 80%;
   right: 5%;
 }
-
+#collapsibleControls{
+  position: fixed;
+  top: 40%;
+  right: 15%;
+  background-color: rgba(0,0,0,0) !important;
+  padding: 10px;
+  border-radius: 5px;
+  font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  margin: 0 0 5px;
+  text-shadow: 0 0 10px #FFFFFF, 0 0 10px #FFFFFF;
+}
 .collapsible {
   display: none;
 }
