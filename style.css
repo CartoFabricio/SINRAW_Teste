@@ -160,8 +160,6 @@ height: 25px;
   left: 0%;
   font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
   font-weight: bold;
-  width: 30px;
-height: 25px;
 }
 
 #collapseButton {
@@ -171,7 +169,7 @@ height: 25px;
   margin:10px;
   top: 90%;
   left: 2%;
-  width: 30px;
+  width: 35px;
   height: 30px;
 
 }
