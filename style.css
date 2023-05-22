@@ -84,6 +84,8 @@
     top: 70%;
     left: 5%;
     z-index: 3;
+    width: 30px;
+height: 25px;
 }
 
 .map-overlay-inner {
@@ -155,15 +157,17 @@
 #controls {
   position: fixed;
   top: 22%;
-  left: 5%;
+  left: 0%;
   font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
   font-weight: bold;
+  width: 30px;
+height: 25px;
 }
 
 #collapseButton {
   position: fixed;
   cursor: pointer;
-  background-color: #ffffff;
+  background-color: #d3d3d3;
   margin:10px;
   top: 90%;
   left: 2%;
