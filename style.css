@@ -84,7 +84,7 @@
     background-color: rgba(0,0,0,0) !important;
     top: 70%;
     left: 5%;
-    z-index: 2;
+    z-index: 3;
 }
 
 .map-overlay-inner {
