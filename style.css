@@ -166,9 +166,9 @@
 }
 
 #collapsible {
-  display: none;
   position: fixed;
-  top: 15%;
+  display: inherit;
+  top: 20%;
   left: 5%;
   background-color: rgba(0,0,0,0) !important;
   padding: 10px;
