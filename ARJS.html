@@ -16,6 +16,9 @@
     <link type="text/css" rel="stylesheet" href="/icons/GlyphiconsV2/font/glyphicons.css" media="all">
     <link type="text/css" rel="stylesheet" href="/icons/GlyphiconsV2/font/style.css" media="all">
 
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
     <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
     <script src="https://unpkg.com/aframe-look-at-component@0.8.0/dist/aframe-look-at-component.min.js"></script>
     <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
@@ -65,10 +68,10 @@
           <button onclick="resetPosition()">Reset</button></p>
         </div>
         <div>
-          <p>Tamanho</p>
+          <p>Tamanho
+            <button onclick="animateScale()" class="glyphicon glyphicon-play"> </button>
+            <button onclick="stopAnimation()" class="glyphicon glyphicon-stop"> </button> </p>
           <input type="range" id="size" min="0" max="3" step="0.1" value="1" onchange="changeSize()">
-          <button onclick="animateScale()" class="glyphicon glyphicon-play"> </button>
-          <button onclick="stopAnimation()" class="glyphicon glyphicon-stop"> </button>
         </div>
       </div>
     </div>
