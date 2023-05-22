@@ -83,7 +83,7 @@
 .map-overlay-inner {
   position: fixed;
   width: 72%;
-  top: 18%;
+  bottom: 30%;
   left: 12%;
   background-color: rgba(0,0,0,0) !important;
   padding: 10px;
