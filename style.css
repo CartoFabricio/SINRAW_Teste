@@ -1,4 +1,6 @@
 #menu{position: fixed; top: 0%; right:2%; width: 100%;  z-index: 3;}
+
+
 #AR { position: fixed; top: 6%; bottom: 0%; left:0%; width: 100%; z-index: 1;}
 #map { position: fixed; top: 69%; bottom: 0%; left:0; width: 100%;  z-index: 1;}
 #lista{position: fixed; top: 15%; width: 95%;  z-index: 2;}
@@ -6,6 +8,11 @@
 #conteudo { position: absolute; top: 7%; bottom: 0; left: 3%; width: 97%;  z-index: 1;}
 #Buttons{ position: fixed; left:2%; height: 27.5%; width: 35%; max-width:35% !important;display:inline-grid;}
 #aframe{ position: fixed; top: 45%; bottom: 2%; left:2%; width: 96%; height: 55%; z-index: 1;}
+#closeButton {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
 .footer {
    position:fixed;
    bottom:2px;
