@@ -156,7 +156,7 @@
 #controls {
   position: fixed;
   top: 22%;
-  left: 10%;
+  left: 5%;
   font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
   font-weight: bold;
 }
@@ -168,8 +168,9 @@
   margin:10px;
   top: 90%;
   left: 2%;
-  height: 15px;
-  width:15px;
+  width: 30px;
+  height: 30px;
+
 }
 
 .collapsible {
