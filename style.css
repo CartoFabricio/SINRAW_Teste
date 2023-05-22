@@ -155,8 +155,8 @@
 }
 #controls {
   position: absolute;
-  top: 70%;
-  left: 80%;
+  top: 80%;
+  left: 85%;
   background-color: rgba(0,0,0,0) !important;
   padding: 10px;
   border-radius: 5px;
@@ -169,6 +169,7 @@
 #collapseButton {
   cursor: pointer;
   margin-bottom: 10px;
+    background-color:#000000;
 }
 
 .collapsible {
