@@ -1,4 +1,4 @@
-#menu{position: fixed; top: 0%; width: 100%;  z-index: 3;}
+#menu{position: fixed; top: 0%; right:2%; width: 100%;  z-index: 3;}
 #AR { position: fixed; top: 6%; bottom: 0%; left:0%; width: 100%; z-index: 1;}
 #map { position: fixed; top: 69%; bottom: 0%; left:0; width: 100%;  z-index: 1;}
 #lista{position: fixed; top: 15%; width: 95%;  z-index: 2;}
@@ -11,6 +11,7 @@
    bottom:2px;
    width:100%;
    line-height: 80%;
+   right:2%;
 }
 #conteudo {
 	position: absolute;
@@ -46,7 +47,7 @@
   left: 0%;
   top: 6.5%;
 }
-.nav{padding-left: 5%}
+.nav{padding-left: 5%; right:10px;}
 #collapse1{
   padding-right: 15%:
 }
@@ -78,7 +79,7 @@
     background-color: rgba(0,0,0,0) !important;
     top: 70%
     left: 80%;
-    z-index: 3;
+    z-index: 2;
 }
 .map-overlay-inner {
   position: fixed;
