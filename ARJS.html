@@ -79,7 +79,7 @@
     <script>
 
       var currentModel = null;
-      var initialPosition = { x: 0, y: 0, z: -15 };
+      var initialPosition = { x: 0, y: 0, z: -20 };
 
       // Function to load the selected model
       function loadModel() {
@@ -97,14 +97,14 @@
         model.setAttribute("gltf-model", "#" + selectedModel);
 
         // Position and scale the model
-        model.setAttribute("position", "0 0 -15");
+        model.setAttribute("position", "0 0 -20");
         model.setAttribute("scale", "1 1 1");
 
         // Add the model to the container
         modelContainer.appendChild(model);
 
         currentModel = model;
-        initialPosition = { x: 0, y: 0, z: -15 };
+        initialPosition = { x: 0, y: 0, z: -20 };
 
       }
 
