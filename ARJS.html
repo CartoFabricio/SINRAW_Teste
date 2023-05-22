@@ -51,7 +51,7 @@
     </a-scene>
 
     <div id="controls">
-      <div id="collapseButton"  type="button" onclick="toggleCollapse()" style="font-size: 20px" class="glyphicon glyphicon-cog"></div>
+      <button id="collapseButton" type="button" data-toggle="collapse" onclick="toggleCollapse()" style="font-size: 20px" data-target="#demo"><span class="glyphicon glyphicon-cog" aria-hidden="false"> </button>
       <div id="collapsibleControls" class="collapsible">
         <p>Símbolos
         <select id="modelSelector" onchange="loadModel()">
