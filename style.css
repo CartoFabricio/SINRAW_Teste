@@ -165,11 +165,11 @@ height: 25px;
 #collapseButton {
   position: fixed;
   cursor: pointer;
-  background-color: #d3d3d3;
+  background-color: #D3D3D3;
   margin:10px;
   top: 90%;
   left: 2%;
-  width: 35px;
+  width: 40px;
   height: 30px;
 
 }
