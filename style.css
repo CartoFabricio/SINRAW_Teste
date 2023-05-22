@@ -157,12 +157,13 @@
   position: absolute;
   top: 80%;
   left: 85%;
-  background-color: rgba(0,0,0,0) !important;
+  background-color: #FFFFFF;
   padding: 10px;
   border-radius: 5px;
   font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
   font-weight: bold;
   margin: 0 0 5px;
+  border: 1px solid #000000;
   text-shadow: 0 0 10px #FFFFFF, 0 0 10px #FFFFFF;
 }
 
@@ -174,6 +175,9 @@
 
 .collapsible {
   display: none;
+  top:30%;
+  left: 5%;
+  background-color:rgba(0,0,0,0) !important;
 }
 
 .collapsed {
