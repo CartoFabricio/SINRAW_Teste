@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
     <script src="https://unpkg.com/aframe-look-at-component@0.8.0/dist/aframe-look-at-component.min.js"></script>
     <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
     <script src="https://cdn.rawgit.com/donmccurdy/aframe-physics-system/v4.0.1/dist/aframe-physics-system.min.js"></script>
@@ -43,6 +43,10 @@
         <a-asset-item id="pin1" src="https://cdn.glitch.global/c5b64583-63c7-4806-a18f-9da936a15a07/Pin01.glb?v=1661047077855"></a-asset-item>
         <a-asset-item id="pin2" src="https://cdn.glitch.global/c5b64583-63c7-4806-a18f-9da936a15a07/Pin02.glb?v=1661104816276"></a-asset-item>
         <a-asset-item id="pin3" src="https://cdn.glitch.global/c5b64583-63c7-4806-a18f-9da936a15a07/Pin03.glb?v=1661104945189"></a-asset-item>
+        <a-asset-item id="seta1" src="https://cdn.glitch.global/c5b64583-63c7-4806-a18f-9da936a15a07/Arrow01.glb?v=1661107739801"></a-asset-item>
+        <a-asset-item id="seta2" src="https://cdn.glitch.global/c5b64583-63c7-4806-a18f-9da936a15a07/Arrow02.glb?v=1661107775383"></a-asset-item>
+        <a-asset-item id="seta3" src="https://cdn.glitch.global/c5b64583-63c7-4806-a18f-9da936a15a07/Arrow04.glb?v=1661107875653"></a-asset-item>
+        <a-asset-item id="seta4" src="https://cdn.glitch.global/c5b64583-63c7-4806-a18f-9da936a15a07/Arrow05.glb?v=1661107882896"></a-asset-item>
       </a-assets>
 
       <a-entity id="modelContainer"></a-entity>
@@ -55,10 +59,14 @@
       <div id="collapsibleControls" class="collapsible">
         <p>  Símbolos
         <select id="modelSelector" onchange="loadModel()">
-          <option value="pin0">Sem símbolo</option>
+          <option value="" style="font-weight: bold">Sem exibição</option>
           <option value="pin1">Pin 1 - azul </option>
           <option value="pin2">Pin 2- roxo </option>
           <option value="pin3">Pin 3 - vermelho</option>
+          <option value="seta1">Seta 1</option>
+          <option value="seta2">Seta 2</option>
+          <option value="seta3">Seta3</option>
+          <option value="seta4">Seta 4</option>
         </select></p>
         <div>
           <p>   Posição
@@ -149,8 +157,8 @@
         if (currentModel) {
           currentModel.setAttribute("animation", {
             property: "scale",
-            to: "2 2 2",
-            dur: 2000,
+            to: "3 3 3",
+            dur: 2500,
             easing: "easeInOutQuad",
             loop: true,
             direction: "alternate"
