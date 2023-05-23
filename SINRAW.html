@@ -77,8 +77,9 @@
 		</div>
 	</div>
 
+
 	<div id= "map-overlay" class="map-overlay">
-    <button type="button" data-toggle="collapse" style="font-size: 20px" data-target="#demo"><span class="glyphicon glyphicon-cog" aria-hidden="false"> </button>
+    <button type="button" data-toggle="collapse" onclick="toggleCollapse()" style="font-size: 20px" data-target="#demo"><span class="glyphicon glyphicon-cog" aria-hidden="false"> </button>
     <div id="demo" class="collapse">
             <div class="map-overlay-inner">
                  <fieldset>
@@ -692,6 +693,12 @@ map.addControl(
     }
   });
 });
+
+		// Function to toggle the visibility of the collapsible controls
+		function toggleCollapse() {
+			var collapsible = document.getElementById("demo");
+			collapsible.classList.toggle("collapsed");
+		}
 
 	</script>
 </body>
