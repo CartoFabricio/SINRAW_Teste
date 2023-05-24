@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<!-- saved from url=(0050)https://getbootstrap.com/2.3.2/examples/fluid.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <title>SINRAW</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <link href="./Bootstrap/bootstrap.css" rel="stylesheet">
+    <link href="./Bootstrap/bootstrap-responsive.css" rel="stylesheet">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://getbootstrap.com/2.3.2/assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="https://getbootstrap.com/2.3.2/assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="https://getbootstrap.com/2.3.2/assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="https://getbootstrap.com/2.3.2/assets/ico/apple-touch-icon-57-precomposed.png">
+    <link rel="shortcut icon" href="https://getbootstrap.com/2.3.2/assets/ico/favicon.png">
+    <link rel="stylesheet" href="./style.css" type="text/css">
+    <style type="text/css">
+
+
+    </style>
+
+  </head>
+
+  <div id = 'menu'>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <button type="button" id="collapse1" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li><a href="./index.html">Início</a></li>
+              <li><a href="./SINRAW.html">SINRAW</a></li>
+              <li><a href="./Simbolos3D.html">Visualização 3D</a></li>
+              <li><a href="./Avaliacao.html">Questionário 01</a></li>
+              <li><a href="./AvaliacaoFinal.html">Questionário 02</a></li>
+              <li><a href="./Contato.html">Contato</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <body>
+    <div id = 'conteudo'>
+      <h4 align="center"><br />Formulário de Avaliação do SINRAW</h4>
+      <br />
+
+      <form
+        action="https://formsubmit.co/fabricioamorimeac@hotmail.com"
+        method="POST"
+        class="form"
+      >
+           <div class="Formulario">
+              <div class="email">
+                  <label for="email">E-mail</label>
+                  <input type="email" name="email" id="email" required />
+              </div>
+
+              <div class="Nota">
+                  <label for="nota1">Nota para o sistema:</label>
+                  <input type="number" name="nota1" id="nota1" min="0" max="10" required />
+              </div>
+
+              <div>
+              <label for="layout"> Preferência por layout de apresentação do sistema:</label>
+                  <select type="value" name="layout" id="layout">
+                      <option value=" ">  </option>
+                      <option value="Apenas Realidade Aumentada"> Apenas Realidade Aumentada</option>
+                      <option value="Apenas Mapa"> Apenas Mapa</option>
+                      <option value="Realidade Aumentada + Mapa"> Realidade Aumentada + Mapa</option>
+                 </select>
+              </div>
+              <label for="layout1"> Preferência por layout de apresentação do mapa:</label>
+                  <select type="value" name="layout1" id="layout1">
+                      <option value=" ">  </option>
+                      <option value="Mapa 2D"> Mapa 2D</option>
+                      <option value="Mapa 3D"> Mapa 3D</option>
+                 </select>
+              </div>
+              <div>
+                <p>  Satisfação com o desempenho do sistema
+                  <input type="range" id="size" min="0" max="10" step="0.1" value="5" onchange="changeSize()"></p>
+              </div>
+              <div>
+                  <label for='icon-size'>Tamanho do ícone:<span id='icon-size-label'> 5 </span></label>
+                  <input type='range' id='icon-size' min='0' max='10' step='1' value='5' class='height-range' />
+              </div>
+              <div>
+              <label for="Escolaridade">Escolaridade</label>
+                <select type="value" name="Escolaridade" id="Escolaridade">
+                  <option value=" ">  </option>
+                  <option value="Ensino Infantil"> Ensino Infantil</option>
+                  <option value="Ensino Fundamental"> Ensino Fundamental</option>
+                  <option value="Ensino Médio"> Ensino Médio</option>
+                  <option value="Ensino Superior Graduação"> Ensino Superior Graduação</option>
+                  <option value="Pós-Graduação"> Pós-Graduação</option>
+                  <option value="Mestrado"> Mestrado</option>
+                  <option value="Doutorado"> Doutorado</option>
+                  <option value="Pós-Doutorado"> Pós-Doutorado</option>
+                 </select>
+              </div>
+
+              <div class="Profissão">
+                <label for="Profissão">Profissão</label>
+                <input type="text" name="Profissão" id="Profissão" required />
+              </div>
+
+              <div>
+                <label for="MapasPapel">Conseguiu utilizar com todas as funcionalidades do sistema? </label>
+                   <select type="value" name="MapasPapel" id="MapasPapel">
+                     <option value=" ">  </option>
+                      <option value="Sim"> Sim</option>
+                      <option value="Não"> Não</option>
+                   </select>
+              </div>
+
+              <div>
+              <label for="ExpMapasPapel">Dificuldade de utilização</label>
+                 <select type="value" name="ExpMapasPapel" id="ExpMapasPapel">
+                      <option value=" ">  </option>
+                      <option value="Nenhum"> Nenhum</option>
+                      <option value="Baixo"> Baixo</option>
+                      <option value="Médio"> Médio</option>
+                      <option value="Alto"> Alto</option>
+                 </select>
+              </div>
+
+              <div class="MomentoUsoMapaPapel">
+                  <label for="MomentoUsoMapaPapel">Em quais momentos / situação / contexto você poderia utilizá-lo?</label>
+                  <input type="text" name="MomentoUsoMapaPapel" id="MomentoUsoMapaPapel" required />
+              </div>
+              <br /><br />
+
+              <div class="ConsideraçoesSINRAW">
+                  <label for="message">Considerações finais sobre o SINRAW</label>
+                  <textarea name="Comentários" id="message" required></textarea>
+              </div>
+
+              <div class="ConsideraçoesTeste">
+                  <label for="message">Considerações finais sobre o teste</label>
+                  <textarea name="Comentários" id="message" required></textarea>
+              </div>
+              <br />
+          </div>
+         <input type="hidden" name="_captcha" value="false" />
+        <input
+          type="hidden"
+          name="_next"
+          value="https://cartofabricio.github.io/SINRAW_Teste/"
+        />
+
+      <button type="submit" class="btn btn-primary btn-lg btn-blue btn-block">Enviar formulário</button>
+
+    </form>
+
+    <br /><br />
+    <div id= 'footer'>
+    <footer>
+      <p align="center">© Fabrício Amorim 2023</p>
+      <p align="center">Universidade Federal do Paraná - UFPR</p>
+      <p align="center">Programa de Pós-Graduação em Ciências Geodésicas </p>
+      <br />
+    </footer>
+    </div>
+</div>
+<script>
+  var iconSizeInput = document.getElementById('icon-size');
+  iconSizeInput.addEventListener('input', () => {
+    rangeLabel.textContent = iconSizeInput.value ;
+  });
+  </script>
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="./Bootstrap/jquery.js.download"></script>
+    <script src="./Bootstrap/bootstrap-transition.js.download"></script>
+    <script src="./Bootstrap/bootstrap-alert.js.download"></script>
+    <script src="./Bootstrap/bootstrap-modal.js.download"></script>
+    <script src="./Bootstrap/bootstrap-dropdown.js.download"></script>
+    <script src="./Bootstrap/bootstrap-scrollspy.js.download"></script>
+    <script src="./Bootstrap/bootstrap-tab.js.download"></script>
+    <script src="./Bootstrap/bootstrap-tooltip.js.download"></script>
+    <script src="./Bootstrap/bootstrap-popover.js.download"></script>
+    <script src="./Bootstrap/bootstrap-button.js.download"></script>
+    <script src="./Bootstrap/bootstrap-collapse.js.download"></script>
+    <script src="./Bootstrap/bootstrap-carousel.js.download"></script>
+    <script src="./Bootstrap/bootstrap-typeahead.js.download"></script>
+
+</body></html>

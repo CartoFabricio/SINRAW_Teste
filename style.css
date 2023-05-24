@@ -187,3 +187,16 @@
 .collapsed {
   display: block;
 }
+.form label,
+.form select,
+.form button{
+  position:relative;
+  width: 95%;
+}
+
+.form textarea,
+.form input{
+  position:relative;
+  width: 92%;
+
+}
