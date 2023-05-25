@@ -68,6 +68,7 @@
                       <option value="Realidade Aumentada + Mapa"> Realidade Aumentada + Mapa</option>
                  </select>
               </div><br />
+              <div>
               <label for="layout1"> Preferência por layout de apresentação do mapa:</label>
                   <select type="value" name="Preferência por layout de apresentação do mapa:" id="layout1">
                       <option value=" ">  </option>
@@ -89,19 +90,7 @@
                   <input type="text" name="Dificuldades" id="Dificuldades" />
               </div>
               <br /><br />
-                            <div>
-                               <label for="exigente">A tarefa de entender os símbolos foi pouco ou muito exigente?</label>
-                               <label for="rangeInput1">
-                                 No mapa:
-                                 <input type="range" id="rangeInput1" name="A tarefa de entender os símbolos foi pouco ou muito exigente?" min="0" max="10" step="1">
-                                 <span id="rangeValue1">5</span>
-                               </label>
-                               <label for="rangeInput2">
-                                 Na RA:
-                                 <input type="range" id="rangeInput2" name="A tarefa de entender os símbolos foi pouco ou muito exigente?" min="0" max="10" step="1">
-                                 <span id="rangeValue2">5</span>
-                               </label>
-                            </div>
+
               <div>
                 <label for="exigente">A tarefa de entender os símbolos foi pouco ou muito exigente?</label>
                 <label for="rangeInput1">No mapa: <span id="rangeValue1">5</span><input type="range" id="rangeInput1" name="A tarefa de entender os símbolos foi pouco ou muito exigente?" min="0" max="10" step="1"></label>
@@ -207,17 +196,10 @@
 
     </form>
 
-    <br /><br />
+  </div>
 
 </div>
-<div id= 'footer'>
-  <footer>
-    <p align="center">© Fabrício Amorim 2023</p>
-    <p align="center">Universidade Federal do Paraná - UFPR</p>
-    <p align="center">Programa de Pós-Graduação em Ciências Geodésicas </p>
-    <br />
-  </footer>
-</div>
+
 <script>
 
     const rangeInputs = document.querySelectorAll('input[type="range"]');
