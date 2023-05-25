@@ -10,14 +10,13 @@
 
 .footer {
    position:fixed;
-   bottom:2px;
+   bottom:2%;
    width:100%;
    line-height: 80%;
-   right:2%;
 }
-#conteudo { position: absolute;
+#conteudo { position: fixed;
    top: 8%;
-   bottom: 0;
+   bottom: 2%;
    left: 3%;
    width: 97%;
     z-index: 1;
