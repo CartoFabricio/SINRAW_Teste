@@ -91,21 +91,27 @@
               </div>
 
               <div>
-              <label for="ExpMapasPapel">Dificuldade de utilização</label>
-                 <select type="value" name="Dificuldade de utilização" id="ExpMapasPapel">
-                      <option value=" ">  </option>
-                      <option value="Nenhum"> Nenhum</option>
-                      <option value="Baixo"> Baixo</option>
-                      <option value="Médio"> Médio</option>
-                      <option value="Alto"> Alto</option>
-                 </select>
+                <label for="satisfacao">A tarefa de entender os símbolos foi pouco ou muito exigente?</label>
+                <label for="rangeInput">No mapa: <span id="rangeValue">5</span><input type="range" id="rangeInput" name="Satisfação com o desempenho do sistema:" min="0" max="10" step="1"></label>
+                <label for="rangeInput">Na RA: <span id="rangeValue">5</span><input type="range" id="rangeInput" name="Satisfação com o desempenho do sistema:" min="0" max="10" step="1"></label>
               </div>
+
+          <!--
+//A tarefa de caminhar e observar a rota foi pouco ou muito cansativa?
+A tarefa de observar as rotas te exigiu pouco ou muito tempo?
+A tarefa de observar as rotas foi pouco ou muito distrativa?
+A tarefa de caminhar e observar a rota te exigiu pouca ou muita concentração?
+Para completar a tarefa, você se sentiu pouco ou muito estressado?
+Ao finalizar a tarefa, de acordo com o seu desempenho, você ficou pouco ou muito satisfeito?
+De forma geral, que nota você atribui aos projetos gráficos dos mapas? Por quê?
+ -->
 
               <div class="MomentoUsoMapaPapel">
                   <label for="MomentoUsoMapaPapel">Em quais momentos / situação / contexto você poderia utilizá-lo?</label>
                   <input type="text" name="MomentoUso" id="MomentoUsoMapaPapel" required />
               </div>
               <br /><br />
+
 
               <div class="ConsideraçoesSINRAW">
                   <label for="message">Considerações finais sobre o SINRAW</label>
