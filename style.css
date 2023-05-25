@@ -192,7 +192,9 @@
   position:relative;
   width: 95%;
 }
-
+.form range {
+  width: 50%;
+}
 .form textarea,
 .form input{
   position:relative;
