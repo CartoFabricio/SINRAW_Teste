@@ -17,7 +17,6 @@
     <link rel="stylesheet" href="./style.css" type="text/css">
     <style type="text/css">
 
-
     </style>
 
   </head>
@@ -60,11 +59,6 @@
                   <input type="email" name="email" id="email" required />
               </div>
 
-              <div class="Nota">
-                  <label for="nota1">Nota para o sistema:</label>
-                  <input type="number" name="nota1" id="nota1" min="0" max="10" required />
-              </div>
-
               <div>
               <label for="layout"> Preferência por layout de apresentação do sistema:</label>
                   <select type="value" name="layout" id="layout">
@@ -82,32 +76,10 @@
                  </select>
               </div>
               <div>
-                <p>  Satisfação com o desempenho do sistema
-                  <input type="range" id="size" min="0" max="10" step="0.1" value="5" onchange="changeSize()"></p>
+                <label for="rangeInput">Satisfação com o desempenho do sistema: <span id="rangeValue">5</span></label>
+                <input type="range" id="rangeInput" name="rangeInput" min="0" max="10" step="1">
               </div>
               <div>
-                  <label for='icon-size'>Tamanho do ícone:<span id='icon-size-label'> 5 </span></label>
-                  <input type='range' id='icon-size' min='0' max='10' step='1' value='5' class='height-range' />
-              </div>
-              <div>
-              <label for="Escolaridade">Escolaridade</label>
-                <select type="value" name="Escolaridade" id="Escolaridade">
-                  <option value=" ">  </option>
-                  <option value="Ensino Infantil"> Ensino Infantil</option>
-                  <option value="Ensino Fundamental"> Ensino Fundamental</option>
-                  <option value="Ensino Médio"> Ensino Médio</option>
-                  <option value="Ensino Superior Graduação"> Ensino Superior Graduação</option>
-                  <option value="Pós-Graduação"> Pós-Graduação</option>
-                  <option value="Mestrado"> Mestrado</option>
-                  <option value="Doutorado"> Doutorado</option>
-                  <option value="Pós-Doutorado"> Pós-Doutorado</option>
-                 </select>
-              </div>
-
-              <div class="Profissão">
-                <label for="Profissão">Profissão</label>
-                <input type="text" name="Profissão" id="Profissão" required />
-              </div>
 
               <div>
                 <label for="MapasPapel">Conseguiu utilizar com todas as funcionalidades do sistema? </label>
@@ -159,18 +131,21 @@
 
     <br /><br />
     <div id= 'footer'>
-    <footer>
-      <p align="center">© Fabrício Amorim 2023</p>
-      <p align="center">Universidade Federal do Paraná - UFPR</p>
-      <p align="center">Programa de Pós-Graduação em Ciências Geodésicas </p>
-      <br />
-    </footer>
+      <footer>
+        <p align="center">© Fabrício Amorim 2023</p>
+        <p align="center">Universidade Federal do Paraná - UFPR</p>
+        <p align="center">Programa de Pós-Graduação em Ciências Geodésicas </p>
+        <br />
+      </footer>
     </div>
 </div>
 <script>
-  var iconSizeInput = document.getElementById('icon-size');
-  iconSizeInput.addEventListener('input', () => {
-    rangeLabel.textContent = iconSizeInput.value ;
+  const rangeInput = document.getElementById("rangeInput");
+  const rangeValue = document.getElementById("rangeValue");
+
+  // Add an event listener to the range input
+  rangeInput.addEventListener("input", function() {
+    rangeValue.textContent = rangeInput.value; // Update the label text
   });
   </script>
     <!-- Le javascript
