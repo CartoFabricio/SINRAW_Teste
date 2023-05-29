@@ -45,7 +45,7 @@
     </div>
   </div>
   <body>
-    <div id = 'conteudo'><br /><br /><br /><br />
+    <div id = 'conteudo'><br />
       <h4 align="center"><br />Formulário de Avaliação do SINRAW</h4>
       <br />
 
@@ -93,9 +93,9 @@
                   <label for="Dificuldades">Dificuldades encontradas:</label>
                   <input type="text" name="Dificuldades" id="Dificuldades" />
               </div>
-              <br /><br />
+              <br />
                <div> <br />
-                   <label for="nota"> De forma geral, que nota você atribui aos projetos gráficos dos símbolos cartográficos utilizados no SINRAW?</label><br />
+                   <label for="nota"> De forma geral, que nota você atribui aos projetos gráficos dos símbolos cartográficos utilizados no SINRAW?</label>
                 <label for="satisfeito"></label>
                 <div class="label-range">
                   <label for="rangeInput15">No mapa: <span id="rangeValue15">5</span></label>
@@ -109,7 +109,7 @@
               <br /> <br />
 
             <div>
-            <label for="exigente">A tarefa de entender os símbolos foi pouco ou muito exigente?</label><br />
+            <label for="exigente">A tarefa de entender os símbolos foi pouco ou muito exigente?</label>
             <div class="label-range">
               <label for="rangeInput1">No mapa: <span id="rangeValue1">5</span></label>
               <input type="range" id="rangeInput1" name="A tarefa de entender os símbolos foi pouco ou muito exigente?" min="0" max="10" step="1">
@@ -121,7 +121,7 @@
             </div>
           </div><br />
               <div>
-                <label for="cansativa">A tarefa de caminhar e observar a rota foi pouco ou muito cansativa?</label><br />
+                <label for="cansativa">A tarefa de caminhar e observar a rota foi pouco ou muito cansativa?</label>
                 <div class="label-range">
                   <label for="rangeInput3">No mapa: <span id="rangeValue3">5</span></label>
                   <input type="range" id="rangeInput3" name="A tarefa de caminhar e observar a rota foi pouco ou muito cansativa?" min="0" max="10" step="1">
@@ -218,7 +218,7 @@
               </div>
               <br />
               <div> <br />
-                <label for="Agradabilidade"><strong>Agradabilidade:</strong> são visualmente agradáveis?</label><br />
+                <label for="Agradabilidade"><strong>Agradabilidade:</strong> são visualmente agradáveis?</label>
                 <div class="label-range">
                   <label for="rangeInput19">No mapa: <span id="rangeValue19">5</span></label>
                   <input type="range" id="rangeInput19" name="No mapa: são visualmente agradáveis?" min="0" max="10" step="1">
@@ -230,7 +230,7 @@
               </div>
               <br />
               <div> <br />
-                <label for="Coerencia"><strong>Coerência visual:</strong> seguem uma linguagem visual coerente e consistente em todo o sistema de navegação, mantendo a identidade visual e a harmonia estética.</label><br />
+                <label for="Coerencia"><strong>Coerência visual:</strong> seguem uma linguagem visual coerente e consistente em todo o sistema de navegação, mantendo a identidade visual e a harmonia estética.</label>
                 <div class="label-range">
                   <label for="rangeInput21">No mapa: <span id="rangeValue21">5</span></label>
                   <input type="range" id="rangeInput21" name="No mapa:seguem uma linguagem visual coerente e consistente em todo o sistema de navegação, mantendo a identidade visual e a harmonia estética.?" min="0" max="10" step="1">
@@ -242,7 +242,7 @@
               </div>
               <br />
               <div> <br />
-                <label for="Integracao"><strong>Integração com o ambiente real:</strong>  se integram de forma natural e harmoniosa ao ambiente real, proporcionando uma experiência imersiva e realista.</label><br />
+                <label for="Integracao"><strong>Integração com o ambiente real:</strong>  se integram de forma natural e harmoniosa ao ambiente real, proporcionando uma experiência imersiva e realista.</label>
                 <div class="label-range">
                   <label for="rangeInput23">No mapa: <span id="rangeValue23">5</span></label>
                   <input type="range" id="rangeInput23" name="No mapa: se integram de forma natural e harmoniosa ao ambiente real, proporcionando uma experiência imersiva e realista.?" min="0" max="10" step="1">
@@ -254,7 +254,7 @@
               </div>
               <br />
               <div> <br />
-                <label for="Integracao"><strong>Compatibilidade com a interface:</strong>  são adequados para a interface do sistema de navegação, considerando fatores como tamanho, posição e interação com outros elementos da interface?</label><br />
+                <label for="Integracao"><strong>Compatibilidade com a interface:</strong>  são adequados para a interface do sistema de navegação, considerando fatores como tamanho, posição e interação com outros elementos da interface?</label>
                 <div class="label-range">
                   <label for="rangeInput25">No mapa: <span id="rangeValue25">5</span></label>
                   <input type="range" id="rangeInput25" name="No mapa: se integram de forma natural e harmoniosa ao ambiente real, proporcionando uma experiência imersiva e realista.?" min="0" max="10" step="1">
@@ -274,6 +274,8 @@
                   <label for="message">Considerações finais sobre o teste</label>
                   <textarea name="Considerações finais sobre o teste" id="message" required></textarea>
               </div>
+              <button type="submit" class="btn btn-primary btn-lg btn-blue btn-block">Enviar formulário</button>
+        <br /><br />
               <br />
           </div>
          <input type="hidden" name="_captcha" value="false" />
@@ -283,8 +285,7 @@
           value="https://cartofabricio.github.io/SINRAW_Teste/"
         />
 
-      <button type="submit" class="btn btn-primary btn-lg btn-blue btn-block">Enviar formulário</button>
-<br /><br />
+
     </form>
 
   </div>
