@@ -19,7 +19,8 @@
    top: 8%;
    bottom: 0;
    left: 3%;
-   width: 97%;
+   width: 94%;
+
     z-index: 1;
   }
 #instructions {
@@ -174,7 +175,7 @@
 }
 .form range {
   width: 45%;
-  right: 5%;
+   right:5%;
 }
 .form textarea,
 .form input{
