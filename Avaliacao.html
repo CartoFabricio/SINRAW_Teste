@@ -237,5 +237,13 @@
     <script src="./Bootstrap/bootstrap-collapse.js.download"></script>
     <script src="./Bootstrap/bootstrap-carousel.js.download"></script>
     <script src="./Bootstrap/bootstrap-typeahead.js.download"></script>
+<script>
+//Pegar a data local do computador
 
+var today = new Date();
+var dy = today.getDate();
+var mt = today.getMonth()+1;
+var yr = today.getFullYear();
+document.getElementById('start').value= dy+"/"+mt+"/"+yr;
+</script>
 </body></html>
