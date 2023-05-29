@@ -56,12 +56,7 @@
         method="POST"
         class="form"
       >
-           <div class="Formulario">
-              <div class="Data">
-                 <label for="Data">Data da realização do(a) teste / avaliação </label>
-                 <input type="date" id="start" name="Data"  value="2022-08-12"   min="2022-02-02" max="2035-12-31">
-              </div>
-
+      <div>
               <div class="email">
                   <label for="email">E-mail</label>
                   <input type="email" name="email" id="email" required />
@@ -210,20 +205,8 @@
       <button type="submit" class="btn btn-primary btn-lg btn-blue btn-block">Enviar formulário</button>
 
     </form>
+  </div>
 
-    <br /><br />
-    <div id= 'footer'>
-    <footer>
-      <p align="center">© Fabrício Amorim 2023</p>
-      <p align="center">Universidade Federal do Paraná - UFPR</p>
-      <p align="center">Programa de Pós-Graduação em Ciências Geodésicas </p>
-      <br />
-    </footer>
-    </div>
-</div>
-    <!-- Le javascript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
     <script src="./Bootstrap/jquery.js.download"></script>
     <script src="./Bootstrap/bootstrap-transition.js.download"></script>
     <script src="./Bootstrap/bootstrap-alert.js.download"></script>
@@ -237,13 +220,5 @@
     <script src="./Bootstrap/bootstrap-collapse.js.download"></script>
     <script src="./Bootstrap/bootstrap-carousel.js.download"></script>
     <script src="./Bootstrap/bootstrap-typeahead.js.download"></script>
-<script>
-//Pegar a data local do computador
 
-var today = new Date();
-var dy = today.getDate();
-var mt = today.getMonth()+1;
-var yr = today.getFullYear();
-document.getElementById('start').value= dy+"/"+mt+"/"+yr;
-</script>
 </body></html>
