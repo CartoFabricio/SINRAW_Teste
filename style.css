@@ -201,3 +201,12 @@
   width: 92%;
 
 }
+.label-range {
+  display: flex;
+  align-items: center;
+  width:100%;
+}
+
+.label-range span {
+  margin-right: 10px;
+}
