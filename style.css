@@ -165,7 +165,7 @@
 }
 
 .collapsed {
-  display: block;
+  display: none;
 }
 .form label,
 .form select,

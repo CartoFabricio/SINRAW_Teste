@@ -46,9 +46,9 @@
 .map-overlay {
     font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
     position: fixed;
-    background-color: #fffffff;
-    top: 29%;
-    left: 92%;
+    background-color: #ffffff;
+    top: 29.5%;
+    left: 91%;
     z-index: 2;
     width: 10px;
     height: 15px;
@@ -56,8 +56,8 @@
 
 .map-overlay-inner {
   position: fixed;
-  width: 60%;
-  top: 16%;
+  width: 75%;
+  top: 17%;
   left: 0%;
   background-color: #ffffff;
   padding: 10px;
@@ -106,9 +106,9 @@
 
 
 	<div id= "map-overlay" class="map-overlay">
-    <button type="button" class="btn btn-light btn-sm" data-toggle="collapse" onclick="toggleCollapse()" style="font-size: 20px" data-target="#demo"><span class="glyphicon glyphicon-cog" aria-hidden="false"> </button>
-    <div id="demo" class="collapse">
-            <div class="map-overlay-inner">
+    <button type="button" class="btn btn-light btn-sm" data-toggle="collapse" onclick="toggleCollapse()" style="font-size: 20px" data-target="#map-overlay-inner"><span class="glyphicon glyphicon-cog" aria-hidden="false"> </button>
+    <div id="collapsibleControls" class="collapse">
+            <div class=" collapse map-overlay-inner" id="map-overlay-inner">
                  <fieldset>
                     <label>Mapa Base
                     <select id='basemap-selector' name='basemap-selector'>
@@ -222,93 +222,93 @@ pitchSlider.addEventListener('input', updatePitchValue);
 bearingSlider.addEventListener('input', updateBearingValue);
 
  // Create marker arrays for each layer
-        var layer1Markers = [ // Bus symbol
-            { coordinates: [-49.232580, -25.453163], color: '#000000', size: 15 },
-            { coordinates: [-49.232136, -25.449854], color: '#000000', size: 15 },
-        ];
+  var layer1Markers = [ // Bus symbol
+      { coordinates: [-49.232580, -25.453163], color: '#000000', size: 15 },
+      { coordinates: [-49.232136, -25.449854], color: '#000000', size: 15 },
+  ];
 
-        var layer2Markers = [ // School symbol
-            { coordinates: [-49.229949, -25.451687], color: '#000000', size: 15, },
-            { coordinates: [-49.232931, -25.453522], color: '#000000', size: 15, },
-            { coordinates: [-49.230441, -25.449003], color: '#000000', size: 15, },
-        ];
+  var layer2Markers = [ // School symbol
+      { coordinates: [-49.229949, -25.451687], color: '#000000', size: 15, },
+      { coordinates: [-49.232931, -25.453522], color: '#000000', size: 15, },
+      { coordinates: [-49.230441, -25.449003], color: '#000000', size: 15, },
+  ];
 
-        var layer3Markers = [// Food symbol
-            { coordinates: [-49.235028, -25.449557], color: '#000000', size: 15 },
-        ];
+  var layer3Markers = [// Food symbol
+      { coordinates: [-49.235028, -25.449557], color: '#000000', size: 15 },
+  ];
 
-        var layer4Markers = [// Correios symbol
-            { coordinates: [-49.234099, -25.44999], color: '#000000', size: 15 },
-        ];
-
-
-          var layer5Markers = [  //glyphicon glyphicon-gbp
-            {coordinates: [ -49.233085960737924, -25.453344376797858], color: '#000000',size: 15},
-            {coordinates: [ -49.23354358116649,-25.453187921663584], color: '#000000',size: 15},
-            {coordinates: [-49.23282382864804,-25.453051524714468], color: '#000000',size: 15},
-            {coordinates: [-49.23257058239133, -25.4525661107876], color: '#000000',size: 15},
-            {coordinates: [ -49.23213331089232,-25.453098276993444], color: '#000000',size: 15},
-            {coordinates: [ -49.23144208152905, -25.451743710824402], color: '#000000',size: 15},
-            {coordinates: [ -49.23181972945565, -25.451839992085638], color: '#000000',size: 15},
-            {coordinates: [  -49.233814601085186, -25.452473841045702], color: '#000000',size: 15},
-            {coordinates: [ -49.233485825243434,  -25.451787838988665], color: '#000000',size: 15},
-            {coordinates: [ -49.233112620233754,-25.45097345720221], color: '#000000',size: 15},
-            {coordinates: [ -49.23224625146139, -25.451860049915567], color: '#000000',size: 15},
-            {coordinates: [ -49.23196634770443,-25.451254279129785], color: '#000000',size: 15},
-            {coordinates: [ -49.23080230869519, -25.451559174926842], color: '#000000',size: 15},
-            {coordinates: [ -49.232333417311594,-25.45015945481181], color: '#000000',size: 15},
-            {coordinates: [  -49.23350634734177, -25.450785289871703], color: '#000000',size: 15},
-            {coordinates: [  -49.233712099088876, -25.4498493260068], color: '#000000',size: 15},
-            {coordinates: [ -49.234609568278984, -25.450045903260985], color: '#000000',size: 15},
-            {coordinates: [ -49.23063575000012, -25.44960241230737], color: '#000000',size: 15},
-            {coordinates: [ -49.231398728557224, -25.44807491690277], color: '#000000',size: 15},
-            {coordinates: [  -49.231660321594376,-25.447630050165046], color: '#000000',size: 15},
-            {coordinates: [ -49.2336527885561, -25.44729147791888], color: '#000000',size: 15},
-            {coordinates: [ -49.23665128297114, -25.452082228467205], color: '#000000',size: 15},
-            {coordinates: [ -49.236088857942406, -25.45103505227719], color: '#000000',size: 15},
-        ];
+  var layer4Markers = [// Correios symbol
+      { coordinates: [-49.234099, -25.44999], color: '#000000', size: 15 },
+  ];
 
 
+    var layer5Markers = [  //glyphicon glyphicon-gbp
+      {coordinates: [ -49.233085960737924, -25.453344376797858], color: '#000000',size: 15},
+      {coordinates: [ -49.23354358116649,-25.453187921663584], color: '#000000',size: 15},
+      {coordinates: [-49.23282382864804,-25.453051524714468], color: '#000000',size: 15},
+      {coordinates: [-49.23257058239133, -25.4525661107876], color: '#000000',size: 15},
+      {coordinates: [ -49.23213331089232,-25.453098276993444], color: '#000000',size: 15},
+      {coordinates: [ -49.23144208152905, -25.451743710824402], color: '#000000',size: 15},
+      {coordinates: [ -49.23181972945565, -25.451839992085638], color: '#000000',size: 15},
+      {coordinates: [  -49.233814601085186, -25.452473841045702], color: '#000000',size: 15},
+      {coordinates: [ -49.233485825243434,  -25.451787838988665], color: '#000000',size: 15},
+      {coordinates: [ -49.233112620233754,-25.45097345720221], color: '#000000',size: 15},
+      {coordinates: [ -49.23224625146139, -25.451860049915567], color: '#000000',size: 15},
+      {coordinates: [ -49.23196634770443,-25.451254279129785], color: '#000000',size: 15},
+      {coordinates: [ -49.23080230869519, -25.451559174926842], color: '#000000',size: 15},
+      {coordinates: [ -49.232333417311594,-25.45015945481181], color: '#000000',size: 15},
+      {coordinates: [  -49.23350634734177, -25.450785289871703], color: '#000000',size: 15},
+      {coordinates: [  -49.233712099088876, -25.4498493260068], color: '#000000',size: 15},
+      {coordinates: [ -49.234609568278984, -25.450045903260985], color: '#000000',size: 15},
+      {coordinates: [ -49.23063575000012, -25.44960241230737], color: '#000000',size: 15},
+      {coordinates: [ -49.231398728557224, -25.44807491690277], color: '#000000',size: 15},
+      {coordinates: [  -49.231660321594376,-25.447630050165046], color: '#000000',size: 15},
+      {coordinates: [ -49.2336527885561, -25.44729147791888], color: '#000000',size: 15},
+      {coordinates: [ -49.23665128297114, -25.452082228467205], color: '#000000',size: 15},
+      {coordinates: [ -49.236088857942406, -25.45103505227719], color: '#000000',size: 15},
+  ];
 
-        function addMarkerLayer(markers, layerId) {
-            markers.forEach(function(marker, index) {
-                var el = document.createElement('div');
-                el.className = 'marker ' + layerId;
-                el.style.color = marker.color;
-                el.style.fontSize = marker.size + 'px';
-                el.style.lineHeight = marker.size + 'px';
-                el.style.cursor = 'pointer';
 
-                // Set marker content based on the layerId
-                switch (layerId) {
-                    case 'layer1':
-                        el.innerHTML = '<i class="fas fa-bus"></i>'; // Bus symbol
-                        break;
-                    case 'layer2':
-                        el.innerHTML = '<i class="fas fa-school"></i>'; // School symbol
-                        break;
-                    case 'layer3':
-                        el.innerHTML = '<i class="fas fa-utensils"></i>'; // Food symbol
-                        break;
-                     case 'layer4':
-                        el.innerHTML = '<i class="fas fa-envelope"></i>'; // Correios symbol
-                        break;
-                     case 'layer5':
-                        el.innerHTML = '<i class="fas fa-car" ></i>'; // Estacionamento symbol
-                        break;
-                    default:
-                        break;
-                }
 
-                new mapboxgl.Marker(el)
-                    .setLngLat(marker.coordinates)
-                    .addTo(map)
-                    .getElement()
-                    .addEventListener('click', function() {
-                        // Handle marker click event if needed
-                        console.log('Marker clicked: Layer ' + layerId + ', Index ' + index);
-                    });
-            });
+  function addMarkerLayer(markers, layerId) {
+      markers.forEach(function(marker, index) {
+          var el = document.createElement('div');
+          el.className = 'marker ' + layerId;
+          el.style.color = marker.color;
+          el.style.fontSize = marker.size + 'px';
+          el.style.lineHeight = marker.size + 'px';
+          el.style.cursor = 'pointer';
+
+          // Set marker content based on the layerId
+          switch (layerId) {
+              case 'layer1':
+                  el.innerHTML = '<i class="fas fa-bus"></i>'; // Bus symbol
+                  break;
+              case 'layer2':
+                  el.innerHTML = '<i class="fas fa-school"></i>'; // School symbol
+                  break;
+              case 'layer3':
+                  el.innerHTML = '<i class="fas fa-utensils"></i>'; // Food symbol
+                  break;
+               case 'layer4':
+                  el.innerHTML = '<i class="fas fa-envelope"></i>'; // Correios symbol
+                  break;
+               case 'layer5':
+                  el.innerHTML = '<i class="fas fa-car" ></i>'; // Estacionamento symbol
+                  break;
+              default:
+                  break;
+          }
+
+          new mapboxgl.Marker(el)
+              .setLngLat(marker.coordinates)
+              .addTo(map)
+              .getElement()
+              .addEventListener('click', function() {
+                  // Handle marker click event if needed
+                  console.log('Marker clicked: Layer ' + layerId + ', Index ' + index);
+              });
+          });
         }
 
         addMarkerLayer(layer1Markers, 'layer1');
@@ -608,7 +608,7 @@ map.addControl(
 
 		// Function to toggle the visibility of the collapsible controls
 		function toggleCollapse() {
-			var collapsible = document.getElementById("demo");
+			var collapsible = document.getElementById("collapsibleControls");
 			collapsible.classList.toggle("collapsed");
 		}
 
