@@ -56,7 +56,7 @@
 
 .map-overlay-inner {
   position: fixed;
-  width: 50%;
+  width: 60%;
   top: 16%;
   left: 0%;
   background-color: #ffffff;
@@ -120,7 +120,7 @@
                     </select></label>
                 </fieldset>
                 <fieldset>
-                     <label>Ângulo da Câmera:<span id="pitch-slider-value">80</span></label>
+                     <label>Ângulo de Elevação da Câmera:<span id="pitch-slider-value">80</span></label>
                     <input type='range' id='pitch-slider' min='0' max='90' value='80' step='1'>
                     <label>Rotação: <span id="slider-value1">0</span></label>
                     <input type='range' id='bearing-slider' min='0' max='360' value='0' step='1'>
@@ -196,18 +196,28 @@ navigator.geolocation.getCurrentPosition( function(position) {
     map.setStyle(basemap);
   });
 
+  // Get the range input elements and span elements
+  const pitchSlider = document.getElementById('pitch-slider');
+  const pitchValueSpan = document.getElementById('pitch-slider-value');
+  const bearingSlider = document.getElementById('bearing-slider');
+  const bearingValueSpan = document.getElementById('slider-value1');
 
-  var pitchSlider = document.getElementById('pitch-slider');
-  pitchSlider.addEventListener('input', function () {
-    var pitch = Number(pitchSlider.value);
-    map.setPitch(pitch);
-  });
+  // Function to update the pitch value
+  function updatePitchValue() {
+    const pitchValue = pitchSlider.value;
+    pitchValueSpan.textContent = pitchValue;
+     map.setPitch(pitchValue);
+  }
 
-  var bearingSlider = document.getElementById('bearing-slider');
-  bearingSlider.addEventListener('input', function () {
-    var bearing = Number(bearingSlider.value);
-    map.setBearing(bearing);
-  });
+  // Function to update the bearing value
+  function updateBearingValue() {
+    const bearingValue = bearingSlider.value;
+    bearingValueSpan.textContent = bearingValue;
+     map.setBearing(bearingValue);
+  }
+  // Add event listeners to the range inputs
+pitchSlider.addEventListener('input', updatePitchValue);
+bearingSlider.addEventListener('input', updateBearingValue);
 
  // Create marker arrays for each layer
         var layer1Markers = [ // Bus symbol
