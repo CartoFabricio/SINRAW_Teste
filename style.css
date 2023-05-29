@@ -185,7 +185,8 @@
 .label-range {
   display: flex;
   align-items: center;
-  width:100%;
+  width:95%;
+  right:5%;
 }
 
 .label-range span {
