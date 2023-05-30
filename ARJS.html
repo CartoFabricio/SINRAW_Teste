@@ -35,6 +35,27 @@
     <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.css" type="text/css">
     <link rel="stylesheet" href="./style.css" type="text/css">
     <style>
+    #AR { position: fixed; top: 6%; height:64%;bottom: 30%; left:0%; width: 100%; z-index: 1;}
+    #collapseButton {
+      position: fixed;
+      cursor: pointer;
+      background-color: #F8F9FA;
+      margin:10px;
+      top: 90%;
+      left: 2%;
+      width: 36px;
+      height: 30px;
+    }
+
+    .collapsible {
+      display: none;
+      background-color:rgba(0,0,0,0) !important;
+      text-shadow: 0 0 12px #FFFFFF, 0 0 12px #FFFFFF;
+    }
+
+    .collapsed {
+      display: none;
+    }
     </style>
   </head>
   <body style="margin: 0; overflow: hidden;">
