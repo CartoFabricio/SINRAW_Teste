@@ -177,16 +177,6 @@
   font-weight: bold;
 }
 
-#controls {
-  position: absolute;
-  top: 62% ;
-  left: 42% ;
-  font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
-  font-weight: bold;
-  width: 360px;
-height: 300px;
-}
-
 #collapseButton {
   position: fixed;
   cursor: pointer;
