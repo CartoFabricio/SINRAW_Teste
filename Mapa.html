@@ -32,55 +32,26 @@
 		<link href="https://api.tiles.mapbox.com/mapbox-gl-js/v2.9.2/mapbox-gl.css" rel="stylesheet">
 		<script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.js"></script>
 		<link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.css" type="text/css">
-  <link rel="stylesheet" href="./style.css" type="text/css">
+<link rel="stylesheet" href="./style.css" type="text/css">
 
 <style>
- #map { position: fixed;
-   top: 6%;
-   height: 94%;
-   bottom: 0%; left:0;
-   width: 100%;
-   z-index: 1;
- }
-
-.map-overlay {
-    font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
-    position: fixed;
-    background-color: #ffffff;
-    top: 29.5%;
-    left: 91%;
-    z-index: 2;
-    width: 10px;
-    height: 15px;
-}
-
-.map-overlay-inner {
-  position: fixed;
-  width: 75%;
-  top: 17%;
-  left: 0%;
-  background-color: #ffffff;
-  padding: 10px;
-  z-index: 2;
-}
+#map { position: fixed; top: 8%; bottom: 0%; left:0; width: 100%;  z-index: 1;}
 
 </style>
 
-
-</head>
 <div id="menu">
   <div class="navbar navbar-inverse navbar-fixed-top">
     <div class="navbar-inner">
       <div class="container-fluid">
-        <button type="button" id="collapse1" class="btn btn-navbar collapsed" data-toggle="collapse" data-target=".nav-collapse">
+        <button type="button" id="collapse" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <div class="nav-collapse  collapse">
+        <div class="nav-collapse show">
           <ul class="nav">
 						<li><a href="./index.html">Início</a></li>
-						<li><a href="./Mapa.html">SINRAW - Mapa</a></li>
+            <li><a href="./Mapa.html">SINRAW - Mapa</a></li>
 						<li><a href="./AR.html">SINRAW - AR</a></li>
 						<li><a href="./SINRAW.html">SINRAW - Mapa + AR </a></li>
 						<li><a href="./Simbolos3D.html">Visualização 3D</a></li>
@@ -93,7 +64,7 @@
     </div>
   </div>
 </div>
-
+</head>
 
 <body>
 	<div id="direction" class="direction"></div>
@@ -101,15 +72,15 @@
 	<div id="map" class="mapboxgl-map">
 		<div class="mapboxgl-canary" style="visibility: hidden;"></div>
 	<div class="mapboxgl-canvas-container mapboxgl-interactive mapboxgl-touch-drag-pan mapboxgl-touch-zoom-rotate" >
-			<canvas class="mapboxgl-canvas"tabindex="0" aria-label="Map" role="region"  style="width: 811px; height: 657px;"></canvas>
+			<canvas class="mapboxgl-canvas"tabindex="0" aria-label="Map" role="region" width="811" height="657" style="width: 811px; height: 657px;"></canvas>
 		</div>
 	</div>
 
 
 	<div id= "map-overlay" class="map-overlay">
-    <button type="button" class="btn btn-light btn-sm" data-toggle="collapse" onclick="toggleCollapse()" style="font-size: 20px" data-target="#map-overlay-inner"><span class="glyphicon glyphicon-cog" aria-hidden="false"> </button>
-    <div id="collapsibleControls" class="collapse">
-            <div class=" collapse map-overlay-inner" id="map-overlay-inner">
+    <button type="button" data-toggle="collapse" onclick="toggleCollapsea()" style="font-size: 20px" data-target="#collapsibleControls"><span class="glyphicon glyphicon-cog" aria-hidden="false"> </button>
+    <div id="collapsibleControls1" class="collapse">
+            <div class="map-overlay-inner">
                  <fieldset>
                     <label>Mapa Base
                     <select id='basemap-selector' name='basemap-selector'>
@@ -122,7 +93,7 @@
                         <option value='mapbox://styles/mapbox/navigation-night-v1'>navigation-night</option>
                     </select></label>
                 </fieldset>
-                <fieldset>
+								<fieldset>
                      <label>Ângulo de Elevação da Câmera:<span id="pitch-slider-value">80</span></label>
                     <input type='range' id='pitch-slider' min='0' max='90' value='80' step='1'>
                     <label>Rotação: <span id="slider-value1">0</span></label>
@@ -199,28 +170,28 @@ navigator.geolocation.getCurrentPosition( function(position) {
     map.setStyle(basemap);
   });
 
-  // Get the range input elements and span elements
-  const pitchSlider = document.getElementById('pitch-slider');
-  const pitchValueSpan = document.getElementById('pitch-slider-value');
-  const bearingSlider = document.getElementById('bearing-slider');
-  const bearingValueSpan = document.getElementById('slider-value1');
+	// Get the range input elements and span elements
+	const pitchSlider = document.getElementById('pitch-slider');
+	const pitchValueSpan = document.getElementById('pitch-slider-value');
+	const bearingSlider = document.getElementById('bearing-slider');
+	const bearingValueSpan = document.getElementById('slider-value1');
 
-  // Function to update the pitch value
-  function updatePitchValue() {
-    const pitchValue = pitchSlider.value;
-    pitchValueSpan.textContent = pitchValue;
-     map.setPitch(pitchValue);
-  }
+	// Function to update the pitch value
+	function updatePitchValue() {
+		const pitchValue = pitchSlider.value;
+		pitchValueSpan.textContent = pitchValue;
+		 map.setPitch(pitchValue);
+	}
 
-  // Function to update the bearing value
-  function updateBearingValue() {
-    const bearingValue = bearingSlider.value;
-    bearingValueSpan.textContent = bearingValue;
-     map.setBearing(bearingValue);
-  }
-  // Add event listeners to the range inputs
-pitchSlider.addEventListener('input', updatePitchValue);
-bearingSlider.addEventListener('input', updateBearingValue);
+	// Function to update the bearing value
+	function updateBearingValue() {
+		const bearingValue = bearingSlider.value;
+		bearingValueSpan.textContent = bearingValue;
+		 map.setBearing(bearingValue);
+	}
+	// Add event listeners to the range inputs
+	pitchSlider.addEventListener('input', updatePitchValue);
+	bearingSlider.addEventListener('input', updateBearingValue);
 
  // Create marker arrays for each layer
   var layer1Markers = [ // Bus symbol
@@ -243,31 +214,31 @@ bearingSlider.addEventListener('input', updateBearingValue);
   ];
 
 
-    var layer5Markers = [  //glyphicon glyphicon-gbp
-      {coordinates: [ -49.233085960737924, -25.453344376797858], color: '#000000',size: 15},
-      {coordinates: [ -49.23354358116649,-25.453187921663584], color: '#000000',size: 15},
-      {coordinates: [-49.23282382864804,-25.453051524714468], color: '#000000',size: 15},
-      {coordinates: [-49.23257058239133, -25.4525661107876], color: '#000000',size: 15},
-      {coordinates: [ -49.23213331089232,-25.453098276993444], color: '#000000',size: 15},
-      {coordinates: [ -49.23144208152905, -25.451743710824402], color: '#000000',size: 15},
-      {coordinates: [ -49.23181972945565, -25.451839992085638], color: '#000000',size: 15},
-      {coordinates: [  -49.233814601085186, -25.452473841045702], color: '#000000',size: 15},
-      {coordinates: [ -49.233485825243434,  -25.451787838988665], color: '#000000',size: 15},
-      {coordinates: [ -49.233112620233754,-25.45097345720221], color: '#000000',size: 15},
-      {coordinates: [ -49.23224625146139, -25.451860049915567], color: '#000000',size: 15},
-      {coordinates: [ -49.23196634770443,-25.451254279129785], color: '#000000',size: 15},
-      {coordinates: [ -49.23080230869519, -25.451559174926842], color: '#000000',size: 15},
-      {coordinates: [ -49.232333417311594,-25.45015945481181], color: '#000000',size: 15},
-      {coordinates: [  -49.23350634734177, -25.450785289871703], color: '#000000',size: 15},
-      {coordinates: [  -49.233712099088876, -25.4498493260068], color: '#000000',size: 15},
-      {coordinates: [ -49.234609568278984, -25.450045903260985], color: '#000000',size: 15},
-      {coordinates: [ -49.23063575000012, -25.44960241230737], color: '#000000',size: 15},
-      {coordinates: [ -49.231398728557224, -25.44807491690277], color: '#000000',size: 15},
-      {coordinates: [  -49.231660321594376,-25.447630050165046], color: '#000000',size: 15},
-      {coordinates: [ -49.2336527885561, -25.44729147791888], color: '#000000',size: 15},
-      {coordinates: [ -49.23665128297114, -25.452082228467205], color: '#000000',size: 15},
-      {coordinates: [ -49.236088857942406, -25.45103505227719], color: '#000000',size: 15},
-  ];
+  var layer5Markers = [  //glyphicon glyphicon-gbp
+    {coordinates: [ -49.233085960737924, -25.453344376797858], color: '#000000',size: 15},
+    {coordinates: [ -49.23354358116649,-25.453187921663584], color: '#000000',size: 15},
+    {coordinates: [-49.23282382864804,-25.453051524714468], color: '#000000',size: 15},
+    {coordinates: [-49.23257058239133, -25.4525661107876], color: '#000000',size: 15},
+    {coordinates: [ -49.23213331089232,-25.453098276993444], color: '#000000',size: 15},
+    {coordinates: [ -49.23144208152905, -25.451743710824402], color: '#000000',size: 15},
+    {coordinates: [ -49.23181972945565, -25.451839992085638], color: '#000000',size: 15},
+    {coordinates: [  -49.233814601085186, -25.452473841045702], color: '#000000',size: 15},
+    {coordinates: [ -49.233485825243434,  -25.451787838988665], color: '#000000',size: 15},
+    {coordinates: [ -49.233112620233754,-25.45097345720221], color: '#000000',size: 15},
+    {coordinates: [ -49.23224625146139, -25.451860049915567], color: '#000000',size: 15},
+    {coordinates: [ -49.23196634770443,-25.451254279129785], color: '#000000',size: 15},
+    {coordinates: [ -49.23080230869519, -25.451559174926842], color: '#000000',size: 15},
+    {coordinates: [ -49.232333417311594,-25.45015945481181], color: '#000000',size: 15},
+    {coordinates: [  -49.23350634734177, -25.450785289871703], color: '#000000',size: 15},
+    {coordinates: [  -49.233712099088876, -25.4498493260068], color: '#000000',size: 15},
+    {coordinates: [ -49.234609568278984, -25.450045903260985], color: '#000000',size: 15},
+    {coordinates: [ -49.23063575000012, -25.44960241230737], color: '#000000',size: 15},
+    {coordinates: [ -49.231398728557224, -25.44807491690277], color: '#000000',size: 15},
+    {coordinates: [  -49.231660321594376,-25.447630050165046], color: '#000000',size: 15},
+    {coordinates: [ -49.2336527885561, -25.44729147791888], color: '#000000',size: 15},
+    {coordinates: [ -49.23665128297114, -25.452082228467205], color: '#000000',size: 15},
+    {coordinates: [ -49.236088857942406, -25.45103505227719], color: '#000000',size: 15},
+];
 
 
 
@@ -310,89 +281,89 @@ bearingSlider.addEventListener('input', updateBearingValue);
                   console.log('Marker clicked: Layer ' + layerId + ', Index ' + index);
               });
           });
-        }
+      }
 
-        addMarkerLayer(layer1Markers, 'layer1');
-        addMarkerLayer(layer2Markers, 'layer2');
-        addMarkerLayer(layer3Markers, 'layer3');
-        addMarkerLayer(layer4Markers, 'layer4');
-        addMarkerLayer(layer5Markers, 'layer5');
+      addMarkerLayer(layer1Markers, 'layer1');
+      addMarkerLayer(layer2Markers, 'layer2');
+      addMarkerLayer(layer3Markers, 'layer3');
+      addMarkerLayer(layer4Markers, 'layer4');
+      addMarkerLayer(layer5Markers, 'layer5');
 
-        // Bind event listeners to layer controls
-        var layerSelect = document.getElementById('layer-select');
-        var swatches1 = document.getElementById('swatches1');
-        var iconSizeInput = document.getElementById('icon-size');
-        const rangeLabel = document.getElementById('icon-size-label');
+      // Bind event listeners to layer controls
+      var layerSelect = document.getElementById('layer-select');
+      var swatches1 = document.getElementById('swatches1');
+      var iconSizeInput = document.getElementById('icon-size');
+      const rangeLabel = document.getElementById('icon-size-label');
 
-        layerSelect.addEventListener('change', function() {
-            var selectedLayer = layerSelect.value;
+      layerSelect.addEventListener('change', function() {
+          var selectedLayer = layerSelect.value;
 
-            // Update marker colors for the selected layer
-            var markers = document.getElementsByClassName(selectedLayer);
-            Array.from(markers).forEach(function(marker) {
-                marker.style.background = layerColorInput.value;
-            });
+          // Update marker colors for the selected layer
+          var markers = document.getElementsByClassName(selectedLayer);
+          Array.from(markers).forEach(function(marker) {
+              marker.style.background = layerColorInput.value;
+          });
 
-            // Update marker sizes for the selected layer
+          // Update marker sizes for the selected layer
 
-            iconSizeInput.addEventListener('input', () => {
-              rangeLabel.textContent = iconSizeInput.value;
-            });
-        });
-
-
-        function changeMarkerColor(color) {
-            var selectedLayer = layerSelect.value;
-
-            // Update marker colors for the selected layer
-            var markers = document.getElementsByClassName(selectedLayer);
-            Array.from(markers).forEach(function(marker) {
-                marker.style.color = color;
-            });
-        }
-
-        // Function to create a color swatch
-        function createSwatch(color) {
-            const swatch = document.createElement('div');
-            swatch.className = 'swatch';
-            swatch.style.backgroundColor = color;
-            swatch.addEventListener('click', () => {
-                changeMarkerColor(color);
-            });
-            return swatch;
-        }
-
-        const colors = ['#ffffff', '#ffffcc', '#a1dab4', '#41b6c4', '#2c7fb8', '#253494','#fed976', '#feb24c', '#fd8d3c', '#f03b20', '#bd0026', '#000000'];
+          iconSizeInput.addEventListener('input', () => {
+            rangeLabel.textContent = iconSizeInput.value;
+          });
+      });
 
 
-        // Create color swatches and set event listeners
-        for (const color of colors) {
-            const swatch = createSwatch(color);
-            swatches1.appendChild(swatch);
-        }
+      function changeMarkerColor(color) {
+          var selectedLayer = layerSelect.value;
 
-        function handleIconSizeChange() {
-            var size = parseFloat(iconSizeInput.value);
-            var selectedLayer = layerSelect.value;
-            var markers = document.getElementsByClassName(selectedLayer);
-            Array.from(markers).forEach(function(marker) {
-                marker.style.fontSize = size + 'px';
-            });
-        }
+          // Update marker colors for the selected layer
+          var markers = document.getElementsByClassName(selectedLayer);
+          Array.from(markers).forEach(function(marker) {
+              marker.style.color = color;
+          });
+      }
 
-        iconSizeInput.addEventListener('input', handleIconSizeChange);
+      // Function to create a color swatch
+      function createSwatch(color) {
+          const swatch = document.createElement('div');
+          swatch.className = 'swatch';
+          swatch.style.backgroundColor = color;
+          swatch.addEventListener('click', () => {
+              changeMarkerColor(color);
+          });
+          return swatch;
+      }
 
-        // Update initial marker sizes based on the default layer selection and size
-        var initialSelectedLayer = layerSelect.value;
-        var initialSize = parseFloat(iconSizeInput.value);
-        var initialMarkers = document.getElementsByClassName(initialSelectedLayer);
-        Array.from(initialMarkers).forEach(function(marker) {
-            marker.style.fontSize = initialSize + 'px';
-            });
-        var iconSizeInput = document.getElementById('icon-size');
-        iconSizeInput.addEventListener('input', () => {
-          rangeLabel.textContent = iconSizeInput.value + ' px';
-        });
+      const colors = ['#ffffff', '#ffffcc', '#a1dab4', '#41b6c4', '#2c7fb8', '#253494','#fed976', '#feb24c', '#fd8d3c', '#f03b20', '#bd0026', '#000000'];
+
+
+      // Create color swatches and set event listeners
+      for (const color of colors) {
+          const swatch = createSwatch(color);
+          swatches1.appendChild(swatch);
+      }
+
+      function handleIconSizeChange() {
+          var size = parseFloat(iconSizeInput.value);
+          var selectedLayer = layerSelect.value;
+          var markers = document.getElementsByClassName(selectedLayer);
+          Array.from(markers).forEach(function(marker) {
+              marker.style.fontSize = size + 'px';
+          });
+      }
+
+      iconSizeInput.addEventListener('input', handleIconSizeChange);
+
+      // Update initial marker sizes based on the default layer selection and size
+      var initialSelectedLayer = layerSelect.value;
+      var initialSize = parseFloat(iconSizeInput.value);
+      var initialMarkers = document.getElementsByClassName(initialSelectedLayer);
+      Array.from(initialMarkers).forEach(function(marker) {
+          marker.style.fontSize = initialSize + 'px';
+          });
+      var iconSizeInput = document.getElementById('icon-size');
+      iconSizeInput.addEventListener('input', () => {
+        rangeLabel.textContent = iconSizeInput.value + ' px';
+      });
 
 direction = new MapboxDirections({
   accessToken: mapboxgl.accessToken,
@@ -608,11 +579,16 @@ map.addControl(
 });
 
 		// Function to toggle the visibility of the collapsible controls
+		function toggleCollapsea() {
+			var collapsible = document.getElementById("collapsibleControls1");
+			collapsible.classList.toggle("collapsed");
+		}
+
+		// Function to toggle the visibility of the collapsible controls
 		function toggleCollapse() {
 			var collapsible = document.getElementById("collapsibleControls");
 			collapsible.classList.toggle("collapsed");
 		}
-
 	</script>
 </body>
 </html>
