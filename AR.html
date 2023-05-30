@@ -83,12 +83,12 @@
   <div class="navbar navbar-inverse navbar-fixed-top">
     <div class="navbar-inner">
       <div class="container-fluid">
-        <button type="button" id="collapse" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"  collapsed>
+        <button type="button" id="collapse" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"  onclick="toggleCollapse1()"collapsed>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <div class="nav-collapse collapsed">
+        <div class="nav-collapse collapsed " id="collapsibleContent1">
           <ul class="nav">
             <li><a href="./index.html">Início</a></li>
             <li><a href="./Mapa.html">SINRAW - Mapa</a></li>
@@ -265,6 +265,12 @@
 				 var collapsibleControls = document.getElementById('collapsibleContent');
 				 collapsibleControls.classList.toggle('collapsed');
 			 }
+			 // Toggle the collapsible controls
+			 function toggleCollapse1() {
+				var menu = document.getElementById('collapsibleContent1');
+				menu.classList.toggle('collapsed');
+			 }
+
 		 </script>
 	 </body>
 </html>
