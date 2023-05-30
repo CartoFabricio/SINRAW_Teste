@@ -260,171 +260,167 @@
 </div>
 </head>
 
-<body>
-  <div id ="imagemNavegacao" >
-    <img src="imagemNavegacao.png" ></img>
-    </div>
+    <body style="margin: 0; overflow: hidden;">
+        <div id ="imagemNavegacao" >
+          <img src="imagemNavegacao.png" ></img>
+        </div>
+        
+        <div id="direction" class="direction">  </div>
 
-	<div id="AR"> </div>
+        <div id="AR" class="AR" >
 
+        <a-scene embedded arjs="trackingMethod: best;">
+          <a-assets>
+            <a-asset-item id="pin1" src="https://cdn.glitch.global/c5b64583-63c7-4806-a18f-9da936a15a07/Pin01.glb?v=1661047077855"></a-asset-item>
+            <a-asset-item id="pin2" src="https://cdn.glitch.global/c5b64583-63c7-4806-a18f-9da936a15a07/Pin02.glb?v=1661104816276"></a-asset-item>
+            <a-asset-item id="pin3" src="https://cdn.glitch.global/c5b64583-63c7-4806-a18f-9da936a15a07/Pin03.glb?v=1661104945189"></a-asset-item>
+            <a-asset-item id="seta1" src="https://cdn.glitch.global/c5b64583-63c7-4806-a18f-9da936a15a07/Arrow01.glb?v=1661107739801"></a-asset-item>
+            <a-asset-item id="seta2" src="https://cdn.glitch.global/c5b64583-63c7-4806-a18f-9da936a15a07/Arrow02.glb?v=1661107775383"></a-asset-item>
+            <a-asset-item id="seta3" src="https://cdn.glitch.global/c5b64583-63c7-4806-a18f-9da936a15a07/Arrow04.glb?v=1661107875653"></a-asset-item>
+            <a-asset-item id="seta4" src="https://cdn.glitch.global/c5b64583-63c7-4806-a18f-9da936a15a07/Arrow05.glb?v=1661107882896"></a-asset-item>
+          </a-assets>
 
-
-
-	<!-- Le javascript
-	================================================== -->
-	<!-- Placed at the end of the document so the pages load faster -->
-	<script src="./Bootstrap/jquery.js.download"></script>
-	<script src="./Bootstrap/bootstrap-transition.js.download"></script>
-	<script src="./Bootstrap/bootstrap-alert.js.download"></script>
-	<script src="./Bootstrap/bootstrap-modal.js.download"></script>
-	<script src="./Bootstrap/bootstrap-dropdown.js.download"></script>
-	<script src="./Bootstrap/bootstrap-scrollspy.js.download"></script>
-	<script src="./Bootstrap/bootstrap-tab.js.download"></script>
-	<script src="./Bootstrap/bootstrap-tooltip.js.download"></script>
-	<script src="./Bootstrap/bootstrap-popover.js.download"></script>
-	<script src="./Bootstrap/bootstrap-button.js.download"></script>
-	<script src="./Bootstrap/bootstrap-collapse.js.download"></script>
-	<script src="./Bootstrap/bootstrap-carousel.js.download"></script>
-	<script src="./Bootstrap/bootstrap-typeahead.js.download"></script>
-
-<a-scene embedded arjs="trackingMethod: best;">
-  <a-assets>
-    <a-asset-item id="pin1" src="https://cdn.glitch.global/c5b64583-63c7-4806-a18f-9da936a15a07/Pin01.glb?v=1661047077855"></a-asset-item>
-    <a-asset-item id="pin2" src="https://cdn.glitch.global/c5b64583-63c7-4806-a18f-9da936a15a07/Pin02.glb?v=1661104816276"></a-asset-item>
-    <a-asset-item id="pin3" src="https://cdn.glitch.global/c5b64583-63c7-4806-a18f-9da936a15a07/Pin03.glb?v=1661104945189"></a-asset-item>
-    <a-asset-item id="seta1" src="https://cdn.glitch.global/c5b64583-63c7-4806-a18f-9da936a15a07/Arrow01.glb?v=1661107739801"></a-asset-item>
-    <a-asset-item id="seta2" src="https://cdn.glitch.global/c5b64583-63c7-4806-a18f-9da936a15a07/Arrow02.glb?v=1661107775383"></a-asset-item>
-    <a-asset-item id="seta3" src="https://cdn.glitch.global/c5b64583-63c7-4806-a18f-9da936a15a07/Arrow04.glb?v=1661107875653"></a-asset-item>
-    <a-asset-item id="seta4" src="https://cdn.glitch.global/c5b64583-63c7-4806-a18f-9da936a15a07/Arrow05.glb?v=1661107882896"></a-asset-item>
-  </a-assets>
-
-  <a-entity id="modelContainer"></a-entity>
-
-  <a-entity camera></a-entity>
-</a-scene>
-
-<div id="controls">
-  <button id="collapseButton" type="button" data-toggle="collapse" onclick="toggleCollapse()" style="font-size: 20px" data-target="#demo"><span class="glyphicon glyphicon-cog" aria-hidden="false"> </button>
-  <div id="collapsibleControls" class="collapsible">
-    <p>  Símbolos
-    <select id="modelSelector" onchange="loadModel()">
-      <option value="" style="font-weight: bold">Sem exibição</option>
-      <option value="pin1">Pin 1 - azul </option>
-      <option value="pin2">Pin 2- roxo </option>
-      <option value="pin3">Pin 3 - vermelho</option>
-      <option value="seta1">Seta 1</option>
-      <option value="seta2">Seta 2</option>
-      <option value="seta3">Seta3</option>
-      <option value="seta4">Seta 4</option>
-    </select></p>
+          <a-entity id="modelContainer"></a-entity>
+          <a-entity id="modelContainer1"></a-entity>
+          <a-entity id="modelContainer2"></a-entity>
 
 
-  </div>
-</div>
+          <a-entity camera></a-entity>
+        </a-scene>
 
-<script>
+      <div id="collapsibleControls" class="collapsible collapsed" style="margin-top: 20px; padding: 10px; border: 1px solid #ccc; border-radius: 5px;">
+        <div id="controls">
+          <button id="collapseButton" type="button" data-toggle="collapse" style="font-size: 20px" data-target="#collapsibleContent">
+            <span class="glyphicon glyphicon-cog" aria-hidden="false"></span>
+          </button>
+          <div id="collapsibleContent" class="collapse">
+            <p>PIN:
+              <select id="pinSelector" onchange="loadModel('pin')">
+                <option value="pin1">Pin 1 - azul</option>
+                <option value="pin2">Pin 2 - roxo</option>
+                <option value="pin3">Pin 3 - vermelho</option>
+              </select>
+            </p>
+            <p>SETAS:
+              <select id="setaSelector" onchange="loadModel('seta')">
+                <option value="seta1">Seta 1 - azul</option>
+                <option value="seta2">Seta 2 - azul</option>
+                <option value="seta3">Seta 3 - azul</option>
+                <option value="seta4">Seta 4 - azul</option>
+              </select>
+            </p>
+            <p>LINHAS:
+              <select id="linhaSelector" onchange="loadModel('linha')">
+                <option value="linha1">Linha 1 - azul</option>
+                <option value="linha2">Linha 2 - azul</option>
+                <option value="linha3">Linha 3 - azul</option>
+                <option value="linha4">Linha 4 - azul</option>
+              </select>
+            </p>
+          </div>
+      </div>
+     </div>
 
-  var currentModel = null;
-  var initialPosition = { x: 0, y: 0, z: -40 };
+        <script>
+          // Initialize the selected options
+          var selectedPin = '';
+          var selectedSeta = '';
+          var selectedLinha = '';
+    // seta1 scale 3 3 3 rotate 0 0 90, seta2 scale 30 30 30 rotate 0 0 0, seta3 scale 30 30 30 rotate 0 0 90 seta 4 scale 3 3 3 rotate 0 0 90
 
-  // Function to load the selected model
-  function loadModel() {
-    var modelSelector = document.getElementById("modelSelector");
-    var selectedModel = modelSelector.value;
-    var modelContainer = document.getElementById("modelContainer");
+          // Load the model based on the selected option
+          function loadModel(type) {
+            if (type === 'pin') {
+              selectedPin = document.getElementById('pinSelector').value;
+              loadPinModel();
+            } if (type === 'seta') {
+              selectedSeta = document.getElementById('setaSelector').value;
+              loadSetaModel();
+            } if (type === 'linha') {
+              selectedLinha = document.getElementById('linhaSelector').value;
+              loadLinhaModel();
+            }
+          }
+          //meio fundo '5 -10 -40', fundo direito '15 -10 -40',
+           // Load the Pin model
+            function loadPinModel() {
+              var modelContainer = document.getElementById('modelContainer');
+              modelContainer.innerHTML = '';
+              if (selectedPin !== '') {
+                var pin = document.createElement('a-entity');
+                pin.setAttribute('gltf-model', '#' + selectedPin);
+                // Set scale and rotation based on the selected seta
+                switch (selectedPin) {
+                  case 'pin1':
+                    pin.setAttribute('position', '0 0 -10');
+                    pin.setAttribute('scale', '1 1 1');
+                    pin.setAttribute('rotation', '0 0 90');
+                    break;
+                  case 'pin2':
+                    pin.setAttribute('position', '0 0 -1');
+                    pin.setAttribute('scale', '0.25 0.25 0.25');
+                    pin.setAttribute('rotation', '0 0 0');
+                    break;
+                  case 'pin3':
+                    pin.setAttribute('position', '0 0 -10');
+                    pin.setAttribute('scale', '1 1 1');
+                    pin.setAttribute('rotation', '0 0 0');
+                    break;
+                }
+                modelContainer.appendChild(pin);
+              }
+            }
 
-    // Remove any existing models
-    while (modelContainer.firstChild) {
-      modelContainer.removeChild(modelContainer.firstChild);
-    }
+             // Load the seta model
+            function loadSetaModel() {
+              var modelContainer1 = document.getElementById('modelContainer1');
+              modelContainer1.innerHTML = '';
+              if (selectedSeta !== '') {
+                var seta = document.createElement('a-entity');
+                seta.setAttribute('gltf-model', '#' + selectedSeta);
+                // Set scale and rotation based on the selected seta
+                switch (selectedSeta) {
+                  case 'seta1':
+                seta.setAttribute('position', '0 0 -10');
+                    seta.setAttribute('scale', '0.25 0.25 0.25');
+                    seta.setAttribute('rotation', '0 0 0');
+                    break;
+                  case 'seta2':
+              seta.setAttribute('position', '0 0 -10');
+                    seta.setAttribute('scale', '1  1  1 ');
+                    seta.setAttribute('rotation', '0 0 0');
+                    break;
+                  case 'seta3':
+                seta.setAttribute('position', '0 0 -10');
+                    seta.setAttribute('scale', '10 10 10');
+                    seta.setAttribute('rotation', '0 0 90');
+                    break;
+                  case 'seta4':
+                 seta.setAttribute('position', '0 0 -10');
+                    seta.setAttribute('scale', '0.25 0.25 0.25');
+                    seta.setAttribute('rotation', '0 0 90');
+                    break;
+                }
+                modelContainer1.appendChild(seta);
+              }
+            }
 
-    // Load the selected model
-    var model = document.createElement("a-entity");
-    model.setAttribute("gltf-model", "#" + selectedModel);
+          // Load the linha model
+          function loadLinhaModel() {
+            var modelContainer2= document.getElementById('modelContainer2');
+            modelContainer2.innerHTML = '';
 
-    // Position and scale the model
-    model.setAttribute("position", "0 0 -40");
-    model.setAttribute("scale", "1 1 1");
+            if (selectedLinha !== '') {
+              // Add code to load the linha model
+            }
+          }
 
-    // Add the model to the container
-    modelContainer.appendChild(model);
+          // Toggle the collapsible controls
+          function toggleCollapse() {
+            var collapsibleControls = document.getElementById('collapsibleControls');
+            collapsibleControls.classList.toggle('collapsed');
+          }
 
-    currentModel = model;
-    initialPosition = { x: 0, y: 0, z: -40 };
-
-  }
-
-  // Function to move the model up
-  function moveUp() {
-    if (currentModel) {
-      currentModel.object3D.position.y += 0.1;
-    }
-  }
-
-  // Function to move the model down
-  function moveDown() {
-    if (currentModel) {
-      currentModel.object3D.position.y -= 0.1;
-    }
-  }
-
-  // Function to move the model right
-  function moveRight() {
-    if (currentModel) {
-      currentModel.object3D.position.x += 0.1;
-    }
-  }
-
-  // Function to move the model left
-  function moveLeft() {
-    if (currentModel) {
-      currentModel.object3D.position.x -= 0.1;
-    }
-  }
-
-  // Function to reset the position of the model
-  function resetPosition() {
-    if (currentModel) {
-      currentModel.object3D.position.copy(initialPosition);
-    }
-  }
-
-  // Function to animate the scale of the model
-  function animateScale() {
-    if (currentModel) {
-      currentModel.setAttribute("animation", {
-        property: "scale",
-        to: "3 3 3",
-        dur: 2500,
-        easing: "easeInOutQuad",
-        loop: true,
-        direction: "alternate"
-      });
-    }
-  }
-
-  // Function to stop the animation
-  function stopAnimation() {
-    if (currentModel) {
-      currentModel.removeAttribute("animation");
-    }
-  }
-
-
-  // Function to change the size of the model
-  function changeSize() {
-    if (currentModel) {
-      var size = document.getElementById("size").value / 1;
-
-      currentModel.setAttribute("scale", `${size} ${size} ${size}`);
-    }
-  }
-
-  // Function to toggle the visibility of the collapsible controls
-  function toggleCollapse() {
-    var collapsible = document.getElementById("collapsibleControls");
-    collapsible.classList.toggle("collapsed");
-  }
-  </script>
-</body>
+        </script>
+      </body>
 </html>
