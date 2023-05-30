@@ -63,7 +63,7 @@
   cursor: pointer;
   background-color: #F8F9FA;
   margin:10px;
-  top: 20.2%;
+  top: 12%;
   left: 82%;
   width: 36px;
   height: 33px;
@@ -71,8 +71,8 @@
 }
 
 #collapsibleControls{
-  margin-top: 23%;
-	left: 2%;
+  margin-top: 25%;
+	left: 1%;
 	padding: 20px;
 	position: absolute;
 	font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
@@ -99,12 +99,12 @@
   <div class="navbar navbar-inverse navbar-fixed-top">
     <div class="navbar-inner">
       <div class="container-fluid">
-        <button type="button" id="collapse" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"  onclick="toggleCollapse1()"collapsed>
+        <button type="button" id="collapse" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"  onclick="toggleCollapse()"collapsed>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <div class="nav-collapse collapsed " id="collapsibleContent1">
+        <div class="nav-collapse collapsed " id="collapsibleContent">
           <ul class="nav">
             <li><a href="./index.html">Início</a></li>
             <li><a href="./Mapa.html">SINRAW - Mapa</a></li>
@@ -135,14 +135,14 @@
  <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
 </button>
 			 <div id="collapsibleContent" class=" collapsible collapsed">
-				 <p>PIN:
+				 <p>PIN   :
 					 <select id="pinSelector" onchange="loadModel('pin')">
 						 <option value="pin1">Pin 1 - azul</option>
 						 <option value="pin2">Pin 2 - roxo</option>
 						 <option value="pin3">Pin 3 - vermelho</option>
 					 </select>
 				 </p>
-				 <p>SETAS:
+				 <p>SETAS :
 					 <select id="setaSelector" onchange="loadModel('seta')">
 						 <option value="seta1">Seta 1 - azul</option>
 						 <option value="seta2">Seta 2 - azul</option>
@@ -281,11 +281,7 @@
 				 var collapsibleControls = document.getElementById('collapsibleContent');
 				 collapsibleControls.classList.toggle('collapsed');
 			 }
-			 // Toggle the collapsible controls
-			 function toggleCollapse1() {
-				var menu = document.getElementById('collapsibleContent1');
-				menu.classList.toggle('collapsed');
-			 }
+
 
 		 </script>
 	 </body>
