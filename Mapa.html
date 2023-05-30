@@ -38,7 +38,6 @@
 <style>
 #menu{position: fixed; top: 0%; right:2%; width: 100%;  z-index: 3;}
 
-
 #map { position: fixed; top: 6.5%; bottom: 0%; height:93.5%; left:0%; width: 100%;  z-index: 1;}
 #lista{position: fixed; top: 15%; width: 95%;  z-index: 2;}
 #textArea{ position: fixed; left:37%;  width: 60%; height: 27%; border: white;}
@@ -128,7 +127,7 @@
     font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
     position: fixed;
     background-color: rgba(0,0,0,0) !important;
-    top: 35%;
+    top: 27%;
     left: 92%;
     z-index: 2;
     width: 30px;
@@ -209,7 +208,9 @@
   font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
   font-weight: bold;
 }
-
+#collapsibleControls{
+  margin-top: 20%; left: 2%; padding: 20px;  position: absolute; font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif; font-weight: bold;z-index:2;
+}
 #collapseButton {
   position: fixed;
   cursor: pointer;
@@ -298,8 +299,8 @@
 	</div>
 
 	<div id= "map-overlay" class="map-overlay">
-    <button type="button" data-toggle="collapse" onclick="toggleCollapsea()" style="font-size: 20px" data-target="#collapsibleControls1"><span class="glyphicon glyphicon-cog" aria-hidden="false"> </button>
-    <div id="collapsibleControls1" class="collapse">
+    <button type="button" data-toggle="collapse" onclick="toggleCollapse()" style="font-size: 20px" data-target="#collapsibleControls"><span class="glyphicon glyphicon-cog" aria-hidden="false"> </button>
+    <div id="collapsibleControls" class="collapse">
             <div class="map-overlay-inner">
                  <fieldset>
                     <label>Mapa Base
