@@ -9,11 +9,7 @@
 
 		<link href="./Bootstrap/bootstrap.css" rel="stylesheet">
     <link href="./Bootstrap/bootstrap-responsive.css" rel="stylesheet">
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://getbootstrap.com/2.3.2/assets/ico/apple-touch-icon-144-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="https://getbootstrap.com/2.3.2/assets/ico/apple-touch-icon-114-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="https://getbootstrap.com/2.3.2/assets/ico/apple-touch-icon-72-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" href="https://getbootstrap.com/2.3.2/assets/ico/apple-touch-icon-57-precomposed.png">
-    <link rel="shortcut icon" href="https://getbootstrap.com/2.3.2/assets/ico/favicon.png">
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
@@ -32,22 +28,66 @@
 		<link href="https://api.tiles.mapbox.com/mapbox-gl-js/v2.9.2/mapbox-gl.css" rel="stylesheet">
 		<script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.js"></script>
 		<link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.css" type="text/css">
-    <link rel="stylesheet" href="./style.css" type="text/css">
+<link rel="stylesheet" href="./style.css" type="text/css">
 
 <style  type="text/css">
+#menu{position: fixed; top: 0%; right:2%; width: 100%;  z-index: 3;}
 #AR { position: fixed; top: 6%; height:94%;bottom: 0%; left:0%; width: 100%; z-index: 1;}
-</style>
+#Buttons{ position: fixed; left:2%; height: 27.5%; width: 35%; max-width:35% !important;display:inline-grid;}
+#aframe{ position: fixed; top: 45%; bottom: 2%; left:2%; width: 96%; height: 55%; z-index: 1;}
+#imagemNavegacao{
+  position:fixed;
+  top:8%;
+  width:60%;
+  left:0%;
+  height:10%;
+}
 
+.nav{padding-left: 5%}
+#collapse1{
+  padding-right: 15%;
+}
+
+  #controls {
+    position: absolute;
+    top: 62% ;
+    left: 42% ;
+    font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    width: 360px;
+  height: 300px;
+  }
+
+#collapseButton {
+  position: fixed;
+  cursor: pointer;
+  background-color: #F8F9FA;
+  margin:10px;
+  top: 20%;
+  left: 82%;
+  width: 36px;
+  height: 30px;
+  z-index:2;
+}
+
+  #collapsibleControls{
+    margin-top: 20%; left: 2%; padding: 20px;  position: absolute; font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif; font-weight: bold;z-index:2;
+  }
+.collapsible.collapsed {
+  display: none;
+}
+</style>
+</head>
 <div id="menu">
   <div class="navbar navbar-inverse navbar-fixed-top">
     <div class="navbar-inner">
       <div class="container-fluid">
-        <button type="button" id="collapse" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <button type="button" id="collapse" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"  collapsed>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <div class="nav-collapse show">
+        <div class="nav-collapse collapsed">
           <ul class="nav">
             <li><a href="./index.html">Início</a></li>
             <li><a href="./Mapa.html">SINRAW - Mapa</a></li>
@@ -64,8 +104,7 @@
   </div>
 </div>
 </head>
-
-    <body style="margin: 0; overflow: hidden;">
+  <body style="margin: 0; overflow: hidden;">
         <div id ="imagemNavegacao" >
           <img src="imagemNavegacao.png" ></img>
         </div>
@@ -74,31 +113,11 @@
 
         <div id="AR" class="AR" > </div>
 
-        <a-scene embedded arjs="trackingMethod: best;">
-          <a-assets>
-            <a-asset-item id="pin1" src="https://cdn.glitch.global/c5b64583-63c7-4806-a18f-9da936a15a07/Pin01.glb?v=1661047077855"></a-asset-item>
-            <a-asset-item id="pin2" src="https://cdn.glitch.global/c5b64583-63c7-4806-a18f-9da936a15a07/Pin02.glb?v=1661104816276"></a-asset-item>
-            <a-asset-item id="pin3" src="https://cdn.glitch.global/c5b64583-63c7-4806-a18f-9da936a15a07/Pin03.glb?v=1661104945189"></a-asset-item>
-            <a-asset-item id="seta1" src="https://cdn.glitch.global/c5b64583-63c7-4806-a18f-9da936a15a07/Arrow01.glb?v=1661107739801"></a-asset-item>
-            <a-asset-item id="seta2" src="https://cdn.glitch.global/c5b64583-63c7-4806-a18f-9da936a15a07/Arrow02.glb?v=1661107775383"></a-asset-item>
-            <a-asset-item id="seta3" src="https://cdn.glitch.global/c5b64583-63c7-4806-a18f-9da936a15a07/Arrow04.glb?v=1661107875653"></a-asset-item>
-            <a-asset-item id="seta4" src="https://cdn.glitch.global/c5b64583-63c7-4806-a18f-9da936a15a07/Arrow05.glb?v=1661107882896"></a-asset-item>
-          </a-assets>
-
-          <a-entity id="modelContainer"></a-entity>
-          <a-entity id="modelContainer1"></a-entity>
-          <a-entity id="modelContainer2"></a-entity>
-
-
-          <a-entity camera></a-entity>
-        </a-scene>
-
-      <div id="collapsibleControls" class="collapsible collapsed" style="margin-top: 20px; padding: 10px; border: 1px solid #ccc; border-radius: 5px;">
-        <div id="controls">
-          <button id="collapseButton" type="button" data-toggle="collapse" style="font-size: 20px" data-target="#collapsibleContent">
-            <span class="glyphicon glyphicon-cog" aria-hidden="false"></span>
-          </button>
-          <div id="collapsibleContent" class="collapse">
+        <div id="collapsibleControls"  >
+  <button id="collapseButton" type="button" onclick="toggleCollapse()">
+    <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+  </button>
+          <div id="collapsibleContent" class=" collapsible collapsed">
             <p>PIN:
               <select id="pinSelector" onchange="loadModel('pin')">
                 <option value="pin1">Pin 1 - azul</option>
@@ -123,8 +142,28 @@
               </select>
             </p>
           </div>
-      </div>
-     </div>
+        </div>
+
+        <a-scene embedded arjs="trackingMethod: best;">
+          <a-assets>
+            <a-asset-item id="pin1" src="https://cdn.glitch.global/c5b64583-63c7-4806-a18f-9da936a15a07/Pin01.glb?v=1661047077855"></a-asset-item>
+            <a-asset-item id="pin2" src="https://cdn.glitch.global/c5b64583-63c7-4806-a18f-9da936a15a07/Pin02.glb?v=1661104816276"></a-asset-item>
+            <a-asset-item id="pin3" src="https://cdn.glitch.global/c5b64583-63c7-4806-a18f-9da936a15a07/Pin03.glb?v=1661104945189"></a-asset-item>
+            <a-asset-item id="seta1" src="https://cdn.glitch.global/c5b64583-63c7-4806-a18f-9da936a15a07/Arrow01.glb?v=1661107739801"></a-asset-item>
+            <a-asset-item id="seta2" src="https://cdn.glitch.global/c5b64583-63c7-4806-a18f-9da936a15a07/Arrow02.glb?v=1661107775383"></a-asset-item>
+            <a-asset-item id="seta3" src="https://cdn.glitch.global/c5b64583-63c7-4806-a18f-9da936a15a07/Arrow04.glb?v=1661107875653"></a-asset-item>
+            <a-asset-item id="seta4" src="https://cdn.glitch.global/c5b64583-63c7-4806-a18f-9da936a15a07/Arrow05.glb?v=1661107882896"></a-asset-item>
+          </a-assets>
+
+          <a-entity id="modelContainer"></a-entity>
+          <a-entity id="modelContainer1"></a-entity>
+          <a-entity id="modelContainer2"></a-entity>
+
+
+          <a-entity camera></a-entity>
+        </a-scene>
+
+
 
         <script>
           // Initialize the selected options
@@ -222,10 +261,9 @@
 
           // Toggle the collapsible controls
           function toggleCollapse() {
-            var collapsibleControls = document.getElementById('collapsibleControls');
+            var collapsibleControls = document.getElementById('collapsibleContent');
             collapsibleControls.classList.toggle('collapsed');
           }
-
         </script>
       </body>
 </html>
