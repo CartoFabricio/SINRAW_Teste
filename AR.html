@@ -63,7 +63,7 @@
   cursor: pointer;
   background-color: #F8F9FA;
   margin:10px;
-  top: 20%;
+  top: 15%;
   left: 82%;
   width: 36px;
   height: 30px;
@@ -71,11 +71,15 @@
 }
 
   #collapsibleControls{
-    margin-top: 20%; left: 2%; padding: 20px;  position: absolute; font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif; font-weight: bold;z-index:2;
+    margin-top: 25%; left: 1%; padding: 30px;  position: absolute; font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif; font-weight: bold;z-index:2;
   }
 .collapsible.collapsed {
   display: none;
 }
+.collapsible {
+		background-color:rgba(0,0,0,0) !important;
+		text-shadow: 0 0 12px #FFFFFF, 0 0 12px #FFFFFF;
+	}
 </style>
 </head>
 <div id="menu">
@@ -118,14 +122,14 @@
     <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
   </button>
           <div id="collapsibleContent" class=" collapsible collapsed">
-            <p>PIN:
+            <p>PIN   :
               <select id="pinSelector" onchange="loadModel('pin')">
                 <option value="pin1">Pin 1 - azul</option>
                 <option value="pin2">Pin 2 - roxo</option>
                 <option value="pin3">Pin 3 - vermelho</option>
               </select>
             </p>
-            <p>SETAS:
+            <p>SETAS :
               <select id="setaSelector" onchange="loadModel('seta')">
                 <option value="seta1">Seta 1 - azul</option>
                 <option value="seta2">Seta 2 - azul</option>
