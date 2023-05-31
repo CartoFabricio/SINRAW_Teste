@@ -29,7 +29,7 @@
 		<script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.js"></script>
 		<link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.css" type="text/css">
 
-  </head>
+
 <style  type="text/css">
 #menu{position: fixed; top: 0%; right:2%; width: 100%;  z-index: 3;}
 #AR { position: fixed; top: 6%; height:94%;bottom: 0%; left:0%; width: 100%; z-index: 1;}
@@ -71,32 +71,23 @@
 }
 
   #collapsibleControls{
-    margin-top: 25%; left: 2%; padding: 20px;  position: absolute; font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif; font-weight: bold;z-index:2;
+    margin-top: 20%; left: 2%; padding: 20px;  position: absolute; font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif; font-weight: bold;z-index:2;
   }
 .collapsible.collapsed {
   display: none;
 }
-  .collapsible {
-  background-color:rgba(0,0,0,0) !important;
-  text-shadow: 0 0 12px #FFFFFF, 0 0 12px #FFFFFF;
-}
-
-.collapsed {
-	display: none;
-}
-
 </style>
 </head>
 <div id="menu">
   <div class="navbar navbar-inverse navbar-fixed-top">
     <div class="navbar-inner">
       <div class="container-fluid">
-        <button type="button" id="collapse" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"  onclick="toggleCollapse()"collapsed>
+        <button type="button" id="collapse" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"  collapsed>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <div class="nav-collapse collapsed " id="collapsibleContent">
+        <div class="nav-collapse collapsed">
           <ul class="nav">
             <li><a href="./index.html">Início</a></li>
             <li><a href="./Mapa.html">SINRAW - Mapa</a></li>
@@ -112,167 +103,167 @@
     </div>
   </div>
 </div>
+</head>
+  <body style="margin: 0; overflow: hidden;">
+        <div id ="imagemNavegacao" >
+          <img src="imagemNavegacao.png" ></img>
+        </div>
 
-<body style="margin: 0; overflow: hidden;">
-			 <div id ="imagemNavegacao" >
-				 <img src="imagemNavegacao.png" ></img>
-			 </div>
+        <div id="direction" class="direction">  </div>
 
-			 <div id="direction" class="direction">  </div>
+        <div id="AR" class="AR" > </div>
 
-			 <div id="AR" class="AR" > </div>
+        <div id="collapsibleControls"  >
+  <button id="collapseButton" type="button" onclick="toggleCollapse()">
+    <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+  </button>
+          <div id="collapsibleContent" class=" collapsible collapsed">
+            <p>PIN:
+              <select id="pinSelector" onchange="loadModel('pin')">
+                <option value="pin1">Pin 1 - azul</option>
+                <option value="pin2">Pin 2 - roxo</option>
+                <option value="pin3">Pin 3 - vermelho</option>
+              </select>
+            </p>
+            <p>SETAS:
+              <select id="setaSelector" onchange="loadModel('seta')">
+                <option value="seta1">Seta 1 - azul</option>
+                <option value="seta2">Seta 2 - azul</option>
+                <option value="seta3">Seta 3 - azul</option>
+                <option value="seta4">Seta 4 - azul</option>
+              </select>
+            </p>
+            <p>LINHAS:
+              <select id="linhaSelector" onchange="loadModel('linha')">
+                <option value="linha1">Linha 1 - azul</option>
+                <option value="linha2">Linha 2 - azul</option>
+                <option value="linha3">Linha 3 - azul</option>
+                <option value="linha4">Linha 4 - azul</option>
+              </select>
+            </p>
+          </div>
+        </div>
 
-			 <div id="collapsibleControls"  >
- <button id="collapseButton" type="button" onclick="toggleCollapse()">
-	 <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
- </button>
-				 <div id="collapsibleContent" class=" collapsible collapsed">
-					 <p>PIN:
-						 <select id="pinSelector" onchange="loadModel('pin')">
-							 <option value="pin1">Pin 1 - azul</option>
-							 <option value="pin2">Pin 2 - roxo</option>
-							 <option value="pin3">Pin 3 - vermelho</option>
-						 </select>
-					 </p>
-					 <p>SETAS:
-						 <select id="setaSelector" onchange="loadModel('seta')">
-							 <option value="seta1">Seta 1 - azul</option>
-							 <option value="seta2">Seta 2 - azul</option>
-							 <option value="seta3">Seta 3 - azul</option>
-							 <option value="seta4">Seta 4 - azul</option>
-						 </select>
-					 </p>
-					 <p>LINHAS:
-						 <select id="linhaSelector" onchange="loadModel('linha')">
-							 <option value="linha1">Linha 1 - azul</option>
-							 <option value="linha2">Linha 2 - azul</option>
-							 <option value="linha3">Linha 3 - azul</option>
-							 <option value="linha4">Linha 4 - azul</option>
-						 </select>
-					 </p>
-				 </div>
-			 </div>
+        <a-scene embedded arjs="trackingMethod: best;">
+          <a-assets>
+            <a-asset-item id="pin1" src="https://cdn.glitch.global/c5b64583-63c7-4806-a18f-9da936a15a07/Pin01.glb?v=1661047077855"></a-asset-item>
+            <a-asset-item id="pin2" src="https://cdn.glitch.global/c5b64583-63c7-4806-a18f-9da936a15a07/Pin02.glb?v=1661104816276"></a-asset-item>
+            <a-asset-item id="pin3" src="https://cdn.glitch.global/c5b64583-63c7-4806-a18f-9da936a15a07/Pin03.glb?v=1661104945189"></a-asset-item>
+            <a-asset-item id="seta1" src="https://cdn.glitch.global/c5b64583-63c7-4806-a18f-9da936a15a07/Arrow01.glb?v=1661107739801"></a-asset-item>
+            <a-asset-item id="seta2" src="https://cdn.glitch.global/c5b64583-63c7-4806-a18f-9da936a15a07/Arrow02.glb?v=1661107775383"></a-asset-item>
+            <a-asset-item id="seta3" src="https://cdn.glitch.global/c5b64583-63c7-4806-a18f-9da936a15a07/Arrow04.glb?v=1661107875653"></a-asset-item>
+            <a-asset-item id="seta4" src="https://cdn.glitch.global/c5b64583-63c7-4806-a18f-9da936a15a07/Arrow05.glb?v=1661107882896"></a-asset-item>
+          </a-assets>
 
-			 <a-scene embedded arjs="trackingMethod: best;">
-				 <a-assets>
-					 <a-asset-item id="pin1" src="https://cdn.glitch.global/c5b64583-63c7-4806-a18f-9da936a15a07/Pin01.glb?v=1661047077855"></a-asset-item>
-					 <a-asset-item id="pin2" src="https://cdn.glitch.global/c5b64583-63c7-4806-a18f-9da936a15a07/Pin02.glb?v=1661104816276"></a-asset-item>
-					 <a-asset-item id="pin3" src="https://cdn.glitch.global/c5b64583-63c7-4806-a18f-9da936a15a07/Pin03.glb?v=1661104945189"></a-asset-item>
-					 <a-asset-item id="seta1" src="https://cdn.glitch.global/c5b64583-63c7-4806-a18f-9da936a15a07/Arrow01.glb?v=1661107739801"></a-asset-item>
-					 <a-asset-item id="seta2" src="https://cdn.glitch.global/c5b64583-63c7-4806-a18f-9da936a15a07/Arrow02.glb?v=1661107775383"></a-asset-item>
-					 <a-asset-item id="seta3" src="https://cdn.glitch.global/c5b64583-63c7-4806-a18f-9da936a15a07/Arrow04.glb?v=1661107875653"></a-asset-item>
-					 <a-asset-item id="seta4" src="https://cdn.glitch.global/c5b64583-63c7-4806-a18f-9da936a15a07/Arrow05.glb?v=1661107882896"></a-asset-item>
-				 </a-assets>
-
-				 <a-entity id="modelContainer"></a-entity>
-				 <a-entity id="modelContainer1"></a-entity>
-				 <a-entity id="modelContainer2"></a-entity>
-
-
-				 <a-entity camera></a-entity>
-			 </a-scene>
+          <a-entity id="modelContainer"></a-entity>
+          <a-entity id="modelContainer1"></a-entity>
+          <a-entity id="modelContainer2"></a-entity>
 
 
+          <a-entity camera></a-entity>
+        </a-scene>
 
-			 <script>
-				 // Initialize the selected options
-				 var selectedPin = '';
-				 var selectedSeta = '';
-				 var selectedLinha = '';
-	 // seta1 scale 3 3 3 rotate 0 0 90, seta2 scale 30 30 30 rotate 0 0 0, seta3 scale 30 30 30 rotate 0 0 90 seta 4 scale 3 3 3 rotate 0 0 90
 
-				 // Load the model based on the selected option
-				 function loadModel(type) {
-					 if (type === 'pin') {
-						 selectedPin = document.getElementById('pinSelector').value;
-						 loadPinModel();
-					 } if (type === 'seta') {
-						 selectedSeta = document.getElementById('setaSelector').value;
-						 loadSetaModel();
-					 } if (type === 'linha') {
-						 selectedLinha = document.getElementById('linhaSelector').value;
-						 loadLinhaModel();
-					 }
-				 }
-				 //meio fundo '5 -10 -40', fundo direito '15 -10 -40',
-					// Load the Pin model
-					 function loadPinModel() {
-						 var modelContainer = document.getElementById('modelContainer');
-						 modelContainer.innerHTML = '';
-						 if (selectedPin !== '') {
-							 var pin = document.createElement('a-entity');
-							 pin.setAttribute('gltf-model', '#' + selectedPin);
-							 // Set scale and rotation based on the selected seta
-							 switch (selectedPin) {
-								 case 'pin1':
-									 pin.setAttribute('position', '0 0 -10');
-									 pin.setAttribute('scale', '1 1 1');
-									 pin.setAttribute('rotation', '0 0 90');
-									 break;
-								 case 'pin2':
-									 pin.setAttribute('position', '0 0 -1');
-									 pin.setAttribute('scale', '0.25 0.25 0.25');
-									 pin.setAttribute('rotation', '0 0 0');
-									 break;
-								 case 'pin3':
-									 pin.setAttribute('position', '0 0 -10');
-									 pin.setAttribute('scale', '1 1 1');
-									 pin.setAttribute('rotation', '0 0 0');
-									 break;
-							 }
-							 modelContainer.appendChild(pin);
-						 }
-					 }
 
-						// Load the seta model
-					 function loadSetaModel() {
-						 var modelContainer1 = document.getElementById('modelContainer1');
-						 modelContainer1.innerHTML = '';
-						 if (selectedSeta !== '') {
-							 var seta = document.createElement('a-entity');
-							 seta.setAttribute('gltf-model', '#' + selectedSeta);
-							 // Set scale and rotation based on the selected seta
-							 switch (selectedSeta) {
-								 case 'seta1':
-							 seta.setAttribute('position', '0 0 -10');
-									 seta.setAttribute('scale', '0.25 0.25 0.25');
-									 seta.setAttribute('rotation', '0 0 0');
-									 break;
-								 case 'seta2':
-						 seta.setAttribute('position', '0 0 -10');
-									 seta.setAttribute('scale', '1  1  1 ');
-									 seta.setAttribute('rotation', '0 0 0');
-									 break;
-								 case 'seta3':
-							 seta.setAttribute('position', '0 0 -10');
-									 seta.setAttribute('scale', '10 10 10');
-									 seta.setAttribute('rotation', '0 0 90');
-									 break;
-								 case 'seta4':
-								seta.setAttribute('position', '0 0 -10');
-									 seta.setAttribute('scale', '0.25 0.25 0.25');
-									 seta.setAttribute('rotation', '0 0 90');
-									 break;
-							 }
-							 modelContainer1.appendChild(seta);
-						 }
-					 }
+        <script>
+          // Initialize the selected options
+          var selectedPin = '';
+          var selectedSeta = '';
+          var selectedLinha = '';
+    // seta1 scale 3 3 3 rotate 0 0 90, seta2 scale 30 30 30 rotate 0 0 0, seta3 scale 30 30 30 rotate 0 0 90 seta 4 scale 3 3 3 rotate 0 0 90
 
-				 // Load the linha model
-				 function loadLinhaModel() {
-					 var modelContainer2= document.getElementById('modelContainer2');
-					 modelContainer2.innerHTML = '';
+          // Load the model based on the selected option
+          function loadModel(type) {
+            if (type === 'pin') {
+              selectedPin = document.getElementById('pinSelector').value;
+              loadPinModel();
+            } if (type === 'seta') {
+              selectedSeta = document.getElementById('setaSelector').value;
+              loadSetaModel();
+            } if (type === 'linha') {
+              selectedLinha = document.getElementById('linhaSelector').value;
+              loadLinhaModel();
+            }
+          }
+          //meio fundo '5 -10 -40', fundo direito '15 -10 -40',
+           // Load the Pin model
+            function loadPinModel() {
+              var modelContainer = document.getElementById('modelContainer');
+              modelContainer.innerHTML = '';
+              if (selectedPin !== '') {
+                var pin = document.createElement('a-entity');
+                pin.setAttribute('gltf-model', '#' + selectedPin);
+                // Set scale and rotation based on the selected seta
+                switch (selectedPin) {
+                  case 'pin1':
+                    pin.setAttribute('position', '0 0 -10');
+                    pin.setAttribute('scale', '1 1 1');
+                    pin.setAttribute('rotation', '0 0 90');
+                    break;
+                  case 'pin2':
+                    pin.setAttribute('position', '0 0 -1');
+                    pin.setAttribute('scale', '0.25 0.25 0.25');
+                    pin.setAttribute('rotation', '0 0 0');
+                    break;
+                  case 'pin3':
+                    pin.setAttribute('position', '0 0 -10');
+                    pin.setAttribute('scale', '1 1 1');
+                    pin.setAttribute('rotation', '0 0 0');
+                    break;
+                }
+                modelContainer.appendChild(pin);
+              }
+            }
 
-					 if (selectedLinha !== '') {
-						 // Add code to load the linha model
-					 }
-				 }
+             // Load the seta model
+            function loadSetaModel() {
+              var modelContainer1 = document.getElementById('modelContainer1');
+              modelContainer1.innerHTML = '';
+              if (selectedSeta !== '') {
+                var seta = document.createElement('a-entity');
+                seta.setAttribute('gltf-model', '#' + selectedSeta);
+                // Set scale and rotation based on the selected seta
+                switch (selectedSeta) {
+                  case 'seta1':
+                seta.setAttribute('position', '0 0 -10');
+                    seta.setAttribute('scale', '0.25 0.25 0.25');
+                    seta.setAttribute('rotation', '0 0 0');
+                    break;
+                  case 'seta2':
+              seta.setAttribute('position', '0 0 -10');
+                    seta.setAttribute('scale', '1  1  1 ');
+                    seta.setAttribute('rotation', '0 0 0');
+                    break;
+                  case 'seta3':
+                seta.setAttribute('position', '0 0 -10');
+                    seta.setAttribute('scale', '10 10 10');
+                    seta.setAttribute('rotation', '0 0 90');
+                    break;
+                  case 'seta4':
+                 seta.setAttribute('position', '0 0 -10');
+                    seta.setAttribute('scale', '0.25 0.25 0.25');
+                    seta.setAttribute('rotation', '0 0 90');
+                    break;
+                }
+                modelContainer1.appendChild(seta);
+              }
+            }
 
-				 // Toggle the collapsible controls
-				 function toggleCollapse() {
-					 var collapsibleControls = document.getElementById('collapsibleContent');
-					 collapsibleControls.classList.toggle('collapsed');
-				 }
-			 </script>
-		 </body>
+          // Load the linha model
+          function loadLinhaModel() {
+            var modelContainer2= document.getElementById('modelContainer2');
+            modelContainer2.innerHTML = '';
+
+            if (selectedLinha !== '') {
+              // Add code to load the linha model
+            }
+          }
+
+          // Toggle the collapsible controls
+          function toggleCollapse() {
+            var collapsibleControls = document.getElementById('collapsibleContent');
+            collapsibleControls.classList.toggle('collapsed');
+          }
+        </script>
+      </body>
 </html>
