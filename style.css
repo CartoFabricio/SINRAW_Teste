@@ -207,14 +207,11 @@
 }
 
 .collapsible {
-  display: none;
   background-color:rgba(0,0,0,0) !important;
   text-shadow: 0 0 12px #FFFFFF, 0 0 12px #FFFFFF;
 }
 
-.collapsed {
-	display: none;
-}
+
 
 .form label,
 .form select,
